@@ -19,7 +19,7 @@ class User
     public function getUser($gmail, $password)
     {
         $conn = conn();
-        $sql = "SELECT * FROM User WHERE gmail='$gmail' and password='$password'";
+        $sql = "SELECT * FROM user WHERE gmail='$gmail' and password='$password'";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             $data = $result->fetch_assoc();
@@ -28,12 +28,6 @@ class User
             return null;
         }
     }
-    public function delUser($id)
-    {
-        $conn = conn();
-        $sql = "";
-    }
-
     public function insertNewUser()
     {
         $gmail = $_POST['gmail'];
