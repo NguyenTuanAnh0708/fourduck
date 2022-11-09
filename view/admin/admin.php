@@ -26,19 +26,6 @@
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
             <div class="row">
-                <div class="col-lg-3 col-6">
-                    <!-- small box -->
-                    <div class="small-box bg-info">
-                        <div class="inner">
-                            <h3>150</h3>
-
-                            <p>Đơn hàng mới</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-bag"></i>
-                        </div>
-                    </div>
-                </div>
                 <!-- ./col -->
                 <div class="col-lg-3 col-6">
                     <!-- small box -->
@@ -60,7 +47,6 @@
                     <div class="small-box bg-warning">
                         <div class="inner">
                             <h3>44</h3>
-
                             <p>Người dùng đăng kí</p>
                         </div>
                         <div class="icon">
@@ -75,7 +61,7 @@
                         <div class="inner">
                             <h3>65</h3>
 
-                            <p>Số lượng khách truy cập</p>
+                            <p>Số lượng danh mục sản phẩm</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-pie-graph"></i>
