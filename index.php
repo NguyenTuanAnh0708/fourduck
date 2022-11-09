@@ -9,6 +9,15 @@ if ($admin) {
     include './view/admin/headerAdmin.php';
     switch ($url) {
         case 'clienMange':
+            if (isset($_GET['act'])) {
+                $act = $_GET['act'];
+                switch ($act) {
+                    case 'del':
+                        $id_user = $_GET['id_user'];
+                        $userC->delUser($id_user);
+                        break;
+                }
+            }
             $user = new userC();
             $dataUser = $user->getAllUser();
             include './view/admin/khachhang.php';
