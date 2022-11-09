@@ -8,4 +8,5 @@ class userC
         $dataUser = $user->getAll();
         return $dataUser;
     }
+
 }
