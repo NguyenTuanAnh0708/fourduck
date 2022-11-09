@@ -29,18 +29,36 @@
                 <tr>
                     <td>Tên Event</td>
                     <td>Ảnh Event</td>
-                    <td>Mô Tả</td>
+                    <td>Tên Event</td>
                     <td style='width:200px'>Tùy chọn</td>
                 </tr>
-                <tr>
-                    <td>Siêu sale</td>
-                    <td><img src="" alt=""></td>
-                    <td>Siêu sale năm 2022</td>
-                    <td>
-                        <a class="sua" href="">Sửa</a> |
-                        <a class="xoa" href=">">Xóa</a>
+                <tbody>
+                    <?php
+                    foreach ($dataEvent as $row) {
+                        $view = "
+                        <tr>
+                        <td>$row[id_event]</td>
+                        <td  style='width: 40%'><img style='width: 20%' src='$row[img_event]' alt='Ảnh banner'></td>
+                        <td>$row[name_event]</td>
+                        <td>
+                        <a class='sua' href=''>Sửa</a> |
+                        <a class='xoa' href=''>Xóa</a>
                     </td>
-                </tr>
+                        </tr>
+                        ";
+                        echo $view;
+                    }
+                    ?>
+                    <tr>
+                        <td>Siêu sale</td>
+                        <td><img src="" alt=""></td>
+                        <td>Siêu sale năm 2022</td>
+                        <td>
+                            <a class="sua" href="">Sửa</a> |
+                            <a class="xoa" href=">">Xóa</a>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
 
         </div>

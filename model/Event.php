@@ -1,5 +1,4 @@
 <?php
-require './model/connect.php';
 class Event
 {
     public function getAllEvent()
@@ -14,7 +13,7 @@ class Event
                 $data[] = $row;
             }
         }
-        var_dump($data);
+        return $data;
     }
 
 
