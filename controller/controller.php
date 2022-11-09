@@ -1,5 +1,5 @@
 <?php
-require '../model/Category.php';
-$category = new Category();
-$check = $category->deteleCategory(1);
-var_dump($check);
+require '../model/User.php';
+$user = new User();
+$userdata = $user->getAll();
+var_dump($userdata);

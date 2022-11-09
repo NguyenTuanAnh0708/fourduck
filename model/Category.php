@@ -1,5 +1,5 @@
 <?php
-require 'connect.php';
+require './model/connect.php';
 class Category
 {
     public function getAllCategory()
@@ -26,7 +26,7 @@ class Category
 
 
     public function inserCartegory()
-    {   
+    {
         $id_user = $_POST['id_user'];
         $name_event = $_POST['name_event'];
         $img_event = $_FILES['img_event']['name'];
@@ -44,8 +44,7 @@ class Category
             '$name_event',
             '$img_event'
         )";
-        $result = $conn -> query($sql);
+        $result = $conn->query($sql);
         return $result;
     }
-
 }
