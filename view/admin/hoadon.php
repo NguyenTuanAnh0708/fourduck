@@ -37,6 +37,7 @@
                     <td>Địa chỉ</td>
                     <td>Điện thoại</td>
                     <td>Email</td>
+                    <td>Số Lượng</td>
                     <td>Thành tiền</td>
                 </tr>
 
@@ -48,6 +49,7 @@
                     <td>389 Tô Ký</td>
                     <td>0396018178</td>
                     <td>taihn81@gmail.com</td>
+                    <td>4</td>
                     <td>100.000.000 đ</td>
                 </tr>
                 <tr>
@@ -57,6 +59,7 @@
                     <td>389 Tô Ký</td>
                     <td>0396018178</td>
                     <td>taihn81@gmail.com</td>
+                    <td>9</td>
                     <td>90.000.000 đ</td>
                 </tr>
                 <tr>
@@ -66,6 +69,7 @@
                     <td>389 Tô Ký</td>
                     <td>0396018178</td>
                     <td>taihn81@gmail.com</td>
+                    <td>2</td>
                     <td>900.000.000 đ</td>
                 </tr>
                 <tr>
@@ -75,6 +79,7 @@
                     <td>389 Tô Ký</td>
                     <td>0396018178</td>
                     <td>taihn81@gmail.com</td>
+                    <td>6</td>
                     <td>500.000.000 đ</td>
                 </tr>
 

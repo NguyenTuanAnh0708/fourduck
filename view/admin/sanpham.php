@@ -35,7 +35,7 @@
                     <td>Tên sp</td>
                     <td>Giá cũ</td>
                     <td>Giá mới</td>
-                    <td>Ảnh đại diện</td>
+                    <td style='width:800px'>Ảnh đại diện</td>
                     <td>Loại sp</td>
                     <td>Mô tả</td>
                     <td style='width:200px'>Tùy chọn</td>
@@ -46,7 +46,7 @@
 
                     <td>100</td>
                     <td>50</td>
-                    <td><img src="" alt=""></td>
+                    <td><img src="../../../fourduck/dist/img/admin.jpg" alt="" style="width:10%"></td>
                     <td>Áo</td>
                     <td>Áo chất lượng</td>
                     <td>
@@ -60,7 +60,7 @@
 
                     <td>90</td>
                     <td>40</td>
-                    <td><img src="" alt=""></td>
+                    <td><img src="../../../fourduck/dist/img/admin.jpg" alt="" style="width:10%"></td>
                     <td>Quần</td>
                     <td>Quần đùi chất lượng</td>
                     <td>
@@ -74,7 +74,7 @@
 
                     <td>90</td>
                     <td>40</td>
-                    <td><img src="" alt=""></td>
+                    <td><img src="../../../fourduck/dist/img/admin.jpg" alt="" style="width:10%"></td>
                     <td>Quần</td>
                     <td>Quần đùi chất lượng</td>
                     <td>
@@ -88,7 +88,7 @@
 
                     <td>90</td>
                     <td>40</td>
-                    <td><img src="" alt=""></td>
+                    <td><img src="../../../fourduck/dist/img/admin.jpg" alt="" style="width:10%"></td>
                     <td>Giày Nike</td>
                     <td>Giày chất lượng</td>
                     <td>

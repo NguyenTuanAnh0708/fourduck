@@ -22,6 +22,9 @@ if ($admin) {
         case 'category':
             include './view/admin/loaisp.php';
             break;
+            case 'sanpham':
+                include './view/admin/sanpham.php';
+                break;
         case 'formcategory':
             include './view/admin/themloai.php';
             break;
