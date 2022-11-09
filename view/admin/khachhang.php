@@ -40,6 +40,7 @@
                 </tr>
                 <tbody>
                     <?php
+                    $i = 0;
                     foreach ($dataUser as $row) {
                         $role = 'Người mua';
                         if ($row['role'] == 0) {
@@ -48,14 +49,15 @@
                             $role = 'Người bán';
                         }
                         $view = "<tr>
-                        <td>1</td>
+                        <td>$i</td>
                         <td>$row[gmail]</td>
                         <td>$row[password]</td>
                         <td>$row[phone]</td>
                         <td>$role</td>
-                        <td><a>Xoá</a></td>
+                        <td><a class=xoa href=index.php?url=clienMange&act=del&id_user=$row[id_user]>Xóa</a></td>
                         </tr>";
                         echo $view;
+                        $i++;
                     }
                     ?>
                 </tbody>

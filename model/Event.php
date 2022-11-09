@@ -1,5 +1,4 @@
 <?php
-require './model/connect.php';
 class Event
 {
     public function getAllEvent()
@@ -14,7 +13,7 @@ class Event
                 $data[] = $row;
             }
         }
-        var_dump($data);
+        return $data;
     }
 
 
@@ -73,6 +72,15 @@ class Event
             '$img_event'
         )";
         $result = $conn->query($sql);
+        return $result;
+    }
+
+
+    public function deleteEvent($id_event)
+    {
+        $conn = conn();
+        $sql = "DELETE FROM event WHERE id_event = '$id_event'";
+        $result = $conn -> query($sql);
         return $result;
     }
 }
