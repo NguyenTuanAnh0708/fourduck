@@ -1,5 +1,7 @@
 <?php
 $admin = true;
+require "./controller/userC.php";
+$userC = new userC();
 if ($admin) {
     error_reporting(0);
     $url = null;
@@ -7,6 +9,8 @@ if ($admin) {
     include './view/admin/headerAdmin.php';
     switch ($url) {
         case 'clienMange':
+            $user = new userC();
+            $dataUser = $user->getAllUser();
             include './view/admin/khachhang.php';
             break;
         case 'event':

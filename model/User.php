@@ -1,5 +1,5 @@
 <?php
-require 'connect.php';
+require './model/connect.php';
 class User
 {
     public function getAll()

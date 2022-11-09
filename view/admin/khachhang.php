@@ -32,46 +32,33 @@
                 <br>
                 <tr>
                     <td>Stt</td>
-                    <td>Họ Tên</td>
                     <td>Email</td>
-                    <td>Username</td>
+                    <td>Password</td>
+                    <td>Phone</td>
                     <td>Quyền</td>
+                    <td>Xoá</td>
                 </tr>
-
-
-
-                <tr>
-                    <td>1</td>
-                    <td>Huỳnh Ngọc Tài</td>
-                    <td>taihn81@gmail.com</td>
-
-                    <td>huynhngoctai</td>
-                    <td>admin</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Huỳnh Ngọc Tài</td>
-                    <td>taihn81@gmail.com</td>
-
-                    <td>huynhngoctai</td>
-                    <td>khách hàng</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Huỳnh Ngọc Tài</td>
-                    <td>taihn81@gmail.com</td>
-
-                    <td>huynhngoctai</td>
-                    <td>người bán</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>Huỳnh Ngọc Tài</td>
-                    <td>taihn81@gmail.com</td>
-
-                    <td>huynhngoctai</td>
-                    <td>khách hàng</td>
-                </tr>
+                <tbody>
+                    <?php
+                    foreach ($dataUser as $row) {
+                        $role = 'Người mua';
+                        if ($row['role'] == 0) {
+                            $role = 'Người quản trị';
+                        } else if ($row['role'] == 2) {
+                            $role = 'Người bán';
+                        }
+                        $view = "<tr>
+                        <td>1</td>
+                        <td>$row[gmail]</td>
+                        <td>$row[password]</td>
+                        <td>$row[phone]</td>
+                        <td>$role</td>
+                        <td><a>Xoá</a></td>
+                        </tr>";
+                        echo $view;
+                    }
+                    ?>
+                </tbody>
             </table>
         </div>
     </section>
