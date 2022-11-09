@@ -123,9 +123,15 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../admin/hoadon.html" class="nav-link">
+                                    <a href="index.php?url=hoadon" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Quản lý đơn hàng</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="index.php?url=comment_user" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Quản lý comment</p>
                                     </a>
                                 </li>
                             </ul>

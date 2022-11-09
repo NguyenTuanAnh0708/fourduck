@@ -8,7 +8,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Quản Lý Loại</h1>
+                    <h1 class="m-0">Quản Lý Comment</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -24,42 +24,37 @@
     <section class="content">
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
-            <a href="index.php?url=formcategory">
-                <div class="col-auto">
-                    <button type="submit" class="btn btn-primary mb-3">Thêm Loại Mới</button>
-                </div>
-            </a>
-
 
             <br>
             <table class="table table-collapse">
                 <tr>
-                    <td class="col-md-3">Mã Loại</td>
-                    <td class="col-md-3">Loại sp</td>
-                    <td class="col-md-3">Tùy chọn</td>
+                    <td class="col-md-3">ID USER</td>
+                    <td class="col-md-3">EMAIL</td>
+                    <td class="col-md-3">COMMENT</td>
+                    <td class="col-md-3">TÙY CHỌN</td>
                 </tr>
 
                 <tr>
                     <td>1</td>
-                    <td>Giày</td>
+                    <td>taihn81@gmail.com</td>
+                    <td>Shop này bán hàng đa cấp à??</td>
                     <td>
-                        <a class="sua btn" href="">Sửa</a>
                         <a class="xoa btn" href="">Xóa</a>
                     </td>
                 </tr>
                 <tr>
                     <td>2</td>
-                    <td>Áo</td>
+                    <td>taihn81@gmail.com</td>
+                    <td>Shop bán hàng chất lượng luôn ủng hộ shop</td>
                     <td>
-                        <a class="sua btn" href="">Sửa</a>
                         <a class="xoa btn" href="">Xóa</a>
                     </td>
                 </tr>
                 <tr>
                     <td>3</td>
-                    <td>Quần</td>
+                    <td>taihn81@gmail.com</td>
+                    <td>uy tín</td>
                     <td>
-                        <a class="sua btn" href="">Sửa</a>
                         <a class="xoa btn" href="">Xóa</a>
                     </td>
                 </tr>
