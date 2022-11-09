@@ -12,6 +12,15 @@ if ($admin) {
     include './view/admin/headerAdmin.php';
     switch ($url) {
         case 'clienMange':
+            if (isset($_GET['act'])) {
+                $act = $_GET['act'];
+                switch ($act) {
+                    case 'del':
+                        $id_user = $_GET['id_user'];
+                        $userC->delUser($id_user);
+                        break;
+                }
+            }
             $user = new userC();
             $dataUser = $user->getAllUser();
             include './view/admin/khachhang.php';
@@ -26,6 +35,12 @@ if ($admin) {
             break;
         case 'category':
             include './view/admin/loaisp.php';
+            break;
+        case 'formcategory':
+            include './view/admin/themloai.php';
+            break;
+        case 'comment_user':
+            include './view/admin/comment.php';
             break;
         default:
             include './view/admin/admin.php';
