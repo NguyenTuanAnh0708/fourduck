@@ -20,9 +20,6 @@
     <section class="content">
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
-
-
-
             <br>
             <table class="table table-collapse">
                 <br>
@@ -49,15 +46,6 @@
                         echo $view;
                     }
                     ?>
-                    <tr>
-                        <td>Siêu sale</td>
-                        <td><img src="" alt=""></td>
-                        <td>Siêu sale năm 2022</td>
-                        <td>
-                            <a class="sua" href="">Sửa</a> |
-                            <a class="xoa" href=">">Xóa</a>
-                        </td>
-                    </tr>
                 </tbody>
             </table>
 

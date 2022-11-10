@@ -80,7 +80,7 @@ class Event
     {
         $conn = conn();
         $sql = "DELETE FROM event WHERE id_event = '$id_event'";
-        $result = $conn -> query($sql);
+        $result = $conn->query($sql);
         return $result;
     }
 }

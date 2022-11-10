@@ -16,4 +16,10 @@ class userC
             header('location:index.php?url=clienMange');
         }
     }
+    public function amoutUser()
+    {
+        $user = new User();
+        $amout = $user->amoutUser();
+        return $amout;
+    }
 }

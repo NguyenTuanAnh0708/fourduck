@@ -5,10 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Admin | Bản điều khiển</title>
-
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
     <!-- Ionicons -->
@@ -28,6 +26,13 @@
     <!-- summernote -->
     <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
 </head>
+<style>
+    .table-category td {
+        height: 30px;
+        text-align: center;
+        line-height: 40px;
+    }
+</style>
 
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
@@ -53,8 +58,7 @@
                     <div class="navbar-search-block">
                         <form class="form-inline">
                             <div class="input-group input-group-sm">
-                                <input class="form-control form-control-navbar" type="search" placeholder="Search"
-                                    aria-label="Search">
+                                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
                                 <div class="input-group-append">
                                     <button class="btn btn-navbar" type="submit">
                                         <i class="fas fa-search"></i>
@@ -67,15 +71,11 @@
                         </form>
                     </div>
                 </li>
-
-
-
                 <li class="nav-item">
                     <a class="nav-link" data-widget="fullscreen" href="#" role="button">
                         <i class="fas fa-expand-arrows-alt"></i>
                     </a>
                 </li>
-
             </ul>
         </nav>
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -92,8 +92,7 @@
                 </div>
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                        data-accordion="false">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-header">ADMIN</li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
@@ -108,12 +107,6 @@
                                     <a href="index.php?url=category" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Quản lý loại</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="index.php?url=" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Quản lý sản phẩm</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -177,9 +170,6 @@
                                 </li>
                             </ul>
                         </li>
-
-
-
                     </ul>
                 </nav>
             </div>

@@ -18,15 +18,10 @@
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
     </div>
-    <!-- /.content-header -->
-
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
-
-
-
             <br>
             <table class="table table-collapse">
                 <br>
