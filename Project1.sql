@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost
--- Thời gian đã tạo: Th10 08, 2022 lúc 06:58 AM
+-- Thời gian đã tạo: Th10 10, 2022 lúc 07:06 AM
 -- Phiên bản máy phục vụ: 10.4.21-MariaDB
 -- Phiên bản PHP: 8.1.2
 
@@ -31,8 +31,8 @@ CREATE TABLE `Bill` (
   `id_bill` int(255) NOT NULL,
   `id_cart` int(255) NOT NULL,
   `total` int(255) NOT NULL,
-  `create_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `update_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+  `create_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `update_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -56,7 +56,6 @@ CREATE TABLE `Cart` (
 
 CREATE TABLE `Category` (
   `id_category` int(255) NOT NULL,
-  `id_shop` int(255) NOT NULL,
   `id_user` int(255) NOT NULL,
   `name_category` varchar(300) COLLATE utf8mb4_unicode_ci NOT NULL,
   `img_category` varchar(300) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -73,7 +72,9 @@ CREATE TABLE `Event` (
   `id_event` int(255) NOT NULL,
   `id_user` int(255) NOT NULL,
   `name_event` varchar(300) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `img_event` varchar(300) COLLATE utf8mb4_unicode_ci NOT NULL
+  `img_event` varchar(300) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `start_event` date NOT NULL,
+  `end_event` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -99,13 +100,15 @@ CREATE TABLE `Product` (
   `id_shop` int(255) NOT NULL,
   `id_category` int(255) NOT NULL,
   `name_product` varchar(300) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `img_product` varchar(300) COLLATE utf8mb4_unicode_ci NOT NULL,
   `price_product` int(255) NOT NULL,
+  `amount_product` int(20) NOT NULL,
   `description_product` varchar(500) COLLATE utf8mb4_unicode_ci NOT NULL,
   `sale` int(200) NOT NULL,
   `status` tinyint(2) NOT NULL DEFAULT 0,
   `quantity_purchased` int(255) NOT NULL,
-  `create_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `update_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+  `create_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `update_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -120,8 +123,8 @@ CREATE TABLE `Shop` (
   `name_shop` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `type_shop` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `img_shop` varchar(300) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `create_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `update_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+  `create_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `update_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -138,9 +141,16 @@ CREATE TABLE `User` (
   `phone` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `address` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
   `role` tinyint(3) NOT NULL DEFAULT 2,
-  `create_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `update_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+  `create_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `update_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `User`
+--
+
+INSERT INTO `User` (`id_user`, `gmail`, `password`, `img_user`, `phone`, `address`, `role`, `create_at`, `update_at`) VALUES
+(8, 'tuananh1', '123123123', 'tuan anh img', '0984158677', '241 quang trung', 2, '2022-11-10 06:00:26', '2022-11-10 06:00:43');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -166,7 +176,6 @@ ALTER TABLE `Cart`
 --
 ALTER TABLE `Category`
   ADD PRIMARY KEY (`id_category`),
-  ADD KEY `shop_create` (`id_shop`),
   ADD KEY `admin_create` (`id_user`);
 
 --
@@ -224,13 +233,13 @@ ALTER TABLE `Cart`
 -- AUTO_INCREMENT cho bảng `Category`
 --
 ALTER TABLE `Category`
-  MODIFY `id_category` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_category` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `Event`
 --
 ALTER TABLE `Event`
-  MODIFY `id_event` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_event` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `OrderBill`
@@ -254,7 +263,7 @@ ALTER TABLE `Shop`
 -- AUTO_INCREMENT cho bảng `User`
 --
 ALTER TABLE `User`
-  MODIFY `id_user` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_user` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
@@ -277,8 +286,7 @@ ALTER TABLE `Cart`
 -- Các ràng buộc cho bảng `Category`
 --
 ALTER TABLE `Category`
-  ADD CONSTRAINT `admin_create` FOREIGN KEY (`id_user`) REFERENCES `User` (`id_user`),
-  ADD CONSTRAINT `shop_create` FOREIGN KEY (`id_shop`) REFERENCES `Shop` (`id_shop`);
+  ADD CONSTRAINT `admin_create` FOREIGN KEY (`id_user`) REFERENCES `User` (`id_user`);
 
 --
 -- Các ràng buộc cho bảng `Event`
