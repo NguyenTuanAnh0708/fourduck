@@ -13,7 +13,7 @@ class userC
         $user = new User();
         $checkDel = $user->deteleUser($id_user);
         if ($checkDel) {
-            header('location:index.php?url=clienMange');
+            header('location: index.php?url=clienMange');
         }
     }
 }
