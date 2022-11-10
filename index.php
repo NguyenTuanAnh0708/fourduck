@@ -6,7 +6,7 @@ $userC = new userC();
 $eventC = new eventC();
 
 if ($admin) {
-    // error_reporting(0);
+    error_reporting(0);
     $url = null;
     $url = $_GET['url'];
     include './view/admin/headerAdmin.php';
@@ -26,6 +26,19 @@ if ($admin) {
             include './view/admin/khachhang.php';
             break;
         case 'event':
+            if (isset($_GET['act'])) {
+                $act = $_GET['act'];
+                switch ($act) {
+                    case 'delEvent':
+                        $id_event = $_GET['id_event'];
+                        $eventC -> deleteEvent($id_event);
+                        break;
+                    case 'editEvent': 
+                        $id_event = $_GET['id_event'];
+                        $eventC -> updateEvent($id_event);
+                        break;
+                }  
+            }
             $event = new eventC();
             $dataEvent = $event-> getAllEvent();
             include './view/admin/event.php';

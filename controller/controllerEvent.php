@@ -9,6 +9,21 @@ class eventC
             $dataEvent = $event -> getAllEvent();
             return $dataEvent;
     }
+
+    public function deleteEvent($id_event)
+    {
+        $event = new Event();
+        $delEvent = $event -> deleteEvent($id_event);
+        if ($delEvent) {
+            header("Location: index.php?url=clienMange");
+        }
+
+    }
+
+    public function updateEvent($id_event)
+    {
+       echo ("oke");
+    }
   
 }
 
