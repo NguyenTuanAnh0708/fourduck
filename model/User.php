@@ -72,4 +72,13 @@ class User
         $result = $conn->query($sql);
         return $result;
     }
+    public function amoutUser()
+    {
+        $conn = conn();
+        $sql = "SELECT COUNT(*) as amount FROM User WHERE role=2 and role =1";
+        $result = $conn->query($sql);
+        $amout = $result->fetch_assoc();
+        $parse = (int)$amout['amount'];
+        return $parse;
+    }
 }

@@ -20,9 +20,6 @@
     <section class="content">
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
-
-
-
             <br>
             <table class="table table-collapse">
                 <br>

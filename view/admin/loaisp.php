@@ -32,37 +32,33 @@
 
 
             <br>
-            <table class="table table-collapse">
+            <table class="table table-collapse table-category">
                 <tr>
+                    <td class="col-md-3">STT</td>
                     <td class="col-md-3">Mã Loại</td>
                     <td class="col-md-3">Loại sp</td>
+                    <td class="col-md-3">Hình ảnh</td>
                     <td class="col-md-3">Tùy chọn</td>
                 </tr>
-
-                <tr>
+                <?php
+                $i = 0;
+                foreach ($dataCategory as $row) {
+                    $view = "
+                    <tr'>
                     <td>1</td>
-                    <td>Giày</td>
+                    <td>$row[id_category]</td>
+                    <td>$row[name_category]</td>
+                    <td  style='width:100%'><img style='width:50%;' src='$row[img_category]' alt='$row[name_category]'></td>
                     <td>
-                        <a class="sua btn" href="">Sửa</a>
-                        <a class="xoa btn" href="">Xóa</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Áo</td>
-                    <td>
-                        <a class="sua btn" href="">Sửa</a>
-                        <a class="xoa btn" href="">Xóa</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Quần</td>
-                    <td>
-                        <a class="sua btn" href="">Sửa</a>
-                        <a class="xoa btn" href="">Xóa</a>
-                    </td>
-                </tr>
+                    <a class='sua' href='index.php?url=category&act=edit&id_category=$row[id_category]'>Sửa</a> |
+                    <a class='xoa' href='index.php?url=category&act=del&id_category=$row[id_category]'>Xóa</a>
+                </td>
+                    </tr>
+                    ";
+                    echo $view;
+                    $i++;
+                }
+                ?>
             </table>
         </div>
     </section>

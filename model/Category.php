@@ -1,5 +1,4 @@
 <?php
-require './model/connect.php';
 class Category
 {
     public function getAllCategory()
@@ -14,7 +13,7 @@ class Category
                 $data[] = $row;
             }
         }
-        var_dump($data);
+        return $data;
     }
     public function deteleCategory($id_category)
     {
