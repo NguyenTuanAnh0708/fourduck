@@ -24,22 +24,28 @@
             <table class="table table-collapse">
                 <br>
                 <tr>
+                    <td>SST</td>
                     <td>Tên Event</td>
                     <td>Ảnh Event</td>
-                    <td>Tên Event</td>
+                    <td>Người đăng</td>
                     <td style='width:200px'>Tùy chọn</td>
                 </tr>
                 <tbody>
                     <?php
                     foreach ($dataEvent as $row) {
+                        $row_id_user = $row['id_user'];
+                        if ($row_id_user) {
+                            $row_id_user = 'Quản trị viên';
+                        }
                         $view = "
                         <tr>
                         <td>$row[id_event]</td>
-                        <td  style='width: 40%'><img style='width: 20%' src='$row[img_event]' alt='Ảnh banner'></td>
                         <td>$row[name_event]</td>
+                        <td  style='width: 40%'><img style='width: 20%' src='$row[img_event]' alt='Ảnh banner'></td>
+                        <td>$row_id_user</td>
                         <td>
-                        <a class='sua' href=''>Sửa</a> |
-                        <a class='xoa' href=''>Xóa</a>
+                        <a class='sua' href='index.php?url=event&act=editEvent&id_event=$row[id_event]'>Sửa</a> |
+                        <a class='xoa' href='index.php?url=event&act=delEvent&id_event=$row[id_event]'>Xóa</a>
                     </td>
                         </tr>
                         ";
