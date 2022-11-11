@@ -4,7 +4,7 @@ class Category
     public function getAllCategory()
     {
         $conn = conn();
-        $sql = "SELECT * FROM category";
+        $sql = "SELECT * FROM category WHERE role=0";
         $result = $conn->query($sql);
         $data = array();
         if ($result->num_rows > 0) {
@@ -45,5 +45,14 @@ class Category
         )";
         $result = $conn->query($sql);
         return $result;
+    }
+    public function amoutCategoryA()
+    {
+        $conn = conn();
+        $sql = "SELECT COUNT(*) as amount FROM category WHERE role=0";
+        $result = $conn->query($sql);
+        $amout = $result->fetch_assoc();
+        $parse = (int)$amout['amount'];
+        return $parse;
     }
 }

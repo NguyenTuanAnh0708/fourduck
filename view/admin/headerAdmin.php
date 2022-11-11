@@ -8,7 +8,7 @@
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Tempusdominus Bootstrap 4 -->
@@ -116,43 +116,19 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="index.php?url=hoadon" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Quản lý đơn hàng</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
                                     <a href="index.php?url=comment_user" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Quản lý comment</p>
                                     </a>
                                 </li>
-                            </ul>
-                        </li>
-
-
-
-                        <li class="nav-header">EXAMPLES</li>
-
-
-                        <li class="nav-item">
-                            <a href="../admin/hoadon.html" class="nav-link">
-                                <i class="nav-icon fas fa-book"></i>
-                                <p>
-                                    Thanh toán
-                                    <i class="fas fa-angle-left right"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="pages/examples/invoice.html" class="nav-link">
+                                    <a href="index.php?url=shop" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Hóa đơn</p>
+                                        <p>Quản lý gian hàng</p>
                                     </a>
                                 </li>
                             </ul>
                         </li>
-
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-book"></i>

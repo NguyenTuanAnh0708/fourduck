@@ -16,4 +16,10 @@ class categoryC
             header('location:index.php?url=category');
         }
     }
+    public function amoutCategoryA()
+    {
+        $category = new Category();
+        $amount = $category->amoutCategoryA();
+        return $amount;
+    }
 }

@@ -3,10 +3,13 @@ $admin = true;
 require "./controller/userC.php";
 require "./controller/controllerEvent.php";
 require "./controller/categoryC.php";
+require "./controller/shopC.php";
+require "./controller/commentC.php";
 $userC = new userC();
 $eventC = new eventC();
 $categoryC = new categoryC();
-
+$shopC = new shopC();
+$commentC = new commentC();
 if ($admin) {
     if (!isset($_GET['url'])) {
         header('location:index.php?url=admin');
@@ -35,20 +38,21 @@ if ($admin) {
                 switch ($act) {
                     case 'delEvent':
                         $id_event = $_GET['id_event'];
-                        $eventC -> deleteEvent($id_event);
+                        $eventC->deleteEvent($id_event);
                         break;
-                    case 'editEvent': 
+                    case 'editEvent':
                         $id_event = $_GET['id_event'];
-                        $eventC -> updateEvent($id_event);
+                        $eventC->updateEvent($id_event);
                         break;
-                }  
+                }
             }
             $event = new eventC();
             $dataEvent = $event->getAllEvent();
             include './view/admin/event.php';
             break;
-        case 'hoadon':
-            include './view/admin/hoadon.php';
+        case 'shop':
+            $dataShop = $shopC->getAllShop();
+            include './view/admin/shop.php';
             break;
         case 'category':
             $dataCategory = $categoryC->getAllCategory();
@@ -67,13 +71,15 @@ if ($admin) {
             include './view/admin/themloai.php';
             break;
         case 'comment_user':
+            $dataComment = $commentC->getAllComment();
             include './view/admin/comment.php';
             break;
         case 'admin':
             $amoutUser = $userC->amoutUser();
+            $amountCategory = $categoryC->amoutCategoryA();
+            $amountShop = $shopC->amoutShop();
             include './view/admin/admin.php';
         default:
-
             break;
     }
     include './view/admin/footerAdmin.php';

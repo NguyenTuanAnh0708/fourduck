@@ -4,7 +4,6 @@
 </div>
 
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -20,7 +19,6 @@
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
@@ -43,9 +41,8 @@
                     <!-- small box -->
                     <div class="small-box bg-danger">
                         <div class="inner">
-                            <h3>65</h3>
-
-                            <p>Số lượng danh mục sản phẩm</p>
+                            <h3><?= $amountCategory ?></h3>
+                            <p>Số lượng danh mục mặc định</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-pie-graph"></i>
@@ -57,11 +54,11 @@
                     <!-- small box -->
                     <div class="small-box bg-success">
                         <div class="inner">
-                            <h3>53<sup style="font-size: 20px">%</sup></h3>
-                            <p>Sự kiện đang diển ra</p>
+                            <h3><?= $amountShop ?></h3>
+                            <p>Số lượng gian hàng trên web</p>
                         </div>
                         <div class="icon">
-                            <i class="ion ion-stats-bars"></i>
+                            <i class="fa-sharp fa-solid fa-store"></i>
                         </div>
                     </div>
                 </div>
