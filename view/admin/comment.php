@@ -28,36 +28,26 @@
             <br>
             <table class="table table-collapse">
                 <tr>
-                    <td class="col-md-3">ID USER</td>
-                    <td class="col-md-3">EMAIL</td>
-                    <td class="col-md-3">COMMENT</td>
-                    <td class="col-md-3">TÙY CHỌN</td>
+                    <td class="col-md-3">Stt</td>
+                    <td class="col-md-3">Tên user</td>
+                    <td class="col-md-3">Id_shop được comment</td>
+                    <td class="col-md-3">Comment</td>
+                    <td class="col-md-3">Tuỳ chọn</td>
                 </tr>
-
-                <tr>
-                    <td>1</td>
-                    <td>taihn81@gmail.com</td>
-                    <td>Shop này bán hàng đa cấp à??</td>
-                    <td>
-                        <a class="xoa btn" href="">Xóa</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>taihn81@gmail.com</td>
-                    <td>Shop bán hàng chất lượng luôn ủng hộ shop</td>
-                    <td>
-                        <a class="xoa btn" href="">Xóa</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>taihn81@gmail.com</td>
-                    <td>uy tín</td>
-                    <td>
-                        <a class="xoa btn" href="">Xóa</a>
-                    </td>
-                </tr>
+                <?php
+                $i = 0;
+                foreach ($dataComment as $row) {
+                    $view = "<tr>
+                        <td>$i</td>
+                        <td>$row[name_user]</td>
+                        <td>$row[id_shop]</td>
+                        <td>$row[coment_data]</td>
+                        <td><a class=xoa href=index.php?url=clienMange&act=del&id_user=$row[id_user]>Xóa</a></td>
+                        </tr>";
+                    echo $view;
+                    $i++;
+                }
+                ?>
             </table>
         </div>
     </section>

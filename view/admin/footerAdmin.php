@@ -1,7 +1,7 @@
 </div>
 <!-- /.content-wrapper -->
 <footer class="main-footer">
-    <strong>Copyright &copy; 2022 <a href="https://adminlte.io">Huỳnh Ngọc Tài</a>.</strong>
+    <strong>Copyright &copy; 2022 <a href="">Fourduck</a>.</strong>
 
     <div class="float-right d-none d-sm-inline-block">
         <b>Version</b> 0.1

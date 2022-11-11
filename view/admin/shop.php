@@ -8,7 +8,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Quản Lý Khách Hàng</h1>
+                    <h1 class="m-0">Quản lý cửa hàng</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -18,8 +18,6 @@
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
     </div>
-    <!-- /.content-header -->
-
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
@@ -28,36 +26,29 @@
             <table class="table table-collapse">
                 <br>
                 <tr>
-                    <td>Stt</td>
-                    <td>Email</td>
-                    <td>Password</td>
-                    <td>Phone</td>
-                    <td>Quyền</td>
-                    <td>Xoá</td>
+                    <td>STT</td>
+                    <td>Tên shop</td>
+                    <td>Chủ sở hửu</td>
+                    <td>Chuyên bán</td>
+                    <td>Số lượng sản phẩm ở shop</td>
+                    <td>Hành động</td>
                 </tr>
-                <tbody>
-                    <?php
-                    $i = 0;
-                    foreach ($dataUser as $row) {
-                        $role = 'Người mua';
-                        if ($row['role'] == 0) {
-                            $role = 'Người quản trị';
-                        } else if ($row['role'] == 1) {
-                            $role = 'Người bán';
-                        }
-                        $view = "<tr>
+                <?php
+                $i = 0;
+                foreach ($dataShop as $row) {
+                    $amount = $shopC->amountProduct($row['id_shop']);
+                    $view = "<tr>
                         <td>$i</td>
-                        <td>$row[gmail]</td>
-                        <td>$row[password]</td>
-                        <td>$row[phone]</td>
-                        <td>$role</td>
-                        <td><a class=xoa href=index.php?url=clienMange&act=del&id_user=$row[id_user]>Xóa</a></td>
+                        <td>$row[name_shop]</td>
+                        <td>$row[name_user]</td>
+                        <td>$row[type_shop]</td>
+                        <td>$amount</td>
+                        <td><a class=xoa href=>Xóa</a></td>
                         </tr>";
-                        echo $view;
-                        $i++;
-                    }
-                    ?>
-                </tbody>
+                    echo $view;
+                    $i++;
+                }
+                ?>
             </table>
         </div>
     </section>
