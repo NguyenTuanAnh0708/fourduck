@@ -1,0 +1,339 @@
+html {
+    font-size: 62.5%;
+}
+
+
+.banner {
+    height: 303px;
+
+}
+
+.banner-big-banner {
+    padding-right: 4px !important;
+}
+
+.banner-big-banner img {
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+}
+
+.banner-small-banner {
+    padding-left: 4px !important;
+}
+
+.banner-small-banner img {
+    width: 100%;
+    height: 40%;
+}
+
+.text-color-cartegory {
+    color: #757575;
+}
+
+
+
+.cartegory-class {
+    display: flex;
+}
+
+.cartegory-items {
+    border: 1px solid rgb(246, 238, 238);
+    padding: 0 4px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 119px !important;
+    transition: 0.5s all;
+}
+
+.cartegory-items:hover {
+    cursor: pointer;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.cartegory-items img {
+    width: 60px;
+    height: 60px;
+}
+
+.cartegory-items p {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+/* carousel */
+.boder-carousel {
+    background-color: #fff;
+    padding: 12px;
+}
+
+.item a {
+    text-decoration: none;
+}
+
+.carousel-item-child {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-item-child .carousel-sale {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+}
+
+/* carousel sale off */
+.home__product-items-saleoff {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    width: 40px;
+    height: 36px;
+    text-align: center;
+    background-color: rgba(255, 216, 64, 0.95);
+}
+
+.home__product-items-saleoff-percent {
+    color: #EE4D2D;
+    font-weight: 300;
+    font-size: 1.2rem;
+
+}
+
+.home__product-items-saleoff-label {
+    color: #fff;
+}
+
+.home__product-items-saleoff-label::before {
+    content: "";
+    position: absolute;
+    border-width: 0 20px 6px;
+    border-style: solid;
+    bottom: -6px;
+    left: 0;
+    border-color: transparent rgba(255, 216, 64, 0.95) transparent rgba(255, 216, 64, 0.95);
+}
+
+.carousel-item-title {
+    font-size: 2rem;
+    font-weight: 300;
+    color: #EE4D2D;
+    overflow: hidden;
+}
+
+.has-sale {
+    padding: 0 12px;
+}
+
+.has-sale-task {
+    height: 16px;
+    background: url("https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/flashsale/ac7f81d9ee062223753413ec98497a86.png");
+    background-size: cover;
+    position: relative;
+    border-radius: 8px;
+}
+
+.has-sale-title {
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #fff;
+    z-index: 2;
+    text-align: center;
+}
+
+/*  */
+/* banner-off-sale */
+.banner-off-sale {
+    height: 150px;
+}
+
+.banner-off-sale img {
+    width: 100%;
+    height: 100%;
+}
+
+/* top-sale */
+.top-sale-carousel-item a {
+    text-decoration: none;
+}
+.top-sale-child {
+    position: relative;
+}
+
+.top-sale-child-content {
+    position: absolute;
+    /* Position the background text */
+    bottom: 0;
+    /* At the bottom. Use top:0 to append it to the top */
+    background: rgb(0, 0, 0);
+    /* Fallback color */
+    background: rgba(0, 0, 0, 0.5);
+    /* Black background with 0.5 opacity */
+    color: #f1f1f1;
+    /* Grey text */
+    width: 100%;
+    /* Full width */
+}
+.top-sale-child-content p {
+    margin-bottom: 0;
+}
+.top-sale-content {
+    font-size: 2rem;
+    font-weight: 500;
+    color: #555;
+    position: relative;
+}
+/* top-sale-of */
+.sugges {
+   
+}
+.home__product-items-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 40px;
+    height: 36px;
+    text-align: center;
+    background-color: rgba(255, 216, 64, 0.95);
+}
+
+.home__product-items-top-percent {
+    color: #EE4D2D;
+    font-weight: 700;
+    font-size: 1.2rem;
+
+}
+
+.home__product-items-top-label {
+    color: #fff;
+}
+
+.home__product-items-top-label::before {
+    content: "";
+    position: absolute;
+    border-width: 0 20px 6px;
+    border-style: solid;
+    bottom: -6px;
+    left: 0;
+    border-color: transparent rgba(255, 216, 64, 0.95) transparent rgba(255, 216, 64, 0.95);
+}
+
+
+/* TODAY */
+.sugges {
+   position: relative;
+}
+.today-product-items {
+    border: 1px solid rgb(246, 238, 238);
+    position: relative;
+}
+.today-product-items a {
+    text-decoration: none;
+}
+.today-item-child {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.today-item-child .today-sale {
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+}
+.today-sale img {
+    width: 100%;
+
+}
+.today-item-product img {
+    width: 100%;
+
+}
+.today-item-content {
+    word-wrap: break-word;
+    white-space: normal;
+    overflow: hidden;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    color: rgba(0,0,0,.87);
+    font-size: 1.2rem;
+}
+.today-item-price .price{
+    color:#ee4d2d ;
+}
+.today-item-price .price .price-money {
+    font-size: 1.5rem;
+}
+.today-item-price .have-sale {
+    color: rgba(0,0,0,.54);
+    font-size: 1.2rem;
+}
+
+.home__product-items--favourite{
+    position: absolute;
+    top: 10px;
+    left: -5px;
+    color: #EE4D2D;
+    background-color: currentColor;
+    background-color: #EE4D2D;
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.6rem;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px ;
+    padding-right: 4px;
+    z-index: 20;
+}
+.home__product-items--favourite::before{
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: -4px;
+    border-top: 4px solid currentColor;
+    border-left: 4px solid transparent;
+    filter: brightness(60%);
+    
+}
+.home__product-items--favourite span{
+    color: #fff;
+}
+.home__product-items--favourite i{
+    font-size: .9rem;   
+    margin: 0 2px 0 5px;
+    color: #fff;
+}
+/* responsive */
+@media (max-width: 767.98px) {
+    .banner-big-banner {
+        padding-right: 15px !important;
+    }
+
+    .banner-small-banner {
+        display: none;
+    }
+}
+
+@media (max-width: 991.98px) {
+
+    .w-100 {
+        display: none;
+    }
+}
+@media (max-width: 575.98px) { 
+    .sugges {
+        padding: 0 15px;
+    }
+ }
