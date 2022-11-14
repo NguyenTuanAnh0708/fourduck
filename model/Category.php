@@ -22,8 +22,6 @@ class Category
         $result = $conn->query($sql);
         return $result;
     }
-
-
     public function insertCategory($id_user, $name_category, $img_category, $role)
     {
         $conn = conn();
