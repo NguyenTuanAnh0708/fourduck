@@ -32,6 +32,16 @@
         text-align: center;
         line-height: 40px;
     }
+
+    .end {
+        font-weight: bold;
+        color: red;
+    }
+
+    .start {
+        font-weight: bold;
+        color: green;
+    }
 </style>
 
 <body class="hold-transition sidebar-mini layout-fixed">

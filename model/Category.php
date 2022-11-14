@@ -24,25 +24,11 @@ class Category
     }
 
 
-    public function inserCartegory()
+    public function insertCategory($id_user, $name_category, $img_category, $role)
     {
-        $id_user = $_POST['id_user'];
-        $name_event = $_POST['name_event'];
-        $img_event = $_FILES['img_event']['name'];
-        $img_event_tmp = $_FILES['img_event']['tmp'];
-
-        move_uploaded_file($img_event_tmp, "../uploads/" . $img_event);
-
         $conn = conn();
-        $sql = "INSERT INTO event (
-            id_user,
-            name_event,
-            img_event
-        ) VALUES (
-            '$id_user',
-            '$name_event',
-            '$img_event'
-        )";
+        $sql = "INSERT INTO category (id_user,name_category,img_category,role)
+        VALUES ('$id_user', '$name_category', '$img_category','$role')";
         $result = $conn->query($sql);
         return $result;
     }
