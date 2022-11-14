@@ -6,7 +6,7 @@
                 <table class="table table-collapse">
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Tên loại</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Tên loại mới">
                     </div>
 
 
