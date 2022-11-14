@@ -2,6 +2,9 @@
 .nopadding {
     padding: 0 !important;
  }
+ ul{
+    list-style: none;
+ }
 /* root end */
 /* header */
 header{
@@ -34,3 +37,39 @@ header{
     top: 4px;
 }
 /* header end */
+/* conntend shop */
+.wapper-inner{
+    margin: 0 auto;
+}
+.card-shop{
+    padding: 10px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.card-shop .logo-shop{
+    width: 80px;
+    height: 80px;
+    border-radius:50%;
+    margin-right: 10px;
+    
+}
+.category-shop{
+    padding: 20px;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+}
+.product{
+    padding: 5px;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    border-radius: 5px;
+    transition: all 0.1s ease-in;
+    border: 1px solid transparent;
+}
+.product:hover{
+    box-sizing: border-box;
+    padding:10px;
+    border: 1px solid rgba(0, 0, 0, 0.67);
+}
+@media (min-width: 767.98px) {
+    .wapper-inner{
+        width: 1200px;
+    }
+}
