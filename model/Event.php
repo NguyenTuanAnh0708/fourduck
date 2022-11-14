@@ -4,7 +4,7 @@ class Event
     public function getAllEvent()
     {
         $conn = conn();
-        $sql = "SELECT * FROM event";
+        $sql = "SELECT * FROM event Order by status";
         $result = $conn->query($sql);
         $data = array();
         if ($result->num_rows > 0) {
@@ -15,8 +15,13 @@ class Event
         }
         return $data;
     }
-
-
+    public function updateStatus()
+    {
+        $conn = conn();
+        $sql = "UPDATE event set status=1 WHERE date(now())>date(end_event)";
+        $update  = $conn->query($sql);
+        return $update;
+    }
     // event
     public function inserNewEvent()
     {

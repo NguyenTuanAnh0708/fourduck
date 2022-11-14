@@ -1,7 +1,9 @@
 <?php
+ob_start();
 $admin = true;
+require "./upload/imgur.php";
 require "./controller/userC.php";
-require "./controller/controllerEvent.php";
+require "./controller/eventC.php";
 require "./controller/categoryC.php";
 require "./controller/shopC.php";
 require "./controller/commentC.php";
@@ -40,6 +42,8 @@ if ($admin) {
                         $id_event = $_GET['id_event'];
                         $eventC->deleteEvent($id_event);
                         break;
+                    case 'add':
+                        break;
                     case 'editEvent':
                         $id_event = $_GET['id_event'];
                         $eventC->updateEvent($id_event);
@@ -63,6 +67,14 @@ if ($admin) {
                         $id_category = $_GET['id_category'];
                         $categoryC->delCategory($id_category);
                         break;
+                    case 'add':
+                        if (isset($_POST['btnThem'])) {
+                            $category_name = $_POST["category_name"];
+                            $file_tmp = $_FILES["file"]['tmp_name'];
+                            $img_src = upload($file_tmp);
+                            $categoryC->insertCategory('8', $category_name, $img_src, '0');
+                            break;
+                        }
                 }
             }
             include './view/admin/loaisp.php';
@@ -94,3 +106,4 @@ if ($admin) {
     }
     include './view/admin/footerAdmin.php';
 }
+// shoppp

@@ -22,4 +22,12 @@ class categoryC
         $amount = $category->amoutCategoryA();
         return $amount;
     }
+    public function insertCategory($id_user, $name_category, $img_category, $role)
+    {
+        $category = new Category();
+        $check = $category->insertCategory($id_user, $name_category, $img_category, $role);
+        if ($check) {
+            header('location:index.php?url=category');
+        }
+    }
 }
