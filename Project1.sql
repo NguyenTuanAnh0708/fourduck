@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost
--- Thời gian đã tạo: Th10 11, 2022 lúc 07:27 AM
+-- Thời gian đã tạo: Th10 14, 2022 lúc 07:25 AM
 -- Phiên bản máy phục vụ: 10.4.21-MariaDB
 -- Phiên bản PHP: 8.1.2
 
@@ -59,7 +59,7 @@ CREATE TABLE `Category` (
   `id_user` int(255) NOT NULL,
   `name_category` varchar(300) COLLATE utf8mb4_unicode_ci NOT NULL,
   `img_category` varchar(300) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `role` tinyint(4) NOT NULL DEFAULT 2
+  `role` tinyint(4) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -68,8 +68,7 @@ CREATE TABLE `Category` (
 
 INSERT INTO `Category` (`id_category`, `id_user`, `name_category`, `img_category`, `role`) VALUES
 (3, 10, 'áo quần', '', 1),
-(4, 8, 'Áo quần', 'https://cf.shopee.vn/file/687f3967b7c2fe6a134a2c11894eea4b_tn', 0),
-(5, 8, 'điện tử', 'https://cf.shopee.vn/file/31234a27876fb89cd522d7e3db1ba5ca_tn', 0);
+(13, 8, 'Sửa con bò ', 'https://i.imgur.com/bJkPNpI.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -103,15 +102,16 @@ CREATE TABLE `Event` (
   `name_event` varchar(300) COLLATE utf8mb4_unicode_ci NOT NULL,
   `img_event` varchar(300) COLLATE utf8mb4_unicode_ci NOT NULL,
   `start_event` date NOT NULL,
-  `end_event` date NOT NULL
+  `end_event` date NOT NULL,
+  `status` bit(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `Event`
 --
 
-INSERT INTO `Event` (`id_event`, `id_user`, `name_event`, `img_event`, `start_event`, `end_event`) VALUES
-(2, 8, 'sale 11/11', 'https://www.bworldonline.com/wp-content/uploads/2021/11/11.11-TV-Show_Main-KV.png', '2022-11-11', '2022-11-20');
+INSERT INTO `Event` (`id_event`, `id_user`, `name_event`, `img_event`, `start_event`, `end_event`, `status`) VALUES
+(7, 8, '20/11', 'img/amin', '2022-11-14', '2022-11-15', b'0');
 
 -- --------------------------------------------------------
 
@@ -295,7 +295,7 @@ ALTER TABLE `Cart`
 -- AUTO_INCREMENT cho bảng `Category`
 --
 ALTER TABLE `Category`
-  MODIFY `id_category` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_category` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT cho bảng `Comment`
@@ -307,7 +307,7 @@ ALTER TABLE `Comment`
 -- AUTO_INCREMENT cho bảng `Event`
 --
 ALTER TABLE `Event`
-  MODIFY `id_event` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_event` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `OrderBill`
@@ -331,7 +331,7 @@ ALTER TABLE `Shop`
 -- AUTO_INCREMENT cho bảng `User`
 --
 ALTER TABLE `User`
-  MODIFY `id_user` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_user` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Các ràng buộc cho các bảng đã đổ

@@ -83,6 +83,16 @@ if ($admin) {
             include './view/admin/themloai.php';
             break;
         case 'comment_user':
+            if (isset($_GET['act'])) {
+                $act = $_GET['act'];
+                switch ($act) {
+                    case 'deleteComment':
+                        $id_comment = $_GET['id_comment'];
+                        $commentC->deleteComment($id_comment);
+                        break;
+                }
+            }
+            $comment = new commentC();
             $dataComment = $commentC->getAllComment();
             include './view/admin/comment.php';
             break;
@@ -96,3 +106,4 @@ if ($admin) {
     }
     include './view/admin/footerAdmin.php';
 }
+// shoppp
