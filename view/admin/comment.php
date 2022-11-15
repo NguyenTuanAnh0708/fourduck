@@ -42,7 +42,7 @@
                         <td>$row[name_user]</td>
                         <td>$row[id_shop]</td>
                         <td>$row[coment_data]</td>
-                        <td><a class=xoa href=index.php?url=clienMange&act=del&id_user=$row[id_user]>Xóa</a></td>
+                        <td><a class=xoa href=index.php?url=comment_user&act=deleteComment&id_comment=$row[id_comment]>Xóa</a></td>
                         </tr>";
                     echo $view;
                     $i++;
