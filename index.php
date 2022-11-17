@@ -1,6 +1,8 @@
 <?php
 ob_start();
-$admin = true;
+$admin = false;
+
+
 require "./upload/imgur.php";
 require "./controller/userC.php";
 require "./controller/eventC.php";
@@ -12,6 +14,8 @@ $eventC = new eventC();
 $categoryC = new categoryC();
 $shopC = new shopC();
 $commentC = new commentC();
+
+
 if ($admin) {
     if (!isset($_GET['url'])) {
         header('location:index.php?url=admin');
@@ -107,3 +111,28 @@ if ($admin) {
     include './view/admin/footerAdmin.php';
 }
 // shoppp
+$manage = true;
+if ($manage) {
+    if (!isset($_GET['url'])) {
+        header('location:index.php?url=manage');
+    }
+    $url = $_GET['url'];
+    include './view/manage/headerManage.php';
+    switch ($url) {
+        case 'manage':
+            include './view/manage/manage.php';
+            break;
+        case 'add_product':
+            include './view/manage/add_product.php';
+            break;
+        case 'product':
+            include './view/manage/product.php';
+            break;
+        case 'hoadon':
+            include './view/manage/hoadon.php';
+            break;
+        default:
+            break;
+    }
+    include './view/manage/footerManage.php';
+}
