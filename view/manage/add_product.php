@@ -159,6 +159,40 @@
                         </div>
                     </div>
                 </div>
+
+
+
+
+                <div class="intro-y box p-5 mt-5">
+                    <div class="border border-slate-200/60 dark:border-darkmode-400 rounded-md p-5">
+                        <div class="font-medium text-base flex items-center border-b border-slate-200/60 dark:border-darkmode-400 pb-5">
+                            <i data-lucide="chevron-down" class="w-4 h-4 mr-2"></i> Thêm loại sản phẩm
+                        </div>
+                        <div class="mt-5">
+                            <div class="form-inline items-start flex-col xl:flex-row mt-5 pt-5 first:mt-0 first:pt-0">
+                                <div class="form-label xl:w-64 xl:!mr-10">
+                                    <div class="text-left">
+                                        <div class="flex items-center">
+                                            <div class="font-medium">Tên loại sản phẩm</div>
+                                            <div class="ml-2 px-2 py-0.5 bg-slate-200 text-slate-600 dark:bg-darkmode-300 dark:text-slate-400 text-xs rounded-md">
+                                                Yêu cầu</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w-full mt-3 xl:mt-0 flex-1">
+                                   <select name="get_category" id="">
+                                       <?php 
+                                            foreach($getAllDataCategory as $value) {
+                                               $data = "<option value='$value[id_category]'>$value[name_category]</option>";
+                                               echo $data;
+                                            }
+                                       ?>
+                                   </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <!-- END: Product Information -->
                 <!-- BEGIN: Product Detail -->
                 <div class="intro-y box p-5 mt-5">
