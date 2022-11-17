@@ -18,7 +18,11 @@ class Event
     public function updateStatus()
     {
         $conn = conn();
-        $sql = "UPDATE event set status=1 WHERE date(now())>date(end_event)";
+        $sql = "UPDATE Event
+        SET status= CASE
+           WHEN date(now())>date(end_event) THEN 1
+           ELSE 0
+        END";
         $update  = $conn->query($sql);
         return $update;
     }

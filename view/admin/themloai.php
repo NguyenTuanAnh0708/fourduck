@@ -8,8 +8,6 @@
                         <label for="addcategory" class="form-label">Tên loại</label>
                         <input type="text" class="form-control" id="addcategory" name="category_name" placeholder="Thêm danh mục admin">
                     </div>
-
-
                     <div class="mb-3">
                         <label for="formFileMultiple" class="form-label">Ảnh loại sản phẩm</label>
                         <input class="form-control" type="file" name="file" id="formFileMultiple" multiple>
