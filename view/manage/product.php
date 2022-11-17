@@ -60,7 +60,7 @@
             <div class="grid grid-cols-12 gap-6 mt-5">
                 <div class="intro-y col-span-12 flex flex-wrap sm:flex-nowrap items-center mt-2">
                     <a href="index.php?url=add_product">
-                        <button class="btn btn-primary shadow-md mr-2">Thêm sản phẩm</button>
+                        <button class="btn btn-primary shadow-md mr-2" name="btnThem">Thêm sản phẩm</button>
                     </a>
                     <div class="dropdown">
                         <button class="dropdown-toggle btn px-2 box" aria-expanded="false" data-tw-toggle="dropdown">
@@ -107,79 +107,47 @@
                         </thead>
                         <tbody>
                             <tr class="intro-x">
-                                <td class="w-40">
-                                    <div class="flex">
-                                        <div class="w-10 h-10 image-fit zoom-in">
-                                            <img alt="Midone - HTML Admin Template" class="tooltip rounded-full"
-                                                src="dist/images/preview-15.jpg" title="Uploaded at 5 April 2022">
-                                        </div>
-                                        <div class="w-10 h-10 image-fit zoom-in -ml-5">
-                                            <img alt="Midone - HTML Admin Template" class="tooltip rounded-full"
-                                                src="dist/images/preview-9.jpg" title="Uploaded at 5 April 2022">
-                                        </div>
-                                        <div class="w-10 h-10 image-fit zoom-in -ml-5">
-                                            <img alt="Midone - HTML Admin Template" class="tooltip rounded-full"
-                                                src="dist/images/preview-10.jpg" title="Uploaded at 5 April 2022">
+                            <?php
+                            foreach ($dataProduct as $row) {
+                                $view = "
+                                <tr class='intro-x'>
+                                <td class='w-40'>
+                                    <div class='flex'>
+                                        <div class='w-10 h-10 image-fit zoom-in'>
+                                            <img  class='tooltip rounded-full' src='$row[img_product]' title='Uploaded Ngày 16 tháng 11 năm 2022'>
                                         </div>
                                     </div>
                                 </td>
+                                
                                 <td>
-                                    <a href="" class="font-medium whitespace-nowrap">Áo thun</a>
-                                    <div class="text-slate-500 text-xs whitespace-nowrap mt-0.5">mô tả sản phẩm</div>
+                                    <a href='' class='font-medium whitespace-nowrap'>$row[name_product]</a>
+                                    <div class='text-slate-500 text-xs whitespace-nowrap mt-0.5'>$row[description_product]</div>
                                 </td>
-                                <td class="text-center">50</td>
-                                <td class="text-center">10.000 đ</td>
-                                <td class="w-40">
-                                    <div class="flex items-center justify-center text-danger"> <i
-                                            data-lucide="check-square" class="w-4 h-4 mr-2"></i> Hết hàng </div>
+                                
+                                <td class='text-center'>$row[amount_product]</td>
+
+                                <td class='text-center'>$row[price_product] đ</td>
+
+                                <td class='w-40'>
+                                    <div class='flex items-center justify-center text-success'> <i
+                                            data-lucide='check-square' class='w-4 h-4 mr-2'></i> Còn hàng </div>
                                 </td>
-                                <td class="table-report__action w-56">
-                                    <div class="flex justify-center items-center">
-                                        <a class="flex items-center mr-3" href="javascript:;"> <i
-                                                data-lucide="check-square" class="w-4 h-4 mr-1"></i> Sửa </a>
-                                        <a class="flex items-center text-danger" href="javascript:;"
-                                            data-tw-toggle="modal" data-tw-target="#delete-confirmation-modal"> <i
-                                                data-lucide="trash-2" class="w-4 h-4 mr-1"></i> Xóa </a>
+
+                                <td class='table-report__action w-56'>
+                                    <div class='flex justify-center items-center'>
+                                        <a class='flex items-center mr-3' href='javascript:;'> <i
+                                                data-lucide='check-square' class='w-4 h-4 mr-1'></i> Sửa </a>
+                                        <a class='flex items-center text-danger' href='index.php?url=product&act=del_product&id_product=$row[id_product]'
+                                            data-tw-toggle='modal' data-tw-target='#delete-confirmation-modal'> <i
+                                                data-lucide='trash-2' class='w-4 h-4 mr-1'></i> Xóa </a>
                                     </div>
                                 </td>
-                            </tr>
-                            <tr class="intro-x">
-                                <td class="w-40">
-                                    <div class="flex">
-                                        <div class="w-10 h-10 image-fit zoom-in">
-                                            <img alt="Midone - HTML Admin Template" class="tooltip rounded-full"
-                                                src="dist/images/preview-6.jpg" title="Uploaded at 11 January 2021">
-                                        </div>
-                                        <div class="w-10 h-10 image-fit zoom-in -ml-5">
-                                            <img alt="Midone - HTML Admin Template" class="tooltip rounded-full"
-                                                src="dist/images/preview-12.jpg" title="Uploaded at 11 January 2021">
-                                        </div>
-                                        <div class="w-10 h-10 image-fit zoom-in -ml-5">
-                                            <img alt="Midone - HTML Admin Template" class="tooltip rounded-full"
-                                                src="dist/images/preview-3.jpg" title="Uploaded at 11 January 2021">
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <a href="" class="font-medium whitespace-nowrap">Quần sịp</a>
-                                    <div class="text-slate-500 text-xs whitespace-nowrap mt-0.5">còn rất nhiều hàng
-                                    </div>
-                                </td>
-                                <td class="text-center">88</td>
-                                <td class="text-center">50.000 đ</td>
-                                <td class="w-40">
-                                    <div class="flex items-center justify-center text-success"> <i
-                                            data-lucide="check-square" class="w-4 h-4 mr-2"></i> Còn hàng </div>
-                                </td>
-                                <td class="table-report__action w-56">
-                                    <div class="flex justify-center items-center">
-                                        <a class="flex items-center mr-3" href="javascript:;"> <i
-                                                data-lucide="check-square" class="w-4 h-4 mr-1"></i> Sửa </a>
-                                        <a class="flex items-center text-danger" href="javascript:;"
-                                            data-tw-toggle="modal" data-tw-target="#delete-confirmation-modal"> <i
-                                                data-lucide="trash-2" class="w-4 h-4 mr-1"></i> Xóa </a>
-                                    </div>
-                                </td>
+
+                                </tr>    
+                                ";
+                                echo $view;
+                            }
+                            ?>
                             </tr>
 
 
@@ -224,20 +192,28 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-body p-0">
-                            <div class="p-5 text-center">
-                                <i data-lucide="x-circle" class="w-16 h-16 text-danger mx-auto mt-3"></i>
-                                <div class="text-3xl mt-5">Bạn có chắc chắn xóa sản phẩm này?</div>
-                                <div class="text-slate-500 mt-2">
+                            <?php
+                            foreach ($dataProduct as $row) {
+                                $view = "
+                                <div class='p-5 text-center'>
+                                <i data-lucide='x-circle' class='w-16 h-16 text-danger mx-auto mt-3'></i>
+                                <div class='text-3xl mt-5'>Bạn có chắc chắn xóa sản phẩm này?</div>
+                                <div class='text-slate-500 mt-2'>
                                     Bạn có thực sự muốn xóa các bản ghi này không?
                                     <br>
                                     Không thể hoàn tác quá trình này.
                                 </div>
                             </div>
-                            <div class="px-5 pb-8 text-center">
-                                <button type="button" data-tw-dismiss="modal"
-                                    class="btn btn-outline-secondary w-24 mr-1">Không</button>
-                                <button type="button" class="btn btn-danger w-24">Xóa</button>
+                            <div class='px-5 pb-8 text-center'>
+                                <button type='button' data-tw-dismiss='modal'
+                                    class='btn btn-outline-secondary w-24 mr-1'>Không</button>
+                                <button type='button' class='btn btn-danger w-24' href='index.php?url=product&act=del_product&id_product=$row[id_product]'>Xóa</button>
                             </div>
+                                ";
+                                echo $view;
+                            }
+                            ?>
+                            
                         </div>
                     </div>
                 </div>

@@ -1,56 +1,50 @@
 <div class="content">
-<div class="top-bar">
-                <!-- BEGIN: Breadcrumb -->
-                <nav aria-label="breadcrumb" class="-intro-x mr-auto hidden sm:flex">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item" aria-current="page"><a href="#">Thêm sản phẩm</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Trang chủ</li>
-                    </ol>
-                </nav>
-                <!-- END: Breadcrumb -->
-                <!-- BEGIN: Account Menu -->
-                <div class="intro-x dropdown w-8 h-8">
-                    <div class="dropdown-toggle w-8 h-8 rounded-full overflow-hidden shadow-lg image-fit zoom-in"
-                        role="button" aria-expanded="false" data-tw-toggle="dropdown">
-                        <img alt="Midone - HTML Admin Template" src="dist/images/profile-5.jpg">
-                    </div>
-                    <div class="dropdown-menu w-56">
-                        <ul class="dropdown-content bg-primary text-white">
-                            <li class="p-2">
-                                <div class="font-medium">Huỳnh Ngọc Tài</div>
-                                <div class="text-xs text-white/70 mt-0.5 dark:text-slate-500">Chủ Shop FourDuck</div>
-                            </li>
-                            <li>
-                                <hr class="dropdown-divider border-white/[0.08]">
-                            </li>
-                            <li>
-                                <a href="" class="dropdown-item hover:bg-white/5"> <i data-lucide="user"
-                                        class="w-4 h-4 mr-2"></i> Tài khoản </a>
-                            </li>
-                            <li>
-                                <a href="index.php?url=add_product" class="dropdown-item hover:bg-white/5"> <i data-lucide="edit"
-                                        class="w-4 h-4 mr-2"></i> Thêm sản phẩm mới </a>
-                            </li>
-                            <li>
-                                <a href="" class="dropdown-item hover:bg-white/5"> <i data-lucide="lock"
-                                        class="w-4 h-4 mr-2"></i> Đổi mật khẩu </a>
-                            </li>
-                            <li>
-                                <a href="" class="dropdown-item hover:bg-white/5"> <i data-lucide="help-circle"
-                                        class="w-4 h-4 mr-2"></i> Trợ giúp </a>
-                            </li>
-                            <li>
-                                <hr class="dropdown-divider border-white/[0.08]">
-                            </li>
-                            <li>
-                                <a href="" class="dropdown-item hover:bg-white/5"> <i data-lucide="toggle-right"
-                                        class="w-4 h-4 mr-2"></i> Đăng xuất </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- END: Account Menu -->
+    <div class="top-bar">
+        <!-- BEGIN: Breadcrumb -->
+        <nav aria-label="breadcrumb" class="-intro-x mr-auto hidden sm:flex">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item" aria-current="page"><a href="#">Thêm sản phẩm</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Trang chủ</li>
+            </ol>
+        </nav>
+        <!-- END: Breadcrumb -->
+        <!-- BEGIN: Account Menu -->
+        <div class="intro-x dropdown w-8 h-8">
+            <div class="dropdown-toggle w-8 h-8 rounded-full overflow-hidden shadow-lg image-fit zoom-in" role="button" aria-expanded="false" data-tw-toggle="dropdown">
+                <img alt="Midone - HTML Admin Template" src="dist/images/profile-5.jpg">
             </div>
+            <div class="dropdown-menu w-56">
+                <ul class="dropdown-content bg-primary text-white">
+                    <li class="p-2">
+                        <div class="font-medium">Huỳnh Ngọc Tài</div>
+                        <div class="text-xs text-white/70 mt-0.5 dark:text-slate-500">Chủ Shop FourDuck</div>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider border-white/[0.08]">
+                    </li>
+                    <li>
+                        <a href="" class="dropdown-item hover:bg-white/5"> <i data-lucide="user" class="w-4 h-4 mr-2"></i> Tài khoản </a>
+                    </li>
+                    <li>
+                        <a href="index.php?url=add_product" class="dropdown-item hover:bg-white/5"> <i data-lucide="edit" class="w-4 h-4 mr-2"></i> Thêm sản phẩm mới </a>
+                    </li>
+                    <li>
+                        <a href="" class="dropdown-item hover:bg-white/5"> <i data-lucide="lock" class="w-4 h-4 mr-2"></i> Đổi mật khẩu </a>
+                    </li>
+                    <li>
+                        <a href="" class="dropdown-item hover:bg-white/5"> <i data-lucide="help-circle" class="w-4 h-4 mr-2"></i> Trợ giúp </a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider border-white/[0.08]">
+                    </li>
+                    <li>
+                        <a href="" class="dropdown-item hover:bg-white/5"> <i data-lucide="toggle-right" class="w-4 h-4 mr-2"></i> Đăng xuất </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- END: Account Menu -->
+    </div>
     <div class="intro-y flex items-center mt-8">
         <h2 class="text-lg font-medium mr-auto">
             Thêm sản phẩm
@@ -65,7 +59,7 @@
             <button type="button" class="btn-close text-white" data-tw-dismiss="alert" aria-label="Close"> <i data-lucide="x" class="w-4 h-4"></i> </button>
         </div>
         <!-- BEGIN: Notification -->
-        <div class="intro-y col-span-11 2xl:col-span-9">
+        <form class="intro-y col-span-11 2xl:col-span-9" action="index.php?url=product$act=add_product" method="POST">
             <!-- BEGIN: Uplaod Product -->
             <div class="intro-y box p-5">
                 <div class="border border-slate-200/60 dark:border-darkmode-400 rounded-md p-5">
@@ -93,47 +87,17 @@
                                 </div>
                             </div>
                             <div class="w-full mt-3 xl:mt-0 flex-1 border-2 border-dashed dark:border-darkmode-400 rounded-md pt-4">
-                                <div class="grid grid-cols-10 gap-5 pl-4 pr-5">
-                                    <div class="col-span-5 md:col-span-2 h-28 relative image-fit cursor-pointer zoom-in">
-                                        <img class="rounded-md" alt="Midone - HTML Admin Template" src="dist/images/preview-5.jpg">
-                                        <div title="Remove this image?" class="tooltip w-5 h-5 flex items-center justify-center absolute rounded-full text-white bg-danger right-0 top-0 -mr-2 -mt-2">
-                                            <i data-lucide="x" class="w-4 h-4"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-span-5 md:col-span-2 h-28 relative image-fit cursor-pointer zoom-in">
-                                        <img class="rounded-md" alt="Midone - HTML Admin Template" src="dist/images/preview-2.jpg">
-                                        <div title="Remove this image?" class="tooltip w-5 h-5 flex items-center justify-center absolute rounded-full text-white bg-danger right-0 top-0 -mr-2 -mt-2">
-                                            <i data-lucide="x" class="w-4 h-4"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-span-5 md:col-span-2 h-28 relative image-fit cursor-pointer zoom-in">
-                                        <img class="rounded-md" alt="Midone - HTML Admin Template" src="dist/images/preview-12.jpg">
-                                        <div title="Remove this image?" class="tooltip w-5 h-5 flex items-center justify-center absolute rounded-full text-white bg-danger right-0 top-0 -mr-2 -mt-2">
-                                            <i data-lucide="x" class="w-4 h-4"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-span-5 md:col-span-2 h-28 relative image-fit cursor-pointer zoom-in">
-                                        <img class="rounded-md" alt="Midone - HTML Admin Template" src="dist/images/preview-7.jpg">
-                                        <div title="Remove this image?" class="tooltip w-5 h-5 flex items-center justify-center absolute rounded-full text-white bg-danger right-0 top-0 -mr-2 -mt-2">
-                                            <i data-lucide="x" class="w-4 h-4"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-span-5 md:col-span-2 h-28 relative image-fit cursor-pointer zoom-in">
-                                        <img class="rounded-md" alt="Midone - HTML Admin Template" src="dist/images/preview-4.jpg">
-                                        <div title="Remove this image?" class="tooltip w-5 h-5 flex items-center justify-center absolute rounded-full text-white bg-danger right-0 top-0 -mr-2 -mt-2">
-                                            <i data-lucide="x" class="w-4 h-4"></i>
-                                        </div>
-                                    </div>
+                                <div class="input-group mb-3">
+                                    <input type="file" class="form-control" id="inputGroupFile02" name="file">
+                                    <label class="input-group-text" for="inputGroupFile02">Tải ảnh sản phẩm lên</label>
                                 </div>
-                                <div class="px-4 pb-4 mt-5 flex items-center justify-center cursor-pointer relative">
-                                    <i data-lucide="image" class="w-4 h-4 mr-2"></i> <span class="text-primary mr-1">Upload a file</span> or drag and drop
-                                    <input id="horizontal-form-1" type="file" class="w-full h-full top-0 left-0 absolute opacity-0">
-                                </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
             <!-- END: Uplaod Product -->
             <!-- BEGIN: Product Information -->
             <div class="intro-y box p-5 mt-5">
@@ -155,8 +119,7 @@
                                 </div>
                             </div>
                             <div class="w-full mt-3 xl:mt-0 flex-1">
-                                <input id="product-name" type="text" class="form-control" placeholder="Product name">
-                                <div class="form-help text-right">Maximum character 0/70</div>
+                                <input id="product-name" type="text" class="form-control" placeholder="tên sản phẩm" name="product_name">
                             </div>
                         </div>
                     </div>
@@ -190,12 +153,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="w-full mt-3 xl:mt-0 flex-1">
-                                <div class="editor">
-                                    <p>Nội dung sản phẩm.</p>
-                                </div>
-                                <div class="form-help text-right">Maximum character 0/2000</div>
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Mô tả sản phẩm" id="floatingTextarea2" style="width: 800px" name="product_name"></textarea>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -228,7 +189,7 @@
                                 </div>
                             </div>
                         </div>
-    
+
                         <div class="form-inline items-start flex-col xl:flex-row mt-5 pt-5 first:mt-0 first:pt-0">
                             <div class="form-label xl:w-64 xl:!mr-10">
                                 <div class="text-left">
@@ -240,37 +201,22 @@
                                 </div>
                             </div>
                             <div class="w-full mt-3 xl:mt-0 flex-1">
-                                <input id="product-stock" type="text" class="form-control" placeholder="Số lượng hàng">
+                                <input id="product-stock" type="text" class="form-control" placeholder="Số lượng hàng" name="product_amount">
                             </div>
                         </div>
-    
+
                         <div class="form-inline items-start flex-col xl:flex-row mt-5 pt-5 first:mt-0 first:pt-0">
                             <div class="form-label xl:w-64 xl:!mr-10">
                                 <div class="text-left">
                                     <div class="flex items-center">
-                                        <div class="font-medium">Giá mới</div>
+                                        <div class="font-medium">Giá Hiện Tại</div>
                                         <div class="ml-2 px-2 py-0.5 bg-slate-200 text-slate-600 dark:bg-darkmode-300 dark:text-slate-400 text-xs rounded-md">
                                             Yêu cầu</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="w-full mt-3 xl:mt-0 flex-1">
-                                <input id="product-stock" type="text" class="form-control" placeholder="Giá Cũ">
-                            </div>
-                        </div>
-    
-                        <div class="form-inline items-start flex-col xl:flex-row mt-5 pt-5 first:mt-0 first:pt-0">
-                            <div class="form-label xl:w-64 xl:!mr-10">
-                                <div class="text-left">
-                                    <div class="flex items-center">
-                                        <div class="font-medium">Giá Cũ</div>
-                                        <div class="ml-2 px-2 py-0.5 bg-slate-200 text-slate-600 dark:bg-darkmode-300 dark:text-slate-400 text-xs rounded-md">
-                                            Yêu cầu</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="w-full mt-3 xl:mt-0 flex-1">
-                                <input id="product-stock" type="text" class="form-control" placeholder="Giá mới">
+                                <input id="product-stock" type="text" class="form-control" placeholder="Giá hiện tại" name="product_price">
                             </div>
                         </div>
                     </div>
@@ -278,11 +224,9 @@
             </div>
             <!-- END: Product Management -->
             <div class="flex justify-end flex-col md:flex-row gap-2 mt-5">
-                <button type="button" class="btn py-3 border-slate-300 dark:border-darkmode-400 text-slate-500 w-full md:w-52">Cancel</button>
-                <button type="button" class="btn py-3 btn-primary w-full md:w-52">Lưu & Thêm sản phẩm
-                    mới</button>
+                <input type="submit" class="btn btn-primary mb-3" name="btnThem" value="Thêm sản phẩm mới">
             </div>
-        </div>
+        </form>
         <div class="intro-y col-span-2 hidden 2xl:block">
             <div class="pt-10 sticky top-0">
                 <!-- <ul class="text-slate-500 relative before:content-[''] before:w-[2px] before:bg-slate-200 before:dark:bg-darkmode-600 before:h-full before:absolute before:left-0 before:z-[-1]">

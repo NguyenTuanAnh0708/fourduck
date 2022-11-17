@@ -49,19 +49,19 @@
                             </a>
                             <ul class="">
                                 <li>
-                                    <a href="add_product.html" class="menu">
+                                    <a href="index.php?url=add_product" class="menu">
                                         <div class="menu__icon"> <i data-lucide="plus-circle"></i> </div>
                                         <div class="menu__title"> Thêm sản phẩm </div>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="product.html" class="menu">
+                                    <a href="index.php?url=product" class="menu">
                                         <div class="menu__icon"> <i data-lucide="shopping-cart"></i> </div>
                                         <div class="menu__title"> Sản phẩm </div>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="hoadon.html" class="menu menu--active">
+                                    <a href="index.php?url=hoadon" class="menu menu--active">
                                         <div class="menu__icon"> <i data-lucide="credit-card"></i> </div>
                                         <div class="menu__title"> Hóa đơn </div>
                                     </a>
