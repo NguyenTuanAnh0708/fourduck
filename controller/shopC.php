@@ -5,8 +5,15 @@ class shopC
     public function getAllShop()
     {
         $shop = new Shop();
+        $shop->updateStatus();
         $dataShop = $shop->getAll();
         return $dataShop;
+    }
+    public function getOneShop($id_shop)
+    {
+        $shop = new Shop;
+        $data = $shop->getOne($id_shop);
+        return $data;
     }
     public function amountProduct($id_shop)
     {
@@ -16,8 +23,16 @@ class shopC
     }
     public function amoutShop()
     {
-        $user = new Shop();
-        $amout = $user->amoutShop();
+        $shop = new Shop();
+        $amout = $shop->amoutShop();
         return $amout;
+    }
+    public function updateShop($id_shop, $month, $price)
+    {
+        $shop = new Shop();
+        $check = $shop->updateEndShop($id_shop, $month, $price);
+        if ($check) {
+            header('location:index.php?url=shop');
+        }
     }
 }
