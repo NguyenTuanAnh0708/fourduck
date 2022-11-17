@@ -138,9 +138,11 @@ if ($manage) {
                             $img_product_tmp = $_FILES['img_product']['tmp_name'];
 
                             $img_src = upload($img_product_tmp);
-                            $productManagerC->insertNewProductManager(
+                            $show = $productManagerC;
+                            
+                            $productManagerC->insertNewProductManager(                              
                                 '10',
-                                '100',
+                                '3',
                                 $name_product,
                                 $description_product,
                                 $amount_product,

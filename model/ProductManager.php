@@ -10,6 +10,6 @@ class ProductManage
          VALUES ('$id_shop','$id_cartegory','$name_product', '$description_product','$amount_product', '$price_product', '$img_src')
         ";
         $result = $conn->query($sql);
-        return $result;
+        return $sql;
     }
 }
