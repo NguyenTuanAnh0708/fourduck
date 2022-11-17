@@ -171,6 +171,7 @@ if ($manage) {
                     case 'add':
                         if (isset($_POST['addproduct'])) {
                             var_dump($_POST);
+                            $id_category = $_POST['get_category'];
                             $name_product = $_POST['name_product'];
                             $description_product = $_POST['description_product'];
                             $amount_product = $_POST['amount_product'];
@@ -180,10 +181,10 @@ if ($manage) {
 
                             $img_src = upload($img_product_tmp);
                             $show = $productManagerC;
-                            
-                            $productManagerC->insertNewProductManager(                              
-                                '10',
-                                '3',
+
+                            $productManagerC->insertNewProductManager(
+                                '1',
+                                $id_category,
                                 $name_product,
                                 $description_product,
                                 $amount_product,
@@ -196,6 +197,8 @@ if ($manage) {
                         break;
                 }
             }
+
+            $getAllDataCategory = $categoryC->getAllCategory();
             include './view/manage/add_product.php';
             break;
         case 'product':
