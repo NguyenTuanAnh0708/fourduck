@@ -9,18 +9,19 @@ require "./controller/eventC.php";
 require "./controller/categoryC.php";
 require "./controller/shopC.php";
 require "./controller/commentC.php";
+require "./controller/productManagerC.php";
 $userC = new userC();
 $eventC = new eventC();
 $categoryC = new categoryC();
 $shopC = new shopC();
 $commentC = new commentC();
+$productManagerC = new ProductManagerC();
 
 
 if ($admin) {
     if (!isset($_GET['url'])) {
         header('location:index.php?url=admin');
     }
-    // error_reporting(0);
     $url = $_GET['url'];
     include './view/admin/headerAdmin.php';
     switch ($url) {
@@ -123,6 +124,35 @@ if ($manage) {
             include './view/manage/manage.php';
             break;
         case 'add_product':
+            if (isset($_GET['act'])) {
+                $act = $_GET['act'];
+                switch ($act) {
+                    case 'add':
+                        if (isset($_POST['addproduct'])) {
+                            var_dump($_POST);
+                            $name_product = $_POST['name_product'];
+                            $description_product = $_POST['description_product'];
+                            $amount_product = $_POST['amount_product'];
+                            $price_product = $_POST['price_product'];
+                            $img_product = $_FILES['img_product']['name'];
+                            $img_product_tmp = $_FILES['img_product']['tmp_name'];
+
+                            $img_src = upload($img_product_tmp);
+                            $productManagerC->insertNewProductManager(
+                                '10',
+                                '100',
+                                $name_product,
+                                $description_product,
+                                $amount_product,
+                                $price_product,
+                                $img_src
+                            );
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
             include './view/manage/add_product.php';
             break;
         case 'product':
