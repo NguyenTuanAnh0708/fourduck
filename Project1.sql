@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost
--- Thời gian đã tạo: Th10 14, 2022 lúc 07:25 AM
+-- Thời gian đã tạo: Th10 17, 2022 lúc 04:54 PM
 -- Phiên bản máy phục vụ: 10.4.21-MariaDB
 -- Phiên bản PHP: 8.1.2
 
@@ -58,17 +58,16 @@ CREATE TABLE `Category` (
   `id_category` int(255) NOT NULL,
   `id_user` int(255) NOT NULL,
   `name_category` varchar(300) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `img_category` varchar(300) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `role` tinyint(4) NOT NULL DEFAULT 1
+  `img_category` varchar(300) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `Category`
 --
 
-INSERT INTO `Category` (`id_category`, `id_user`, `name_category`, `img_category`, `role`) VALUES
-(3, 10, 'áo quần', '', 1),
-(13, 8, 'Sửa con bò ', 'https://i.imgur.com/bJkPNpI.jpg', 0);
+INSERT INTO `Category` (`id_category`, `id_user`, `name_category`, `img_category`) VALUES
+(3, 10, 'áo quần', ''),
+(20, 8, 'Laptop xịn chất lượng', 'https://i.imgur.com/NJ5wj4z.jpg');
 
 -- --------------------------------------------------------
 
@@ -105,13 +104,6 @@ CREATE TABLE `Event` (
   `end_event` date NOT NULL,
   `status` bit(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `Event`
---
-
-INSERT INTO `Event` (`id_event`, `id_user`, `name_event`, `img_event`, `start_event`, `end_event`, `status`) VALUES
-(7, 8, '20/11', 'img/amin', '2022-11-14', '2022-11-15', b'0');
 
 -- --------------------------------------------------------
 
@@ -167,6 +159,11 @@ CREATE TABLE `Shop` (
   `name_shop` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `type_shop` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `img_shop` varchar(300) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `create_shop` date NOT NULL DEFAULT current_timestamp(),
+  `end_shop` date NOT NULL,
+  `price` int(255) NOT NULL DEFAULT 1000000,
+  `near_price` int(11) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 0,
   `create_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `update_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -175,8 +172,10 @@ CREATE TABLE `Shop` (
 -- Đang đổ dữ liệu cho bảng `Shop`
 --
 
-INSERT INTO `Shop` (`id_shop`, `id_user`, `name_shop`, `type_shop`, `img_shop`, `create_at`, `update_at`) VALUES
-(1, 10, 'shop quan ao', 'bán áo , quần các loại', 'shop/img', '2022-11-10 15:51:08', '2022-11-10 15:51:08');
+INSERT INTO `Shop` (`id_shop`, `id_user`, `name_shop`, `type_shop`, `img_shop`, `create_shop`, `end_shop`, `price`, `near_price`, `status`, `create_at`, `update_at`) VALUES
+(1, 10, 'shop quan ao', 'bán áo , quần các loại', 'shop/img', '2022-11-16', '2023-05-16', 119000000, 5000000, 0, '2022-11-10 15:51:08', '2022-11-16 16:58:12'),
+(2, 10, 'shop si lip', 'quan si lip siu dep', '', '2022-11-17', '2022-12-17', 20000000, 1000000, 0, '2022-11-16 09:42:35', '2022-11-16 17:03:29'),
+(3, 10, 'shop đồ chơi top 1 vn', 'siêu thị đồ chơi', 'img/toybanner', '2022-11-17', '2023-05-17', 6000000, 5000000, 0, '2022-11-16 17:32:30', '2022-11-17 15:09:01');
 
 -- --------------------------------------------------------
 
@@ -295,7 +294,7 @@ ALTER TABLE `Cart`
 -- AUTO_INCREMENT cho bảng `Category`
 --
 ALTER TABLE `Category`
-  MODIFY `id_category` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_category` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT cho bảng `Comment`
@@ -307,7 +306,7 @@ ALTER TABLE `Comment`
 -- AUTO_INCREMENT cho bảng `Event`
 --
 ALTER TABLE `Event`
-  MODIFY `id_event` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_event` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `OrderBill`
@@ -325,7 +324,7 @@ ALTER TABLE `Product`
 -- AUTO_INCREMENT cho bảng `Shop`
 --
 ALTER TABLE `Shop`
-  MODIFY `id_shop` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_shop` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `User`

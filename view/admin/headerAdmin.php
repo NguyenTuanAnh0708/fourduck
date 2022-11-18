@@ -42,6 +42,11 @@
         font-weight: bold;
         color: green;
     }
+
+    .disable {
+        opacity: 0.5;
+        pointer-events: none;
+    }
 </style>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -104,57 +109,38 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-header">ADMIN</li>
+                        <!-- <ul class="nav nav-treeview"> -->
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-book"></i>
-                                <p>
-                                    Quản lý
-                                    <i class="fas fa-angle-left right"></i>
-                                </p>
+                            <a href="index.php?url=category" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Quản lý loại</p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="index.php?url=category" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Quản lý loại</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="index.php?url=clienMange" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Quản lý khách hàng</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="index.php?url=comment_user" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Quản lý comment</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="index.php?url=shop" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Quản lý gian hàng</p>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-book"></i>
-                                <p>
-                                    Event
-                                    <i class="fas fa-angle-left right"></i>
-                                </p>
+                            <a href="index.php?url=clienMange" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Quản lý khách hàng</p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="index.php?url=event" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Event</p>
-                                    </a>
-                                </li>
-                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="index.php?url=comment_user" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Quản lý comment</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="index.php?url=shop" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Quản lý gian hàng</p>
+                            </a>
+                        </li>
+                        <!-- </ul> -->
+
+                        <li class="nav-item">
+                            <a href="index.php?url=event" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Event</p>
+                            </a>
                         </li>
                     </ul>
                 </nav>

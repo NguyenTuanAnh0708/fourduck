@@ -22,10 +22,24 @@ class categoryC
         $amount = $category->amoutCategoryA();
         return $amount;
     }
-    public function insertCategory($id_user, $name_category, $img_category, $role)
+    public function insertCategory($id_user, $name_category, $img_category)
     {
         $category = new Category();
-        $check = $category->insertCategory($id_user, $name_category, $img_category, $role);
+        $check = $category->insertCategory($id_user, $name_category, $img_category);
+        if ($check) {
+            header('location:index.php?url=category');
+        }
+    }
+    public function getOneCategory($id_category)
+    {
+        $category = new Category();
+        $data = $category->getOne($id_category);
+        return $data;
+    }
+    public function updateCategory($id_category, $name_category, $img_category)
+    {
+        $category = new Category();
+        $check = $category->updateCategory($id_category, $name_category, $img_category);
         if ($check) {
             header('location:index.php?url=category');
         }
