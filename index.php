@@ -1,6 +1,6 @@
 <?php
 ob_start();
-$admin = false;
+$admin = true;
 
 
 require "./upload/imgur.php";
@@ -153,7 +153,7 @@ if ($admin) {
     include './view/admin/footerAdmin.php';
 }
 // shoppp
-$manage = true;
+$manage = false;
 if ($manage) {
     if (!isset($_GET['url'])) {
         header('location:index.php?url=manage');
