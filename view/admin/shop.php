@@ -11,19 +11,6 @@
                     <h1 class="m-0">Quản lý cửa hàng</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <a href="index.php">Xem chi tiết từng tháng</a>
-                        <form action="">
-                            <select class="px-1">
-                                <?php
-                                for ($i = 1; $i <= 12; $i++) {
-                                    echo '<option value=' . $i . '> tháng' . $i . '</option>';
-                                }
-                                ?>
-                                <button />
-                        </form>
-                        </select>
-                    </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -69,7 +56,7 @@
                             <td><mark>$dateEnd</mark></td>
                             <td class=$class>$status</td>
                             <td>$row[near_price]đ</td>
-                            <td><a href=index.php?url=editShop&id_shop=$row[id_shop] class=$classEdit>Gia hạn thêm</a></td>
+                            <td><a href=index.php?url=editShop&id_shop=$row[id_shop] class=>Gia hạn thêm</a></td>
                             <td><a href=index.php?url=infoShop&id_shop=$row[id_shop]>Chi tiết</a></td>
                             </tr>";
                         echo $view;
@@ -83,10 +70,10 @@
                     ";
                 }
                 ?>
-                <tr class="bg-blue">
-                    <td colspan=3></td>
-                    <td colspan=3></td>
-                    <td colspan=3>Tổng doanh thu các tháng: <mark><?= $total ?>đ</mark></td>
+                <tr class="bg-light">
+                    <td colspan=5 class=end>Số lượng shop đang trong trạng thái ngừng hoạt động:</td>
+                    <td colspan=1></td>
+                    <td colspan=3 class=start>Số lượng shop đang trong trạng thái hoạt động:</td>
                 </tr>
             </table>
 

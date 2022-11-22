@@ -1,8 +1,6 @@
 <?php
 ob_start();
 $admin = true;
-
-
 require "./upload/imgur.php";
 require "./controller/userC.php";
 require "./controller/eventC.php";
@@ -10,12 +8,14 @@ require "./controller/categoryC.php";
 require "./controller/shopC.php";
 require "./controller/commentC.php";
 require "./controller/productManagerC.php";
+require "./controller/billShopC.php";
 $userC = new userC();
 $eventC = new eventC();
 $categoryC = new categoryC();
 $shopC = new shopC();
 $commentC = new commentC();
 $productManagerC = new ProductManagerC();
+$billShopC = new billShopC();
 
 
 if ($admin) {
@@ -66,7 +66,12 @@ if ($admin) {
                         $find = strpos($dataUpdate, '-');
                         $price = substr($dataUpdate, $find + 1, strlen($dataUpdate));
                         $month = substr($dataUpdate, 0, $find);
-                        $shopC->updateShop($id_shop, $month, $price);
+                        $check = $shopC->updateShop($id_shop, $month, $price);
+                        var_dump($check);
+                        if ($check) {
+                            $checkLol = $billShopC->inserBill($id_shop, $month, $price, 0);
+                            var_dump($checkLol);
+                        }
                         break;
                 }
             };
@@ -86,6 +91,22 @@ if ($admin) {
             }
             $dataOne = $shopC->getOneShop($id_shop);
             include './view/admin/infoShop.php';
+            break;
+        case "turnover":
+            $dataBillShop = $billShopC->getAllBillShop();
+            include './view/admin/turnover.php';
+            break;
+        case "request":
+            if (isset($_GET['act'])) {
+                $act = $_GET['act'];
+                switch ($act) {
+                    case 'update':
+                        $id_bill = $_GET['id_bill'];
+                        $billShopC->updateStatus(0, $id_bill);
+                }
+            }
+            $dataRequest = $billShopC->getAllRequest();
+            include './view/admin/request.php';
             break;
         case 'category':
             $dataCategory = $categoryC->getAllCategory();
@@ -170,7 +191,6 @@ if ($manage) {
                 switch ($act) {
                     case 'add':
                         if (isset($_POST['addproduct'])) {
-                            var_dump($_POST);
                             $id_category = $_POST['get_category'];
                             $name_product = $_POST['name_product'];
                             $description_product = $_POST['description_product'];

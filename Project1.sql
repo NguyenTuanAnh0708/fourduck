@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost
--- Thời gian đã tạo: Th10 17, 2022 lúc 04:54 PM
+-- Thời gian đã tạo: Th10 22, 2022 lúc 04:59 PM
 -- Phiên bản máy phục vụ: 10.4.21-MariaDB
 -- Phiên bản PHP: 8.1.2
 
@@ -34,6 +34,30 @@ CREATE TABLE `Bill` (
   `create_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `update_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `bill_shop`
+--
+
+CREATE TABLE `bill_shop` (
+  `id_bill` int(255) NOT NULL,
+  `id_shop` int(255) NOT NULL,
+  `extension_time` int(11) NOT NULL,
+  `price` int(255) NOT NULL,
+  `create_at` date NOT NULL DEFAULT current_timestamp(),
+  `status` tinyint(1) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `bill_shop`
+--
+
+INSERT INTO `bill_shop` (`id_bill`, `id_shop`, `extension_time`, `price`, `create_at`, `status`) VALUES
+(3, 1, 12, 10000000, '2022-11-19', 0),
+(4, 2, 12, 10000000, '2022-11-21', 0),
+(5, 4, 6, 5000000, '2022-11-21', 0);
 
 -- --------------------------------------------------------
 
@@ -105,6 +129,15 @@ CREATE TABLE `Event` (
   `status` bit(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `Event`
+--
+
+INSERT INTO `Event` (`id_event`, `id_user`, `name_event`, `img_event`, `start_event`, `end_event`, `status`) VALUES
+(9, 8, '20/11', 'https://img.websosanh.vn/v2/users/review/images/zkig08wkxzmoq.jpg?compress=85', '2022-11-18', '2022-11-30', b'0'),
+(10, 8, 'event 9/9', 'https://media.vneconomy.vn/w900/images/upload/2022/08/30/4d602d7e-2e88-42c3-a8b2-fa4e96ed53d7.jpg', '2022-09-09', '2022-09-11', b'1'),
+(11, 8, 'event 8/8', 'https://s3-ap-southeast-1.amazonaws.com/storage.adpia.vn/affiliate_document/img/shopee-8-8-SIEU-HOI-FREESHIP-700x400.jpg', '2022-08-08', '2022-08-11', b'1');
+
 -- --------------------------------------------------------
 
 --
@@ -173,9 +206,10 @@ CREATE TABLE `Shop` (
 --
 
 INSERT INTO `Shop` (`id_shop`, `id_user`, `name_shop`, `type_shop`, `img_shop`, `create_shop`, `end_shop`, `price`, `near_price`, `status`, `create_at`, `update_at`) VALUES
-(1, 10, 'shop quan ao', 'bán áo , quần các loại', 'shop/img', '2022-11-16', '2023-05-16', 119000000, 5000000, 0, '2022-11-10 15:51:08', '2022-11-16 16:58:12'),
-(2, 10, 'shop si lip', 'quan si lip siu dep', '', '2022-11-17', '2022-12-17', 20000000, 1000000, 0, '2022-11-16 09:42:35', '2022-11-16 17:03:29'),
-(3, 10, 'shop đồ chơi top 1 vn', 'siêu thị đồ chơi', 'img/toybanner', '2022-11-17', '2023-05-17', 6000000, 5000000, 0, '2022-11-16 17:32:30', '2022-11-17 15:09:01');
+(1, 10, 'shop quan ao', 'bán áo , quần các loại', 'shop/img', '2022-11-19', '2023-11-19', 189000000, 10000000, 0, '2022-11-10 15:51:08', '2022-11-19 15:40:31'),
+(2, 10, 'shop si lip', 'quan si lip siu dep', '', '2022-11-21', '2023-11-21', 40000000, 10000000, 0, '2022-11-16 09:42:35', '2022-11-21 04:19:36'),
+(3, 10, 'shop đồ chơi top 1 vn', 'siêu thị đồ chơi', 'img/toybanner', '2022-11-19', '2023-05-01', 11000000, 5000000, 0, '2022-11-16 17:32:30', '2022-11-21 04:18:05'),
+(4, 8, 'shop dừng hoạt động lâu năm\r\n', 'shop bán chất cấm và bán hòm', 'img/shop', '2022-11-21', '2023-05-21', 5000000, 5000000, 0, '2022-11-21 04:56:10', '2022-11-21 06:33:38');
 
 -- --------------------------------------------------------
 
@@ -215,6 +249,13 @@ INSERT INTO `User` (`id_user`, `name_user`, `gmail`, `password`, `img_user`, `ph
 ALTER TABLE `Bill`
   ADD PRIMARY KEY (`id_bill`),
   ADD KEY `buy` (`id_cart`);
+
+--
+-- Chỉ mục cho bảng `bill_shop`
+--
+ALTER TABLE `bill_shop`
+  ADD PRIMARY KEY (`id_bill`),
+  ADD KEY `id_shop` (`id_shop`);
 
 --
 -- Chỉ mục cho bảng `Cart`
@@ -285,6 +326,12 @@ ALTER TABLE `Bill`
   MODIFY `id_bill` int(255) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT cho bảng `bill_shop`
+--
+ALTER TABLE `bill_shop`
+  MODIFY `id_bill` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT cho bảng `Cart`
 --
 ALTER TABLE `Cart`
@@ -306,7 +353,7 @@ ALTER TABLE `Comment`
 -- AUTO_INCREMENT cho bảng `Event`
 --
 ALTER TABLE `Event`
-  MODIFY `id_event` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_event` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT cho bảng `OrderBill`
@@ -324,7 +371,7 @@ ALTER TABLE `Product`
 -- AUTO_INCREMENT cho bảng `Shop`
 --
 ALTER TABLE `Shop`
-  MODIFY `id_shop` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_shop` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `User`
@@ -341,6 +388,12 @@ ALTER TABLE `User`
 --
 ALTER TABLE `Bill`
   ADD CONSTRAINT `buy` FOREIGN KEY (`id_cart`) REFERENCES `Cart` (`id_cart`);
+
+--
+-- Các ràng buộc cho bảng `bill_shop`
+--
+ALTER TABLE `bill_shop`
+  ADD CONSTRAINT `bill_shop_ibfk_1` FOREIGN KEY (`id_shop`) REFERENCES `Shop` (`id_shop`);
 
 --
 -- Các ràng buộc cho bảng `Cart`
