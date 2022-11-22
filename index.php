@@ -128,7 +128,6 @@ if ($admin) {
                     case 'update':
                         if (isset($_POST['btnUpdate'])) {
                             $category_name = $_POST["category_name"];
-                            var_dump($category_name);
                             $file_tmp = $_FILES["file"]['tmp_name'];
                             $img_src = upload($file_tmp);
                             $id_category = $_GET['id_category'];
@@ -203,7 +202,7 @@ if ($manage) {
                             $show = $productManagerC;
 
                             $productManagerC->insertNewProductManager(
-                                '1',
+                                '3',
                                 $id_category,
                                 $name_product,
                                 $description_product,
@@ -222,13 +221,51 @@ if ($manage) {
             include './view/manage/add_product.php';
             break;
         case 'product':
+            if (isset($_GET['act'])) {
+                $act = $_GET['act'];
+                switch ($act) {
+                    case 'updateProduct':
+                        if (isset($_POST['updateProduct'])) {
+                            $id_product = $_GET['id_product'];
+                            $name_product = $_POST['name_product'];
+                            $description_product = $_POST['description_product'];
+                            $amount_product = $_POST['amount_product'];
+                            $price_product = $_POST['price_product'];
+                            $img_product = $_FILES['img_product']['name'];
+                            $img_product_tmp = $_FILES['img_product']['tmp_name'];
+                            $img_src = upload($img_product_tmp);
+                            $productManagerC->updateProduct($id_product, $name_product, $description_product, $amount_product, $price_product, $img_src);
+                        }
+                        break;
+                    case 'deleteProduct':
+                        $id_product = $_GET['id_product'];
+                        $productManagerC->deleteProduct($id_product);
+                        var_dump($id_product);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            $getAllProducts = $productManagerC->getAllProductById('3');
             include './view/manage/product.php';
             break;
         case 'hoadon':
             include './view/manage/hoadon.php';
             break;
+        case 'updateProduct':
+            if (isset($_GET['id_product'])) {
+                $id_product = $_GET['id_product'];
+                $dataProductId = $productManagerC->getProductById($id_product);
+            }
+            include "./view/manage/updateProduct.php";
+            break;
         default:
             break;
     }
     include './view/manage/footerManage.php';
+}
+$user = true;
+if ($user || $manage || $admin) {
+    include "./view/component/header.php";
+    include "./view/pages/home.php";
 }
