@@ -1901,7 +1901,7 @@
   */
             responsiveClass: true,
             autoHeight: true,
-            autoplayTimeout: 7000,
+            autoplayTimeout: 5000,
             smartSpeed: 800,
             nav: true,
             responsive: {
