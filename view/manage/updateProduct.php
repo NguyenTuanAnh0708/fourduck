@@ -1,10 +1,10 @@
 <div class="content">
-    <form action="index.php?url=add_product&act=add" method="post" enctype="multipart/form-data">
+    <form action="index.php?url=product&act=updateProduct&id_product=<?= $dataProductId['id_product'] ?>" method="POST" enctype="multipart/form-data">
         <div class="top-bar">
             <!-- BEGIN: Breadcrumb -->
             <nav aria-label="breadcrumb" class="-intro-x mr-auto hidden sm:flex">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item" aria-current="page"><a href="#">Thêm sản phẩm</a></li>
+                    <li class="breadcrumb-item" aria-current="page"><a href="#">Chỉnh sửa sản phẩm</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Trang chủ</li>
                 </ol>
             </nav>
@@ -65,7 +65,7 @@
                 <div class="intro-y box p-5">
                     <div class="border border-slate-200/60 dark:border-darkmode-400 rounded-md p-5">
                         <div class="font-medium text-base flex items-center border-b border-slate-200/60 dark:border-darkmode-400 pb-5">
-                            <i data-lucide="chevron-down" class="w-4 h-4 mr-2"></i> Ảnh sản phẩm
+                            <i data-lucide="chevron-down" class="w-4 h-4 mr-2"></i> Chỉnh sửa ảnh sản phẩm
                         </div>
                         <div class="mt-5">
                             <div class="flex items-center text-slate-500">
@@ -82,21 +82,22 @@
                                                 Yêu cầu</div>
                                         </div>
                                         <div class="leading-relaxed text-slate-500 text-xs mt-3">
-                                            <div>kích thước ảnh là bao nhiêu đó bla bla.</div>
-                                            <div class="mt-2">tối đa bao nhiêu ảnh bla bla.</div>
+                                            <div>kích thước ảnh là bao nhiêu đó.</div>
+                                            <div class="mt-2">tối đa bao nhiêu ảnh.</div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="w-full mt-3 xl:mt-0 flex-1 border-2 border-dashed dark:border-darkmode-400 rounded-md pt-4">
                                     <div class="grid grid-cols-10 gap-5 pl-4 pr-5">
                                         <div class="col-span-5 md:col-span-2 h-28 relative image-fit cursor-pointer zoom-in">
+                                            
                                             <!-- <img class="rounded-md" alt="Midone - HTML Admin Template" src="dist/images/preview-5.jpg"> -->
                                             <div id="selectedBanner" style="width: 100%; height:100%;"></div>
                                             <div title="Remove this image?" class="tooltip w-5 h-5 flex items-center justify-center absolute rounded-full text-white bg-danger right-0 top-0 -mr-2 -mt-2">
                                                 <i data-lucide="x" class="w-4 h-4"></i>
                                             </div>
                                         </div>
-                                       
+
                                     </div>
                                     <!-- file ảnh -->
                                     <div class="px-4 pb-4 mt-5 flex items-center justify-center cursor-pointer relative">
@@ -113,7 +114,7 @@
                 <div class="intro-y box p-5 mt-5">
                     <div class="border border-slate-200/60 dark:border-darkmode-400 rounded-md p-5">
                         <div class="font-medium text-base flex items-center border-b border-slate-200/60 dark:border-darkmode-400 pb-5">
-                            <i data-lucide="chevron-down" class="w-4 h-4 mr-2"></i> Thông tin sản phẩm
+                            <i data-lucide="chevron-down" class="w-4 h-4 mr-2"></i> Chỉnh sửa thông tin sản phẩm
                         </div>
                         <div class="mt-5">
                             <div class="form-inline items-start flex-col xl:flex-row mt-5 pt-5 first:mt-0 first:pt-0">
@@ -139,8 +140,8 @@
 
 
 
-
-                <div class="intro-y box p-5 mt-5">
+                <!-- LOẠI SẢN PHẨM  -->
+                <!-- <div class="intro-y box p-5 mt-5">
                     <div class="border border-slate-200/60 dark:border-darkmode-400 rounded-md p-5">
                         <div class="font-medium text-base flex items-center border-b border-slate-200/60 dark:border-darkmode-400 pb-5">
                             <i data-lucide="chevron-down" class="w-4 h-4 mr-2"></i> Thêm loại sản phẩm
@@ -169,13 +170,13 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <!-- END: Product Information -->
                 <!-- BEGIN: Product Detail -->
                 <div class="intro-y box p-5 mt-5">
                     <div class="border border-slate-200/60 dark:border-darkmode-400 rounded-md p-5">
                         <div class="font-medium text-base flex items-center border-b border-slate-200/60 dark:border-darkmode-400 pb-5">
-                            <i data-lucide="chevron-down" class="w-4 h-4 mr-2"></i> Chi tiết sản phẩm
+                            <i data-lucide="chevron-down" class="w-4 h-4 mr-2"></i> Chỉnh sửa chi tiết sản phẩm
                         </div>
                         <div class="mt-5">
                             <div class="form-inline items-start flex-col xl:flex-row mt-5 pt-5 first:mt-0 first:pt-0">
@@ -200,7 +201,7 @@
                                 </div>
                                 <div class="w-full mt-3 xl:mt-0 flex-1">
                                     <div class="editor">
-                                        <textarea name="description_product" id="" cols="60" rows="4"></textarea>
+                                        <textarea name="description_product" id="" cols="60" rows="4"><?= $dataProductId['description_product'] ?>"</textarea>
                                     </div>
                                     <div class="form-help text-right">Maximum character 0/2000</div>
                                 </div>
@@ -213,7 +214,7 @@
                 <div class="intro-y box p-5 mt-5">
                     <div class="border border-slate-200/60 dark:border-darkmode-400 rounded-md p-5">
                         <div class="font-medium text-base flex items-center border-b border-slate-200/60 dark:border-darkmode-400 pb-5">
-                            <i data-lucide="chevron-down" class="w-4 h-4 mr-2"></i> Quản lý sản phẩm
+                            <i data-lucide="chevron-down" class="w-4 h-4 mr-2"></i>  Chỉnh sửa quản lý sản phẩm
                         </div>
                         <div class="mt-5">
                         
@@ -229,7 +230,7 @@
                                     </div>
                                 </div>
                                 <div class="w-full mt-3 xl:mt-0 flex-1">
-                                    <input id="product-stock" name="amount_product" type="text" class="form-control" placeholder="Số lượng hàng">
+                                    <input id="product-stock" value="<?= $dataProductId['amount_product'] ?>" name="amount_product" type="text" class="form-control" placeholder="Số lượng hàng">
                                 </div>
                             </div>
 
@@ -244,7 +245,7 @@
                                     </div>
                                 </div>
                                 <div class="w-full mt-3 xl:mt-0 flex-1">
-                                    <input id="product-stock" type="text" name="price_product" class="form-control" placeholder="Giá sản phẩm">
+                                    <input id="product-stock" type="text" value="<?= $dataProductId['price_product'] ?>"" name="price_product" class="form-control" placeholder="Giá sản phẩm">
                                 </div>
                             </div>
 
@@ -255,7 +256,7 @@
                 <!-- END: Product Management -->
                 <div class="flex justify-end flex-col md:flex-row gap-2 mt-5">
                     <button type="button" class="btn py-3 border-slate-300 dark:border-darkmode-400 text-slate-500 w-full md:w-52">Cancel</button>
-                    <input type="submit"  class="btn py-3 btn-primary w-full md:w-52" name="addproduct" value="Thêm">
+                    <input type="submit"  class="btn py-3 btn-primary w-full md:w-52" name="updateProduct" value="Sửa">
                 </div>
             </div>
             <div class="intro-y col-span-2 hidden 2xl:block">
