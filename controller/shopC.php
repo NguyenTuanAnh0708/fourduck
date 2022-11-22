@@ -31,8 +31,6 @@ class shopC
     {
         $shop = new Shop();
         $check = $shop->updateEndShop($id_shop, $month, $price);
-        if ($check) {
-            header('location:index.php?url=shop');
-        }
+        return $check;
     }
 }

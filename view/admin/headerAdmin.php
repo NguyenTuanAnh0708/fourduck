@@ -134,6 +134,18 @@
                                 <p>Quản lý gian hàng</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="index.php?url=turnover" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Doanh thu fourduck</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="index.php?url=request" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Yêu cầu của khách hàng</p>
+                            </a>
+                        </li>
                         <!-- </ul> -->
 
                         <li class="nav-item">
