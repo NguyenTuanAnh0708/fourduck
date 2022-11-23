@@ -264,8 +264,10 @@ if ($manage) {
     }
     include './view/manage/footerManage.php';
 }
-$user = true;
+$user = false;
 if ($user || $manage || $admin) {
     include "./view/component/header.php";
+    $getAllDataCategory = $categoryC->getAllCategory();
+    var_dump($getAllDataCategory);
     include "./view/pages/home.php";
 }
