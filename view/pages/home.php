@@ -543,7 +543,39 @@
             </div> -->
             <div class="owl-slider">
                 <div id="carousel" class="owl-carousel">
+                <?php foreach ($showProductSale as $value) : ?>
                     <div class="item">
+                        <a href="" class="">
+                            <div class="home__product-items-saleoff">
+                                <div class="home__product-items-saleoff-percent">
+                                    <?= $value['sale'] ?>%
+                                </div>
+                                <div class="home__product-items-saleoff-label">
+                                    GIẢM
+                                </div>
+                            </div>
+                            <div class="carousel-item-child">
+                                <div class="carousel-sale">
+                                    <img src="https://cf.shopee.vn/file/86e4196ee16efe4b43e45d65cac2397c_tn" alt="">
+                                </div>
+                                <div class="carousel-item-product">
+                                    <img src="<?= $value['img_product'] ?>" alt="" class="max-height">
+                                </div>
+                            </div>
+                            <div class="carousel-item-title text-center mt-3">
+                            <?= $value['price_product'] ?>đ
+                            </div>
+                            <div class="has-sale mt-4">
+                                <div class="has-sale-task">
+                                    <div class="has-sale-title">
+                                        Đã bán 4
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                <?php endforeach; ?>
+                    <!-- <div class="item">
                         <a href="" class="">
                             <div class="home__product-items-saleoff">
                                 <div class="home__product-items-saleoff-percent">
@@ -842,7 +874,7 @@
                                 </div>
                             </div>
                         </a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
@@ -1384,6 +1416,27 @@
         <div class="container">
             <div class="top-sale-layout">
                 <div class="row">
+                <?php foreach ($topNewProducts as $value) : ?>
+                    <?php 
+                         $checkDiscount = "<div class='home__product-items-saleoff'>
+                         <div class='home__product-items-saleoff-percent'>
+                                 $value[sale]
+                         </div>
+                         <div class='home__product-items-saleoff-label'>
+                             GIẢM
+                         </div>
+                     </div>";
+                         if ($value['sale'] == 0) {
+                             $checkDiscount = " <div class='home__product-items-saleoff display-none-discount'>
+                             <div class='home__product-items-saleoff-percent'>
+                              
+                             </div>
+                             <div class='home__product-items-saleoff-label'>
+                                 GIẢM
+                             </div>
+                         </div>";
+                         }
+                         ?>
                     <div class="col-lg-2 col-md-3 col-sm-3 col-6 today-product-items mt-3 mb-3">
                         <div href="" class="top-layout-boder rounded">
 
@@ -1391,14 +1444,15 @@
                                 <i class="fas fa-check"></i>
                                 <span>Yêu thích</span>
                             </div>
-                            <div class="home__product-items-saleoff">
+                            <!-- <div class="home__product-items-saleoff">
                                 <div class="home__product-items-saleoff-percent">
-                                    50%
+                                <?= $value['sale'] ?>%
                                 </div>
                                 <div class="home__product-items-saleoff-label">
                                     GIẢM
                                 </div>
-                            </div>
+                            </div> -->
+                            <?php echo $checkDiscount ?>
                             <div class="today-item-child">
                                 <div class="today-sale">
                                     <img src="https://cf.shopee.vn/file/a95f5c1f7ab5a75d353e1f2e4258aaf2" alt="">
@@ -1430,420 +1484,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-md-3 col-sm-3 col-6 today-product-items mt-3 mb-3">
-                        <div href="" class="top-layout-boder rounded">
-
-                            <div class="home__product-items--favourite">
-                                <i class="fas fa-check"></i>
-                                <span>Yêu thích</span>
-                            </div>
-                            <div class="home__product-items-saleoff">
-                                <div class="home__product-items-saleoff-percent">
-                                    50%
-                                </div>
-                                <div class="home__product-items-saleoff-label">
-                                    GIẢM
-                                </div>
-                            </div>
-                            <div class="today-item-child">
-                                <div class="today-sale">
-                                    <img src="https://cf.shopee.vn/file/a95f5c1f7ab5a75d353e1f2e4258aaf2" alt="">
-                                </div>
-                                <div class="today-item-product">
-                                    <img src="https://cf.shopee.vn/file/sg-11134201-22100-anlsmqpv4live5_tn" alt="">
-                                </div>
-                                <div class="today-item-content mt-2 pl-2">
-                                    [Hàng mới về] Chai xịt thơm miệng Luckfine 15dung tích giữ mùi lâu không chứa cồn
-                                </div>
-                                <div class="today-item-price d-flex justify-content-between align-items-center mt-4 px-2">
-                                    <div class="price">
-                                        <span>
-                                            đ
-                                        </span>
-                                        <span class="price-money">
-                                            42.000
-                                        </span>
-                                    </div>
-                                    <div class="have-sale">
-                                        <span>
-                                            Đã bán
-                                        </span>
-                                        <span>
-                                            32,4k
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-3 col-sm-3 col-6 today-product-items mt-3 mb-3">
-                        <div href="" class="top-layout-boder rounded">
-
-                            <div class="home__product-items--favourite">
-                                <i class="fas fa-check"></i>
-                                <span>Yêu thích</span>
-                            </div>
-                            <div class="home__product-items-saleoff">
-                                <div class="home__product-items-saleoff-percent">
-                                    50%
-                                </div>
-                                <div class="home__product-items-saleoff-label">
-                                    GIẢM
-                                </div>
-                            </div>
-                            <div class="today-item-child">
-                                <div class="today-sale">
-                                    <img src="https://cf.shopee.vn/file/a95f5c1f7ab5a75d353e1f2e4258aaf2" alt="">
-                                </div>
-                                <div class="today-item-product">
-                                    <img src="https://cf.shopee.vn/file/sg-11134201-22100-anlsmqpv4live5_tn" alt="">
-                                </div>
-                                <div class="today-item-content mt-2 pl-2">
-                                    [Hàng mới về] Chai xịt thơm miệng Luckfine 15dung tích giữ mùi lâu không chứa cồn
-                                </div>
-                                <div class="today-item-price d-flex justify-content-between align-items-center mt-4 px-2">
-                                    <div class="price">
-                                        <span>
-                                            đ
-                                        </span>
-                                        <span class="price-money">
-                                            42.000
-                                        </span>
-                                    </div>
-                                    <div class="have-sale">
-                                        <span>
-                                            Đã bán
-                                        </span>
-                                        <span>
-                                            32,4k
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-3 col-sm-3 col-6 today-product-items mt-3 mb-3">
-                        <div href="" class="top-layout-boder rounded">
-
-                            <div class="home__product-items--favourite">
-                                <i class="fas fa-check"></i>
-                                <span>Yêu thích</span>
-                            </div>
-                            <div class="home__product-items-saleoff">
-                                <div class="home__product-items-saleoff-percent">
-                                    50%
-                                </div>
-                                <div class="home__product-items-saleoff-label">
-                                    GIẢM
-                                </div>
-                            </div>
-                            <div class="today-item-child">
-                                <div class="today-sale">
-                                    <img src="https://cf.shopee.vn/file/a95f5c1f7ab5a75d353e1f2e4258aaf2" alt="">
-                                </div>
-                                <div class="today-item-product">
-                                    <img src="https://cf.shopee.vn/file/sg-11134201-22100-anlsmqpv4live5_tn" alt="">
-                                </div>
-                                <div class="today-item-content mt-2 pl-2">
-                                    [Hàng mới về] Chai xịt thơm miệng Luckfine 15dung tích giữ mùi lâu không chứa cồn
-                                </div>
-                                <div class="today-item-price d-flex justify-content-between align-items-center mt-4 px-2">
-                                    <div class="price">
-                                        <span>
-                                            đ
-                                        </span>
-                                        <span class="price-money">
-                                            42.000
-                                        </span>
-                                    </div>
-                                    <div class="have-sale">
-                                        <span>
-                                            Đã bán
-                                        </span>
-                                        <span>
-                                            32,4k
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-3 col-sm-3 col-6 today-product-items mt-3 mb-3">
-                        <div href="" class="top-layout-boder rounded">
-
-                            <div class="home__product-items--favourite">
-                                <i class="fas fa-check"></i>
-                                <span>Yêu thích</span>
-                            </div>
-                            <div class="home__product-items-saleoff">
-                                <div class="home__product-items-saleoff-percent">
-                                    50%
-                                </div>
-                                <div class="home__product-items-saleoff-label">
-                                    GIẢM
-                                </div>
-                            </div>
-                            <div class="today-item-child">
-                                <div class="today-sale">
-                                    <img src="https://cf.shopee.vn/file/a95f5c1f7ab5a75d353e1f2e4258aaf2" alt="">
-                                </div>
-                                <div class="today-item-product">
-                                    <img src="https://cf.shopee.vn/file/sg-11134201-22100-anlsmqpv4live5_tn" alt="">
-                                </div>
-                                <div class="today-item-content mt-2 pl-2">
-                                    [Hàng mới về] Chai xịt thơm miệng Luckfine 15dung tích giữ mùi lâu không chứa cồn
-                                </div>
-                                <div class="today-item-price d-flex justify-content-between align-items-center mt-4 px-2">
-                                    <div class="price">
-                                        <span>
-                                            đ
-                                        </span>
-                                        <span class="price-money">
-                                            42.000
-                                        </span>
-                                    </div>
-                                    <div class="have-sale">
-                                        <span>
-                                            Đã bán
-                                        </span>
-                                        <span>
-                                            32,4k
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-3 col-sm-3 col-6 today-product-items mt-3 mb-3">
-                        <div href="" class="top-layout-boder rounded">
-
-                            <div class="home__product-items--favourite">
-                                <i class="fas fa-check"></i>
-                                <span>Yêu thích</span>
-                            </div>
-                            <div class="home__product-items-saleoff">
-                                <div class="home__product-items-saleoff-percent">
-                                    50%
-                                </div>
-                                <div class="home__product-items-saleoff-label">
-                                    GIẢM
-                                </div>
-                            </div>
-                            <div class="today-item-child">
-                                <div class="today-sale">
-                                    <img src="https://cf.shopee.vn/file/a95f5c1f7ab5a75d353e1f2e4258aaf2" alt="">
-                                </div>
-                                <div class="today-item-product">
-                                    <img src="https://cf.shopee.vn/file/sg-11134201-22100-anlsmqpv4live5_tn" alt="">
-                                </div>
-                                <div class="today-item-content mt-2 pl-2">
-                                    [Hàng mới về] Chai xịt thơm miệng Luckfine 15dung tích giữ mùi lâu không chứa cồn
-                                </div>
-                                <div class="today-item-price d-flex justify-content-between align-items-center mt-4 px-2">
-                                    <div class="price">
-                                        <span>
-                                            đ
-                                        </span>
-                                        <span class="price-money">
-                                            42.000
-                                        </span>
-                                    </div>
-                                    <div class="have-sale">
-                                        <span>
-                                            Đã bán
-                                        </span>
-                                        <span>
-                                            32,4k
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-3 col-sm-3 col-6 today-product-items mt-3 mb-3">
-                        <div href="" class="top-layout-boder rounded">
-
-                            <div class="home__product-items--favourite">
-                                <i class="fas fa-check"></i>
-                                <span>Yêu thích</span>
-                            </div>
-                            <div class="home__product-items-saleoff">
-                                <div class="home__product-items-saleoff-percent">
-                                    50%
-                                </div>
-                                <div class="home__product-items-saleoff-label">
-                                    GIẢM
-                                </div>
-                            </div>
-                            <div class="today-item-child">
-                                <div class="today-sale">
-                                    <img src="https://cf.shopee.vn/file/a95f5c1f7ab5a75d353e1f2e4258aaf2" alt="">
-                                </div>
-                                <div class="today-item-product">
-                                    <img src="https://cf.shopee.vn/file/sg-11134201-22100-anlsmqpv4live5_tn" alt="">
-                                </div>
-                                <div class="today-item-content mt-2 pl-2">
-                                    [Hàng mới về] Chai xịt thơm miệng Luckfine 15dung tích giữ mùi lâu không chứa cồn
-                                </div>
-                                <div class="today-item-price d-flex justify-content-between align-items-center mt-4 px-2">
-                                    <div class="price">
-                                        <span>
-                                            đ
-                                        </span>
-                                        <span class="price-money">
-                                            42.000
-                                        </span>
-                                    </div>
-                                    <div class="have-sale">
-                                        <span>
-                                            Đã bán
-                                        </span>
-                                        <span>
-                                            32,4k
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-3 col-sm-3 col-6 today-product-items mt-3 mb-3">
-                        <div href="" class="top-layout-boder rounded">
-
-                            <div class="home__product-items--favourite">
-                                <i class="fas fa-check"></i>
-                                <span>Yêu thích</span>
-                            </div>
-                            <div class="home__product-items-saleoff">
-                                <div class="home__product-items-saleoff-percent">
-                                    50%
-                                </div>
-                                <div class="home__product-items-saleoff-label">
-                                    GIẢM
-                                </div>
-                            </div>
-                            <div class="today-item-child">
-                                <div class="today-sale">
-                                    <img src="https://cf.shopee.vn/file/a95f5c1f7ab5a75d353e1f2e4258aaf2" alt="">
-                                </div>
-                                <div class="today-item-product">
-                                    <img src="https://cf.shopee.vn/file/sg-11134201-22100-anlsmqpv4live5_tn" alt="">
-                                </div>
-                                <div class="today-item-content mt-2 pl-2">
-                                    [Hàng mới về] Chai xịt thơm miệng Luckfine 15dung tích giữ mùi lâu không chứa cồn
-                                </div>
-                                <div class="today-item-price d-flex justify-content-between align-items-center mt-4 px-2">
-                                    <div class="price">
-                                        <span>
-                                            đ
-                                        </span>
-                                        <span class="price-money">
-                                            42.000
-                                        </span>
-                                    </div>
-                                    <div class="have-sale">
-                                        <span>
-                                            Đã bán
-                                        </span>
-                                        <span>
-                                            32,4k
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-3 col-sm-3 col-6 today-product-items mt-3 mb-3">
-                        <div href="" class="top-layout-boder rounded">
-
-                            <div class="home__product-items--favourite">
-                                <i class="fas fa-check"></i>
-                                <span>Yêu thích</span>
-                            </div>
-                            <div class="home__product-items-saleoff">
-                                <div class="home__product-items-saleoff-percent">
-                                    50%
-                                </div>
-                                <div class="home__product-items-saleoff-label">
-                                    GIẢM
-                                </div>
-                            </div>
-                            <div class="today-item-child">
-                                <div class="today-sale">
-                                    <img src="https://cf.shopee.vn/file/a95f5c1f7ab5a75d353e1f2e4258aaf2" alt="">
-                                </div>
-                                <div class="today-item-product">
-                                    <img src="https://cf.shopee.vn/file/sg-11134201-22100-anlsmqpv4live5_tn" alt="">
-                                </div>
-                                <div class="today-item-content mt-2 pl-2">
-                                    [Hàng mới về] Chai xịt thơm miệng Luckfine 15dung tích giữ mùi lâu không chứa cồn
-                                </div>
-                                <div class="today-item-price d-flex justify-content-between align-items-center mt-4 px-2">
-                                    <div class="price">
-                                        <span>
-                                            đ
-                                        </span>
-                                        <span class="price-money">
-                                            42.000
-                                        </span>
-                                    </div>
-                                    <div class="have-sale">
-                                        <span>
-                                            Đã bán
-                                        </span>
-                                        <span>
-                                            32,4k
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-3 col-sm-3 col-6 today-product-items mt-3 mb-3">
-                        <div href="" class="top-layout-boder rounded">
-
-                            <div class="home__product-items--favourite">
-                                <i class="fas fa-check"></i>
-                                <span>Yêu thích</span>
-                            </div>
-                            <div class="home__product-items-saleoff">
-                                <div class="home__product-items-saleoff-percent">
-                                    50%
-                                </div>
-                                <div class="home__product-items-saleoff-label">
-                                    GIẢM
-                                </div>
-                            </div>
-                            <div class="today-item-child">
-                                <div class="today-sale">
-                                    <img src="https://cf.shopee.vn/file/a95f5c1f7ab5a75d353e1f2e4258aaf2" alt="">
-                                </div>
-                                <div class="today-item-product">
-                                    <img src="https://cf.shopee.vn/file/sg-11134201-22100-anlsmqpv4live5_tn" alt="">
-                                </div>
-                                <div class="today-item-content mt-2 pl-2">
-                                    [Hàng mới về] Chai xịt thơm miệng Luckfine 15dung tích giữ mùi lâu không chứa cồn
-                                </div>
-                                <div class="today-item-price d-flex justify-content-between align-items-center mt-4 px-2">
-                                    <div class="price">
-                                        <span>
-                                            đ
-                                        </span>
-                                        <span class="price-money">
-                                            42.000
-                                        </span>
-                                    </div>
-                                    <div class="have-sale">
-                                        <span>
-                                            Đã bán
-                                        </span>
-                                        <span>
-                                            32,4k
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <?php endforeach; ?>
+                  
                 </div>
             </div>
         </div>
@@ -1891,7 +1533,7 @@
 
 
         jQuery("#carousel").owlCarousel({
-            autoplay: true,
+            // autoplay: true,
             loop: true,
             /* use rewind if you don't want loop */
             margin: 20,
@@ -1925,7 +1567,7 @@
 
 
         jQuery("#carousel-top-sale").owlCarousel({
-            autoplay: true,
+            // autoplay: true,
             loop:true,
             /* use rewind if you don't want loop */
             margin: 20,

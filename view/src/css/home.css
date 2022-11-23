@@ -365,7 +365,11 @@ html {
     margin: 0 2px 0 5px;
     color: #fff;
 }
-
+/* set max height  */
+.max-height {
+    min-height: 173.325px;
+    max-height: 173.325px;
+}
 /* lam lai */
 .top-sale-items {
     border: 1px solid rebeccapurple;
@@ -384,7 +388,9 @@ html {
     display: inline-block;
 
 }
-
+.display-none-discount {
+    display: none;
+}
 /* responsive */
 @media (max-width: 767.98px) {
     .banner-big-banner {

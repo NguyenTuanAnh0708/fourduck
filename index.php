@@ -1,6 +1,6 @@
 <?php
 ob_start();
-$admin = true;
+$admin = false;
 require "./upload/imgur.php";
 require "./controller/userC.php";
 require "./controller/eventC.php";
@@ -266,6 +266,9 @@ if ($manage) {
 }
 $user = true;
 if ($user || $manage || $admin) {
+    $showProductSale =  $productManagerC->selectProductsBySales();
+    $topNewProducts = $productManagerC -> TopTodayProducts();
     include "./view/component/header.php";
     include "./view/pages/home.php";
+    // $productManagerC = new ProductManagerC;
 }

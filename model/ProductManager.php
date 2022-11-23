@@ -54,4 +54,34 @@ class ProductManage
         $result = $conn->query($sql);
         return $result;
    }
+
+   public function seclectProductsBySale()
+   {
+        $conn = conn();
+        $sql = "SELECT * FROM product where sale > 20 limit 10";
+        $result = $conn -> query($sql);
+        $data = array();
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while ($row = $result->fetch_assoc()) {
+                $data[] = $row;
+            }
+        }
+        return $data;
+   }
+
+   public function topTodayProducts()
+   {
+     $conn = conn();
+     $sql = "SELECT * FROM product ORDER BY create_at DESC";
+     $result = $conn -> query($sql);
+     $data = array();
+     if ($result->num_rows > 0) {
+         // output data of each row
+         while ($row = $result->fetch_assoc()) {
+             $data[] = $row;
+         }
+     }
+     return $data;
+   }
 }

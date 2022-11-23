@@ -42,4 +42,18 @@ class ProductManagerC {
             header("Location: index.php?url=product");
         }
     }
+    
+    public function selectProductsBySales()
+    {
+        $ProductManage = new ProductManage;
+        $selectProductsBySale = $ProductManage -> seclectProductsBySale();
+        return $selectProductsBySale;
+    }
+
+    public function TopTodayProducts()
+    {
+       $ProductManage = new ProductManage;
+       $topTodayProducts = $ProductManage -> topTodayProducts();
+       return $topTodayProducts;
+    }
 }
