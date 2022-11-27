@@ -1,4 +1,4 @@
-html {
+html{
     font-size: 62.5%;
 }
 
@@ -57,6 +57,8 @@ html {
 .custom-margin-category {
     padding-left: 0px !important;
     padding-right: 0px !important;
+    width: 96px;
+    height: 120px;
 }
 
 .cartegory-items {
@@ -144,7 +146,7 @@ html {
 }
 
 .carousel-item-title {
-    font-size: 2rem;
+    font-size: 1.75rem;
     font-weight: 300;
     color: #EE4D2D;
     overflow: hidden;
@@ -305,15 +307,15 @@ html {
 }
 
 .today-item-content {
-    word-wrap: break-word;
-    white-space: normal;
+    font-size: 1.4rem;
+    color: var(--text-color);
+    line-height: 1.8rem;
+    height: 36px; 
+    margin: 10px 10px 6px ;
     overflow: hidden;
     display: -webkit-box;
-    text-overflow: ellipsis;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
-    color: rgba(0, 0, 0, .87);
-    font-size: 1.4rem;
 }
 
 .today-item-price .price {
@@ -321,7 +323,7 @@ html {
 }
 
 .today-item-price .price .price-money {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
 }
 
 .today-item-price .have-sale {
@@ -382,9 +384,9 @@ html {
 }
 
 .more-href {
-    min-width: 24.375rem;
-    height: 4rem;
-    font-size: 2rem;
+    min-width: 17.375rem;
+    height: 3rem;
+    font-size: 1.5rem;
     display: inline-block;
 
 }
@@ -485,4 +487,27 @@ html {
 
 .owl-nav button:focus {
     outline: none;
+}
+
+/*  */
+.option-today-custom-img {
+    height: 165px;
+    width: 165px;
+    object-fit: cover;
+}
+
+
+/*  */
+.flash-sale-title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.flash-sale-showall {
+    font-size: 1.5rem;
+    color: #ee4d2d;
+}
+.flash-sale-title a {
+    color: #ee4d2d;
+    text-decoration: none;
 }

@@ -2,11 +2,17 @@
 require "./model/ProductManager.php";
 class ProductManagerC {
 
+    public function getAllProduct()
+    {
+       $ProductManage = new ProductManage();
+       $getAllProduct = $ProductManage -> getAllProduct();
+       return $getAllProduct;
+    }
     public function getAllProductById($id_shop)
     {
         $ProductManage = new ProductManage();
-        $getAllProducts = $ProductManage -> getAllProductByid($id_shop);
-        return $getAllProducts;
+        $getAllProductsById = $ProductManage -> getAllProductByid($id_shop);
+        return $getAllProductsById;
     }
 
     public function insertNewProductManager($id_shop,$id_cartegory,$name_product, $description_product, $amount_product, $price_product,$img_src)
@@ -50,10 +56,22 @@ class ProductManagerC {
         return $selectProductsBySale;
     }
 
+    public function selectProductsBySalesAll()
+    {
+        $ProductManage = new ProductManage;
+        $selectProductsBySale = $ProductManage -> seclectProductsBySaleAll();
+        return $selectProductsBySale;
+    }
+
     public function TopTodayProducts()
     {
        $ProductManage = new ProductManage;
        $topTodayProducts = $ProductManage -> topTodayProducts();
        return $topTodayProducts;
+    }
+    public function pageDetailProduct($id_product)
+    {
+        
+        
     }
 }

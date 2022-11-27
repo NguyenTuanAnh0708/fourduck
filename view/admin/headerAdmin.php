@@ -27,6 +27,10 @@
     <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
 </head>
 <style>
+    html {
+        font-size: 85% !important;
+    }
+
     .table-category td {
         height: 30px;
         text-align: center;

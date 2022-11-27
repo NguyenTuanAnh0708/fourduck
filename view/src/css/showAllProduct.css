@@ -1,0 +1,213 @@
+:root {
+    --white-color: #fff;
+    --black-color: #000;
+    --text-color: #333;
+    --primary-color: #EE4D2D;
+    --gold-color: #FFCE3E;
+}
+
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* home-filter */
+.home__filter{
+    background-color: rgba(0, 0, 0, 0.04);
+    display: flex;
+    align-items: center;
+    padding: 12px 22px;
+    border-radius: 2px;
+    
+}
+.home__filter-page{
+    display: flex;
+    align-items: center;
+}
+.home__filter-title{
+    color: #555555;
+    font-size: 1.4rem;
+    margin-right: 16px;
+    
+}
+.home__filter-btn{
+    min-width: 90px;
+    height: 34px;
+    text-decoration: none;
+    border: none;
+    border-radius: 2px;
+    font-size: 1.5rem;
+    outline: none;
+    cursor: pointer;
+    color: var(--text-color);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.5rem;
+    padding: 0 12px;
+    background-color: var(--white-color);
+    margin-right: 12px;
+    box-shadow: 0 2px 4px rgb(219, 216, 216);
+}
+.home__filter-btn:hover{
+    opacity: 0.9;
+    color: var(--primary-color);
+}
+
+.home__filter-btn--primary{
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+.home__filter-btn--primary:hover{
+    color: var(--white-color);
+}
+/* phan select input */
+.selec__input{
+    width: 100%;
+    position: relative;
+    max-width: 200px;
+    height: 34px;
+    padding: 0 12px;
+    border-radius: 2px;
+    background-color: var(--white-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 100;
+    
+}
+.selec__input-lable{
+    font-size: 1.4rem;
+}
+.selec__input-icon {
+    font-size: 1.4rem;
+}
+.selec__input-list{
+    position: absolute;
+    left: 0;
+    top: 25px;
+    border-radius: 2px;
+    background-color: var(--white-color);
+    padding: 8px 16px;
+    list-style-type: none;
+    display: none;
+    
+}
+.selec__input-link {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.4rem;
+    display: block;
+    padding: 4px 0px;
+}
+.selec__input-link:hover {
+    color: var(--primary-color);
+}
+.selec__input{
+    box-shadow: 0 0 5px #ccc;
+}
+.selec__input-list {
+    display: none;
+}
+.selec__input:hover .selec__input-list{
+    display: inline-block;
+    z-index: 100;
+}
+.selec__input-item  .selec__input-link{
+    z-index: 100;
+}
+.home__filter-page{
+   margin-left: auto;
+}
+.home__filter-numb{
+    font-size: 1.4rem;
+    color: var(--text-color);
+    margin-right: 22px;
+}
+.home__filter-numb--curren{
+    color: var(--primary-color);
+}
+.home__filter-page-control{
+    border-radius: 2px;
+    overflow: hidden;
+    display: flex;
+    width: 72px;
+    height: 36px;
+    box-shadow: 0 2px 4px rgb(219, 216, 216);
+}
+.home__filter-page-icon {
+    margin: auto;
+    color: #555;
+    
+}
+.home__filter-page-btn--disable{
+    cursor: default;
+}
+.home__filter-page-btn--disable .home__filter-page-icon{
+    color: #ccc;
+}
+.home__filter-page-btn{
+    flex:1;
+    display: flex;
+    font-size: 1.4rem;
+    background-color: var(--white-color);
+    text-decoration: none;
+}
+.home__filter-page-btn:first-child{
+    border: 1px solid;
+    color: #eee;
+}
+.home__filter-page-control:last-child:hover{
+    opacity: 0.8;
+}
+
+.home__product-items-info{
+    font-size: 1.4rem;
+    color: var(--text-color);
+    line-height: 1.8rem;
+    height: 36px; 
+    margin: 10px 10px 6px ;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+.home__product-items-price{
+    font-size: 1.4rem;
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    
+    
+
+}
+.home__product-items-old{
+    font-size: 1.3rem;
+    color: #666;
+    text-decoration: line-through;
+    margin-left: 10px;
+    
+}
+.home__product-items-current{
+    color: var(--primary-color);
+    margin-left: 10px;
+
+}
+.home__product-items-action{
+    padding-top: 2px;
+    display: flex;
+    justify-content: flex-end; 
+    flex-wrap: wrap;
+    margin: 6px 10px 0;
+
+}
+.home__product-item--sold{
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-left: 3px;
+    
+}

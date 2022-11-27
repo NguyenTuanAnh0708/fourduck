@@ -18,6 +18,7 @@ header{
     height: 100%;
 }
 .header-innerSeach{
+    font-size: 16px;
     height: 40px;
     background-color: aliceblue;
     position: relative;

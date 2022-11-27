@@ -175,9 +175,7 @@ if ($admin) {
 // shoppp
 $manage = false;
 if ($manage) {
-    if (!isset($_GET['url'])) {
-        header('location:index.php?url=manage');
-    }
+    error_reporting(0);
     $url = $_GET['url'];
     include './view/manage/headerManage.php';
     switch ($url) {
@@ -265,10 +263,29 @@ if ($manage) {
     include './view/manage/footerManage.php';
 }
 $user = true;
-if ($user || $manage || $admin) {
+if ($user || !$manage || $admin) {
     $showProductSale =  $productManagerC->selectProductsBySales();
-    $topNewProducts = $productManagerC -> TopTodayProducts();
+    $topNewProducts = $productManagerC->TopTodayProducts();
+    $getAllDataCategory = $categoryC->getAllCategory();
+    error_reporting(0);
     include "./view/component/header.php";
-    include "./view/pages/home.php";
-    // $productManagerC = new ProductManagerC;
+    $url = $_GET['url'];
+    switch ($url) {
+        case 'detail-product':
+            $id_product = $_GET["id_product"];
+            $shopDetail = $productManagerC->pageDetailProduct($id_product);
+            break;
+        case 'top-sale':
+            include "./view/pages/showAllProducts.php";
+            $showProductSale =  $productManagerC->selectProductsBySalesAll();
+            break; 
+            
+        case 'show-all-product':
+            $getAllProduct = $productManagerC -> getAllProduct();
+            include "./view/pages/showAllProducts.php";
+            break;
+        default:
+            include "./view/pages/home.php";
+            break;
+    }
 }
