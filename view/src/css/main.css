@@ -42,6 +42,11 @@ header{
 .wapper-inner{
     margin: 0 auto;
 }
+.dropdown .dropdown-menu .dropdown-item{
+    display: inline-block;
+    padding: 5px 15px;
+    font-size: 18px;
+}
 .card-shop{
     padding: 10px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -69,9 +74,16 @@ header{
     padding:10px;
     border: 1px solid rgba(0, 0, 0, 0.67);
 }
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
 @media (min-width: 767.98px) {
     .wapper-inner{
         width: 1200px;
     }
 }
 /* end-shop-content */
+/*  */

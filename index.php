@@ -1,6 +1,6 @@
 <?php
 ob_start();
-$admin = true;
+session_start();
 require "./upload/imgur.php";
 require "./controller/userC.php";
 require "./controller/eventC.php";
@@ -16,8 +16,20 @@ $shopC = new shopC();
 $commentC = new commentC();
 $productManagerC = new ProductManagerC();
 $billShopC = new billShopC();
-
-
+if (isset($_SESSION['user'])) {
+    $permission = $_SESSION['user']['role'];
+    switch ($permission) {
+        case 0:
+            $admin = true;
+            break;
+        case 1:
+            $manage = true;
+            break;
+        case 2:
+            $user = true;
+            break;
+    }
+}
 if ($admin) {
     if (!isset($_GET['url'])) {
         header('location:index.php?url=admin');
@@ -166,14 +178,14 @@ if ($admin) {
             $amoutUser = $userC->amoutUser();
             $amountCategory = $categoryC->amoutCategoryA();
             $amountShop = $shopC->amoutShop();
-            include './view/admin/admin.php';
+        case 'logout':
+            unset($_SESSION['user']);
+            header('location:login.php');
         default:
             break;
     }
     include './view/admin/footerAdmin.php';
 }
-// shoppp
-$manage = false;
 if ($manage) {
     if (!isset($_GET['url'])) {
         header('location:index.php?url=manage');
@@ -264,10 +276,12 @@ if ($manage) {
     }
     include './view/manage/footerManage.php';
 }
-$user = false;
-if ($user || $manage || $admin) {
+if ($user) {
+    if (isset($_GET['url']) && $_GET['url'] == 'login') {
+        header('location:login.php');
+    };
     include "./view/component/header.php";
     $getAllDataCategory = $categoryC->getAllCategory();
-    var_dump($getAllDataCategory);
     include "./view/pages/home.php";
+    include "./view/pages/footer.php";
 }

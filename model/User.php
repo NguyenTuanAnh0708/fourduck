@@ -28,8 +28,25 @@ class User
             return null;
         }
     }
-    public function insertNewUser()
+    public function checkUserExist($gmail)
     {
+        $conn = conn();
+        $sql = "SELECT count(*) as 'count' FROM user WHERE gmail='$gmail'";
+        $result = $conn->query($sql);
+        $count = $result->fetch_assoc();
+        $parse = (int)$count['count'];
+        if ($parse > 0) {
+            return true;
+        } else {
+            return false;
+        };
+    }
+    public function insertNewUser($name, $gmail, $password, $img_user, $phone, $location, $role)
+    {
+        $conn = conn();
+        $sql = "INSERT INTO `User`(`name_user`, `gmail`, `password`, `img_user`, `phone`, `address`, `role`) VALUES ('$name','$gmail','$password','$img_user','$phone','$location','$role')";
+        $result = $conn->query($sql);
+        return $result;
     }
     public function deteleUser($id_user)
     {
