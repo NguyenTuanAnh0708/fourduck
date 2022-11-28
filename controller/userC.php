@@ -22,4 +22,31 @@ class userC
         $amout = $user->amoutUser();
         return $amout;
     }
+    public function checkUser($gmail, $password)
+    {
+        $user = new User();
+        $result = $user->getUser($gmail, $password);
+        if ($result == null) {
+            $errorLogin = 'errorLogin';
+            return $errorLogin;
+        } else {
+            $_SESSION["user"] = $result;
+            $okLogin = 'okLogin';
+            return $okLogin;
+        }
+    }
+    public function insertNew($name, $gmail, $password, $img_user, $phone, $location, $role)
+    {
+        $user = new User();
+        $result = $user->checkUserExist($gmail);
+        $errorRegister = "okRegister";
+        if ($result) {
+            $errorRegister = "errorRegister";
+            return $errorRegister;
+        }
+        $check = $user->insertNewUser($name, $gmail, $password, $img_user, $phone, $location, $role);
+        if ($check) {
+            return $errorRegister;
+        }
+    }
 }

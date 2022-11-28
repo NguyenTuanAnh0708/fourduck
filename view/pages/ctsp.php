@@ -1,23 +1,4 @@
 <div class="pd-wrap">
-        <header>
-            <div class="row header-inner align-items-center">
-                <div class="col-1 header-innerLogo ">
-                    <img class="float-start" src="../public/imgs/Logo4duck.png" alt="Logo4duck">
-                </div>
-                <div class="col-8 offset-1 header-innerSeach nopadding">
-                    <input class="header-innerSeach-input" type="text" placeholder="Sản phẩm bạn cần tìm......">
-                    <button class="header-innerSeach-button">
-                        <i class="bi bi-search"></i>
-                    </button>
-                </div>
-                <div class="col-1 offset-1 header-innerCart">
-                    logo cart
-                </div>
-            </div>
-            <div>
-              
-            </div>
-        </header>
         <div class="container">
             <div class="heading-section">
                 <h2></h2>
@@ -26,7 +7,7 @@
                 <div class="col-md-6">
                     <div class="col">
                         <div class="item">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQI6nUmObt62eDkqNSmIvCN_KkQExtbpJmUbVx_eTh_Y3v3r-Jw"
+                            <img style="width:350px; height: 400px; object-fit:cover; border:1px solid #ccc" src="<?php echo $shopDetail['img_product'] ?>"
                                 alt="..." id="MainImg" width="100%">
                         </div>
                     </div>
@@ -34,15 +15,15 @@
                 <div class="col-md-6 mt-3">
                     <div class="product-dtl">
                         <div class="product-info">
-                            <div class="product-name">QKCASE - Loa Bluetooth Mini - Loa Trứng Nhấp Nháy (Loa Blt)
+                            <div class="product-name"><?php echo $shopDetail['name_product'] ?>
                             </div>
                             <div class="reviews-counter">
 
                                 <span>| Đánh Giá |</span>
                                 <span> 1,3k Đã Bán </span>
                             </div>
-                            <div class="product-price-discount text-danger"><span><u>đ</u> 18.000 - <u>đ</u>
-                                    39.000</span></div>
+                            <div class="product-price-discount text-danger"><span>
+                            <?php echo $shopDetail['price_product'] ?></span><sup>vnđ</sup></div>
                         </div>
                         <div class="row">
                             <div class="col-sm-3">

@@ -71,7 +71,9 @@ class ProductManagerC {
     }
     public function pageDetailProduct($id_product)
     {
-        
+        $ProductManage = new ProductManage;
+        $detailProduct = $ProductManage -> selectProductById($id_product);
+        return $detailProduct;
         
     }
 }

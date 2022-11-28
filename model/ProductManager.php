@@ -72,7 +72,7 @@ class ProductManage
     public function seclectProductsBySale()
     {
         $conn = conn();
-        $sql = "SELECT * FROM product where sale > 20 limit 10";
+        $sql = "SELECT * FROM product where sale > 20 limit 7";
         $result = $conn->query($sql);
         $data = array();
         if ($result->num_rows > 0) {
@@ -111,6 +111,15 @@ class ProductManage
                 $data[] = $row;
             }
         }
+        return $data;
+    }
+
+    public function selectProductById($id_product)
+    {
+        $conn = conn();
+        $sql = "SELECT * FROM product where id_product = '$id_product'";
+        $result = $conn -> query($sql);
+        $data = $result->fetch_assoc();
         return $data;
     }
 }

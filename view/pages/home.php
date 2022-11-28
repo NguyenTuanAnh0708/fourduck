@@ -48,6 +48,7 @@
                 <a href="">
                     <div class="col- custom-margin-category">
                         <div class="cartegory-items">
+                            <img src="<?= $category['img_category'] ?>" alt="" style="max-width:100%; max-height:100%;">
                             <p style="color: black;"><?= $category['name_category'] ?></p>
                         </div>
                     </div>
@@ -73,7 +74,7 @@
             <div id="carousel" class="owl-carousel">
                 <?php foreach ($showProductSale as $value) : ?>
                     <div class="item">
-                        <a href="" class="">
+                        <a href="index.php?url=detail-product&id_product=<?= $value['id_product'] ?>" class="">
                             <div class="home__product-items-saleoff">
                                 <div class="home__product-items-saleoff-percent">
                                     <?= $value['sale'] ?>%

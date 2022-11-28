@@ -100,7 +100,7 @@ html{
 .carousel-item-child {
     position: relative;
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
 }
 
 .carousel-item-child .carousel-sale {

@@ -1,6 +1,6 @@
 <?php
+session_start();
 ob_start();
-$admin = false;
 require "./upload/imgur.php";
 require "./controller/userC.php";
 require "./controller/eventC.php";
@@ -16,8 +16,20 @@ $shopC = new shopC();
 $commentC = new commentC();
 $productManagerC = new ProductManagerC();
 $billShopC = new billShopC();
-
-
+if (isset($_SESSION['user'])) {
+    $permission = $_SESSION['user']['role'];
+    switch ($permission) {
+        case 0:
+            $admin = true;
+            break;
+        case 1:
+            $manage = true;
+            break;
+        case 2:
+            $user = true;
+            break;
+    }
+}
 if ($admin) {
     if (!isset($_GET['url'])) {
         header('location:index.php?url=admin');
@@ -167,13 +179,16 @@ if ($admin) {
             $amountCategory = $categoryC->amoutCategoryA();
             $amountShop = $shopC->amoutShop();
             include './view/admin/admin.php';
+            break;
+        case 'logout':
+            unset($_SESSION['user']);
+            header('location:login.php');
+            break;
         default:
             break;
     }
     include './view/admin/footerAdmin.php';
 }
-// shoppp
-$manage = false;
 if ($manage) {
     error_reporting(0);
     $url = $_GET['url'];
@@ -262,8 +277,10 @@ if ($manage) {
     }
     include './view/manage/footerManage.php';
 }
-$user = true;
-if ($user || !$manage || $admin) {
+if (true\){
+    if (isset($_GET['url']) && $_GET['url'] == 'login') {
+        header('location:login.php');
+    };
     $showProductSale =  $productManagerC->selectProductsBySales();
     $topNewProducts = $productManagerC->TopTodayProducts();
     $getAllDataCategory = $categoryC->getAllCategory();
@@ -274,6 +291,7 @@ if ($user || !$manage || $admin) {
         case 'detail-product':
             $id_product = $_GET["id_product"];
             $shopDetail = $productManagerC->pageDetailProduct($id_product);
+            include "./view/pages/ctsp.php";
             break;
         case 'top-sale':
             include "./view/pages/showAllProducts.php";
@@ -288,4 +306,6 @@ if ($user || !$manage || $admin) {
             include "./view/pages/home.php";
             break;
     }
+    include "./view/pages/footer.php";
 }
+
