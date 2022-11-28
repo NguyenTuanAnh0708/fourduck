@@ -41,7 +41,7 @@ if (isset($_POST['registerUser']) && $_POST['registerUser'] == "registerUser") {
         <div class="container sign-up-mode">
             <div class="forms-container ">
                 <div class="signin-signup">
-                    <form action="<?php echo $PHP_SELF; ?>" class="sign-up-form" method="Post" enctype="multipart/form-data">
+                    <form action="<?php $_SERVER['PHP_SELF'] ?>" class="sign-up-form" method="Post" enctype="multipart/form-data">
                         <h2 class=" title">Đăng Ký</h2>
 
                         <div class="input-field">
@@ -99,7 +99,7 @@ if (isset($_POST['registerUser']) && $_POST['registerUser'] == "registerUser") {
                             </a>
                         </button>
                     </div>
-                    <img src="./view//public/imgs/Logo4duck.png" class="image" alt="" />
+                    <img src="./view/public/imgs/Logo4duck.png" class="image" alt="" />
                 </div>
             </div>
         </div>

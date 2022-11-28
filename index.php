@@ -1,6 +1,6 @@
 <?php
-session_start();
 ob_start();
+session_start();
 require "./upload/imgur.php";
 require "./controller/userC.php";
 require "./controller/eventC.php";
@@ -30,6 +30,7 @@ if (isset($_SESSION['user'])) {
             break;
     }
 }
+
 if ($admin) {
     if (!isset($_GET['url'])) {
         header('location:index.php?url=admin');
@@ -277,7 +278,7 @@ if ($manage) {
     }
     include './view/manage/footerManage.php';
 }
-if (true\){
+if (true){
     if (isset($_GET['url']) && $_GET['url'] == 'login') {
         header('location:login.php');
     };
