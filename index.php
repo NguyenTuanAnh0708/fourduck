@@ -30,9 +30,13 @@ if (isset($_SESSION['user'])) {
             break;
     }
 }
-
-if ($admin) {
-    if (!isset($_GET['url'])) {
+if (!isset($_SESSION['active'])) {
+    $_SESSION['active'] = array(true, false);
+}
+// $sesstion[0]= trạng thái home
+// sesstion [1]=trạng thái các trang admin // owner
+if ($admin && $_SESSION['active'][1]) {
+    if (!isset($_GET['url']) || $_GET['url'] == "") {
         header('location:index.php?url=admin');
     }
     $url = $_GET['url'];
@@ -185,12 +189,17 @@ if ($admin) {
             unset($_SESSION['user']);
             header('location:login.php');
             break;
+        case 'backhome':
+            $_SESSION['active'] = array(true, false);
+            header('location:index.php');
+            break;
         default:
+
             break;
     }
     include './view/admin/footerAdmin.php';
 }
-if ($manage) {
+if ($manage && $_SESSION['active'][1]) {
     error_reporting(0);
     $url = $_GET['url'];
     include './view/manage/headerManage.php';
@@ -278,7 +287,7 @@ if ($manage) {
     }
     include './view/manage/footerManage.php';
 }
-if (true){
+if (true && $_SESSION['active'][0]) {
     if (isset($_GET['url']) && $_GET['url'] == 'login') {
         header('location:login.php');
     };
@@ -295,13 +304,20 @@ if (true){
             include "./view/pages/ctsp.php";
             break;
         case 'top-sale':
-            include "./view/pages/showAllProducts.php";
             $showProductSale =  $productManagerC->selectProductsBySalesAll();
-            break; 
-            
-        case 'show-all-product':
-            $getAllProduct = $productManagerC -> getAllProduct();
             include "./view/pages/showAllProducts.php";
+            break;
+        case 'show-all-product':
+            $getAllProduct = $productManagerC->getAllProduct();
+            include "./view/pages/showAllProducts.php";
+            break;
+        case 'backAdmin':
+            $_SESSION['active'] = array(false, true);
+            header('location:index.php');
+            break;
+        case 'logout':
+            unset($_SESSION['user']);
+            header('location:login.php');
             break;
         default:
             include "./view/pages/home.php";
@@ -309,4 +325,3 @@ if (true){
     }
     include "./view/pages/footer.php";
 }
-

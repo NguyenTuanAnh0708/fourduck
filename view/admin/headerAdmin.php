@@ -67,6 +67,9 @@
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="index.php?url=logout" class="nav-link">Đăng xuất</a>
                 </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="index.php?url=backhome" class="nav-link">Quay lại trang chủ</a>
+                </li>
             </ul>
 
             <!-- Right navbar links -->

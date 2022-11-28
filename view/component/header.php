@@ -41,12 +41,18 @@
                 <div class="col-1 offset-1 header-innerCart">
                     <?php
                     if (isset($_SESSION["user"])) {
+                        if ($_SESSION["user"]["role"] == 0) {
+                            $option = "<li><a class='dropdown-item' href='index.php?url=backAdmin'>Quay về admin</a></li>";
+                        } else if ($_SESSION["user"]["role"] == 1) {
+                            $option = "<li><a class='dropdown-item' href='#'>Quay về shop</a></li>";
+                        }
                         echo "<div class='dropdown'>
                         <img src=" . $_SESSION["user"]["img_user"] . " alt='' class='avatar dropdown-toggle' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
                         <ul class='dropdown-menu'>
                             <li><a class='dropdown-item' href='#'>Giỏ hàng</a></li>
                             <li><a class='dropdown-item' href='#'>Thông tin</a></li>
-                            <li><a class='dropdown-item' href='#'>Đăng xuất</a></li>
+                            <li><a class='dropdown-item' href='index.php?url=logout'>Đăng xuất</a></li>
+                            " . $option . "
                         </ul>
                     </div>";
                     } else {
