@@ -43,8 +43,8 @@
                     if (isset($_SESSION["user"])) {
                         if ($_SESSION["user"]["role"] == 0) {
                             $option = "<li><a class='dropdown-item' href='index.php?url=backAdmin'>Quay về admin</a></li>";
-                        } else if ($_SESSION["user"]["role"] == 1) {
-                            $option = "<li><a class='dropdown-item' href='#'>Quay về shop</a></li>";
+                        } else if ($_SESSION["user"]["role"] == 1 && $_SESSION["optionShop"]) {
+                            $option = "<li><a class='dropdown-item' href='index.php?url=backShop'>Quay về shop</a></li>";
                         }
                         echo "<div class='dropdown'>
                         <img src=" . $_SESSION["user"]["img_user"] . " alt='' class='avatar dropdown-toggle' role='button' data-bs-toggle='dropdown' aria-expanded='false'>

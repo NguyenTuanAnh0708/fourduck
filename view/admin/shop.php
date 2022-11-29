@@ -70,11 +70,6 @@
                     ";
                 }
                 ?>
-                <tr class="bg-light">
-                    <td colspan=5 class=end>Số lượng shop đang trong trạng thái ngừng hoạt động:</td>
-                    <td colspan=1></td>
-                    <td colspan=3 class=start>Số lượng shop đang trong trạng thái hoạt động:</td>
-                </tr>
             </table>
 
         </div>

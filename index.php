@@ -30,6 +30,10 @@ if (isset($_SESSION['user'])) {
             break;
     }
 }
+//  option admin
+if (isset($_SESSION["user"])) {
+    $userC->checkOptionOwner();
+}
 if (!isset($_SESSION['active'])) {
     $_SESSION['active'] = array(true, false);
 }
@@ -84,10 +88,8 @@ if ($admin && $_SESSION['active'][1]) {
                         $price = substr($dataUpdate, $find + 1, strlen($dataUpdate));
                         $month = substr($dataUpdate, 0, $find);
                         $check = $shopC->updateShop($id_shop, $month, $price);
-                        var_dump($check);
                         if ($check) {
                             $checkLol = $billShopC->inserBill($id_shop, $month, $price, 0);
-                            var_dump($checkLol);
                         }
                         break;
                 }
@@ -117,9 +119,18 @@ if ($admin && $_SESSION['active'][1]) {
             if (isset($_GET['act'])) {
                 $act = $_GET['act'];
                 switch ($act) {
-                    case 'update':
-                        $id_bill = $_GET['id_bill'];
-                        $billShopC->updateStatus(0, $id_bill);
+                    case 'accept':
+                        $id_bill = $_POST["id_bill"];
+                        $id_shop = $_POST["id_shop"];
+                        $price = $_POST["price"];
+                        $extension_time = $_POST["extension_time"];
+
+                        $check = $shopC->updateShop($id_shop, $extension_time, $price);
+                        if ($check) {
+                            $billShopC->updateStatus(0, $id_bill);
+                            header('location:index.php?url=shop');
+                        }
+                        break;
                 }
             }
             $dataRequest = $billShopC->getAllRequest();
@@ -186,10 +197,11 @@ if ($admin && $_SESSION['active'][1]) {
             include './view/admin/admin.php';
             break;
         case 'logout':
-            unset($_SESSION['user']);
+            session_destroy();
             header('location:login.php');
             break;
         case 'backhome':
+            // backhome
             $_SESSION['active'] = array(true, false);
             header('location:index.php');
             break;
@@ -294,10 +306,29 @@ if (true && $_SESSION['active'][0]) {
     $showProductSale =  $productManagerC->selectProductsBySales();
     $topNewProducts = $productManagerC->TopTodayProducts();
     $getAllDataCategory = $categoryC->getAllCategory();
-    error_reporting(0);
     include "./view/component/header.php";
     $url = $_GET['url'];
     switch ($url) {
+        case 'registerShop':
+            if (isset($_GET['act'])) {
+                $act = $_GET['act'];
+                switch ($act) {
+                    case 'addShop':
+                        if (isset($_POST["addShop"]) && $_POST["addShop"] == "addShop") {
+                            $id_user = $_SESSION['user']['id_user'];
+                            $name_shop = $_POST["nameShop"];
+                            $type_shop = $_POST["shopDescription"];
+                            $img_shop = upload($_FILES["avatar"]["tmp_name"]);
+                            $dataUpdate = $_POST['dataUpdate'];
+                            $find = strpos($dataUpdate, '-');
+                            $price = substr($dataUpdate, $find + 1, strlen($dataUpdate));
+                            $month = substr($dataUpdate, 0, $find);
+                            $shopC->insertShop($id_user, $name_shop, $type_shop, $img_shop, $month, $price, 1);
+                        }
+                }
+            }
+            include "./view/pages/registerShop.php";
+            break;
         case 'detail-product':
             $id_product = $_GET["id_product"];
             $shopDetail = $productManagerC->pageDetailProduct($id_product);
@@ -315,13 +346,19 @@ if (true && $_SESSION['active'][0]) {
             $_SESSION['active'] = array(false, true);
             header('location:index.php');
             break;
+        case 'backShop':
+            $_SESSION['active'] = array(false, true);
+            header('location:index.php');
+            break;
         case 'logout':
-            unset($_SESSION['user']);
+            session_destroy();
             header('location:login.php');
             break;
         default:
+            $shopC->checkStatusShop($_SESSION['user']['id_user'], $manage);
             include "./view/pages/home.php";
             break;
     }
     include "./view/pages/footer.php";
 }
+// session_destroy();

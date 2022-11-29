@@ -7,7 +7,6 @@ if (isset($_POST['login'])) {
     $gmail = $_POST["gmail"];
     $password = $_POST['password'];
     $errorLogin = $userC->checkUser($gmail, $password);
-    var_dump($errorLogin);
 }
 ?>
 <!DOCTYPE html>
@@ -78,7 +77,7 @@ if (isset($_POST['login'])) {
     <script src="./view/src/js/log.js"></script>
     <!-- partial -->
     <script>
-        // log error
+        // log error/////////////
         let errorLogin = '<?= $errorLogin ?>';
         if (errorLogin == 'errorLogin') {
             Swal.fire({

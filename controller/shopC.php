@@ -27,6 +27,28 @@ class shopC
         $amout = $shop->amoutShop();
         return $amout;
     }
+    public function checkStatusShop($id_user, $permission)
+    {
+        if ($permission) {
+            $shop = new Shop();
+            $amount = $shop->amoutShopById($id_user);
+            if ($amount <= 0) {
+                header('location:index.php?url=registerShop');
+            }
+        }
+    }
+    public function insertShop($id_user, $name_shop, $type_shop, $img_shop, $month, $price, $status)
+    {
+        $shop = new Shop();
+        $result = $shop->insertShop($id_user, $name_shop, $type_shop, $img_shop, 0, $status);
+        if ($result) {
+            $billShop = new BillShop();
+            $id_shop = $shop->getIdShop($id_user);
+            $check = $billShop->inserBill($id_shop, $month, $price, 1);
+            if ($check) {
+            }
+        }
+    }
     public function updateShop($id_shop, $month, $price)
     {
         $shop = new Shop();

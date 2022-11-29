@@ -40,7 +40,13 @@
                     <td><mark>$row[extension_time] tháng</mark></td>
                     <td>$row[price]</td>
                     <td>
-                    <a href=index.php?url=request&act=update&id_bill=$row[id_bill]><button class='btn btn-primary'>Chấp nhận</button></a>
+                    <form action=index.php?url=request&act=accept method=post>
+                    <input type=hidden value=$row[id_bill] name=id_bill>
+                    <input type=hidden value=$row[id_shop] name=id_shop>
+                    <input type=hidden value=$row[extension_time] name=extension_time>
+                    <input type=hidden value=$row[price] name=price>
+                    <button type='submit' class='btn btn-danger'>Chấp nhận</button>
+                    </form>
                     </td>
                     <td>
                     <a><button class='btn btn-danger'>Xoá</button></a>

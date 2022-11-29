@@ -35,6 +35,22 @@ class userC
             return $okLogin;
         }
     }
+    public function checkOptionOwner()
+    {
+        $shop = new Shop();
+        if ($_SESSION["user"]['role'] == 1) {
+            $_SESSION["optionShop"] = true;
+            $getShop = $shop->getIdShop($_SESSION["user"]["id_user"]);
+            if ($getShop == null) {
+                $_SESSION["optionShop"] = false;
+            } else {
+                $statusShop = $shop->getStatus($_SESSION["user"]["id_user"]);
+                if ($statusShop == 1) {
+                    $_SESSION["optionShop"] = false;
+                }
+            }
+        }
+    }
     public function insertNew($name, $gmail, $password, $img_user, $phone, $location, $role)
     {
         $user = new User();
