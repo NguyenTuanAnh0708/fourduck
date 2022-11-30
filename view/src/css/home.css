@@ -1,4 +1,4 @@
-html{
+html {
     font-size: 80%;
 }
 
@@ -55,9 +55,7 @@ html{
 }
 
 .custom-margin-category {
-    padding-left: 0px !important;
-    padding-right: 0px !important;
-    width: 96px;
+    width: 119px;
     height: 120px;
 }
 
@@ -85,6 +83,11 @@ html{
 .cartegory-items p {
     margin-bottom: 0;
     font-size: 16px;
+
+    /* overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; */
 }
 
 /* carousel */
@@ -127,7 +130,8 @@ html{
 .home__product-items-saleoff-percent {
     color: #EE4D2D;
     font-weight: 300;
-    font-size: 1.2rem;
+    font-size: 1rem;
+    font-weight: bold;
 
 }
 
@@ -309,10 +313,8 @@ html{
 .today-item-content {
     font-size: 1.4rem;
     color: var(--text-color);
-    line-height: 1.8rem;
-    height: 36px; 
-    margin: 10px 10px 6px ;
-    overflow: hidden;
+    height: 42px;
+    margin: 10px 10px 6px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
@@ -323,12 +325,12 @@ html{
 }
 
 .today-item-price .price .price-money {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 
 .today-item-price .have-sale {
     color: rgba(0, 0, 0, .54);
-    font-size: 1.2rem;
+    font-size: .9rem;
 }
 
 .home__product-items--favourite {
@@ -367,11 +369,13 @@ html{
     margin: 0 2px 0 5px;
     color: #fff;
 }
+
 /* set max height  */
 .max-height {
     min-height: 173.325px;
     max-height: 173.325px;
 }
+
 /* lam lai */
 .top-sale-items {
     border: 1px solid rebeccapurple;
@@ -390,9 +394,11 @@ html{
     display: inline-block;
 
 }
+
 .display-none-discount {
     display: none;
 }
+
 /* responsive */
 @media (max-width: 767.98px) {
     .banner-big-banner {
@@ -428,7 +434,7 @@ html{
         padding-right: 15px !important;
     }
 
-  
+
 }
 
 .sale-product-title {
@@ -498,15 +504,17 @@ html{
 
 
 /*  */
-.flash-sale-title{
+.flash-sale-title {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
+
 .flash-sale-showall {
     font-size: 1.5rem;
     color: #ee4d2d;
 }
+
 .flash-sale-title a {
     color: #ee4d2d;
     text-decoration: none;

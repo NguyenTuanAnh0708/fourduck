@@ -49,7 +49,7 @@
                     <div class="col- custom-margin-category">
                         <div class="cartegory-items">
                             <img src="<?= $category['img_category'] ?>" alt="" style="max-width:100%; max-height:100%;">
-                            <p style="color: black;"><?= $category['name_category'] ?></p>
+                            <p style="color: black; text-align:center;"><?= $category['name_category'] ?></p>
                         </div>
                     </div>
                 </a>

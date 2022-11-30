@@ -1,6 +1,7 @@
 <?php
 ob_start();
 session_start();
+error_reporting(0);
 require "./upload/imgur.php";
 require "./controller/userC.php";
 require "./controller/eventC.php";
@@ -237,7 +238,6 @@ if ($manage && $_SESSION['active'][1]) {
     if (!isset($_GET['url']) || $_GET['url'] == "") {
         header('location:index.php?url=manage');
     }
-    error_reporting(0);
     $url = $_GET['url'];
     include './view/manage/headerManage.php';
     switch ($url) {
@@ -310,7 +310,6 @@ if ($manage && $_SESSION['active'][1]) {
             }
             
             $id_shop = $shopC -> getIdShop($_SESSION['user']['id_user']);
-            var_dump($id_shop);
             $getAllProducts = $productManagerC->getAllProductById($id_shop);
             // var_dump($getAllProducts);
             include './view/manage/product.php';

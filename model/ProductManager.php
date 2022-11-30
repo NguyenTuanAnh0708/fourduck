@@ -72,7 +72,7 @@ class ProductManage
     public function seclectProductsBySale()
     {
         $conn = conn();
-        $sql = "SELECT * FROM product where sale > 20 limit 7";
+        $sql = "SELECT * FROM product where sale > 0 limit 7";
         $result = $conn->query($sql);
         $data = array();
         if ($result->num_rows > 0) {
