@@ -249,6 +249,20 @@
                                 </div>
                             </div>
 
+                            <div class="form-inline items-start flex-col xl:flex-row mt-5 pt-5 first:mt-0 first:pt-0">
+                                <div class="form-label xl:w-64 xl:!mr-10">
+                                    <div class="text-left">
+                                        <div class="flex items-center">
+                                            <div class="font-medium">Nhập số giảm giá theo %</div>
+                                          
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w-full mt-3 xl:mt-0 flex-1">
+                                    <input id="product-stock" type="text" value="<?= $dataProductId['sale'] ?>" name="sale_product" class="form-control" placeholder="Giá sản phẩm">
+                                </div>
+                            </div>
+
                     
                         </div>
                     </div>

@@ -220,6 +220,7 @@ if ($manage && $_SESSION['active'][1]) {
             include './view/manage/manage.php';
             break;
         case 'add_product':
+            $id_shop = $shopC -> getIdShop($_SESSION['user']['id_user']);
             if (isset($_GET['act'])) {
                 $act = $_GET['act'];
                 switch ($act) {
@@ -237,7 +238,7 @@ if ($manage && $_SESSION['active'][1]) {
                             $show = $productManagerC;
 
                             $productManagerC->insertNewProductManager(
-                                '3',
+                                $id_shop,
                                 $id_category,
                                 $name_product,
                                 $description_product,
@@ -256,6 +257,7 @@ if ($manage && $_SESSION['active'][1]) {
             include './view/manage/add_product.php';
             break;
         case 'product':
+            $id_shop = $shopC -> getIdShop($_SESSION['user']['id_user']);
             if (isset($_GET['act'])) {
                 $act = $_GET['act'];
                 switch ($act) {
@@ -266,22 +268,26 @@ if ($manage && $_SESSION['active'][1]) {
                             $description_product = $_POST['description_product'];
                             $amount_product = $_POST['amount_product'];
                             $price_product = $_POST['price_product'];
+                            $sale = $_POST['sale_product'];
                             $img_product = $_FILES['img_product']['name'];
                             $img_product_tmp = $_FILES['img_product']['tmp_name'];
                             $img_src = upload($img_product_tmp);
-                            $productManagerC->updateProduct($id_product, $name_product, $description_product, $amount_product, $price_product, $img_src);
+                            $productManagerC->updateProduct($id_product, $name_product, $description_product, $amount_product, $price_product, $img_src, $sale);
                         }
                         break;
                     case 'deleteProduct':
                         $id_product = $_GET['id_product'];
                         $productManagerC->deleteProduct($id_product);
-                        var_dump($id_product);
                         break;
                     default:
                         break;
                 }
             }
-            $getAllProducts = $productManagerC->getAllProductById('3');
+            
+            $id_shop = $shopC -> getIdShop($_SESSION['user']['id_user']);
+            var_dump($id_shop);
+            $getAllProducts = $productManagerC->getAllProductById($id_shop);
+            // var_dump($getAllProducts);
             include './view/manage/product.php';
             break;
         case 'hoadon':
@@ -300,6 +306,7 @@ if ($manage && $_SESSION['active'][1]) {
     include './view/manage/footerManage.php';
 }
 if (true && $_SESSION['active'][0]) {
+    error_reporting(0);
     if (isset($_GET['url']) && $_GET['url'] == 'login') {
         header('location:login.php');
     };
@@ -361,4 +368,3 @@ if (true && $_SESSION['active'][0]) {
     }
     include "./view/pages/footer.php";
 }
-// session_destroy();

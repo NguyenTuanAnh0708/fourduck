@@ -32,10 +32,10 @@ class ProductManagerC {
        return $getProductById;
     }
 
-    public function updateProduct($id_product,$name_product, $description_product, $amount_product, $price_product, $img_src)
+    public function updateProduct($id_product,$name_product, $description_product, $amount_product, $price_product, $img_src, $sale)
     {
        $ProductManage = new ProductManage;
-       $updateProduct = $ProductManage -> updateProduct($id_product,$name_product, $description_product, $amount_product, $price_product, $img_src);
+       $updateProduct = $ProductManage -> updateProduct($id_product,$name_product, $description_product, $amount_product, $price_product, $img_src, $sale);
         if ($updateProduct) {
             header("Location: index.php?url=product");
         }

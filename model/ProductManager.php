@@ -51,11 +51,11 @@ class ProductManage
         return $data;
     }
 
-    public function updateProduct($id_product, $name_product, $description_product, $amount_product, $price_product, $img_src)
+    public function updateProduct($id_product, $name_product, $description_product, $amount_product, $price_product, $img_src, $sale)
     {
         $conn = conn();
         $sql = "UPDATE product SET name_product='$name_product', description_product='$description_product', amount_product='$amount_product',
-     price_product='$price_product', img_product='$img_src' where id_product='$id_product'";
+     price_product='$price_product', img_product='$img_src', sale = '$sale' where id_product='$id_product'";
         $result = $conn->query($sql);
         return $result;
     }

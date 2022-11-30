@@ -55,4 +55,11 @@ class shopC
         $check = $shop->updateEndShop($id_shop, $month, $price);
         return $check;
     }
+
+    public function getIdShop($id_user)
+    {
+        $shop = new  Shop();
+        $idShop = $shop -> getIdShop($id_user);
+        return $idShop;
+    }
 }
