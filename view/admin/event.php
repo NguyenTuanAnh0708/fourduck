@@ -31,23 +31,23 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form act="index.php?url=event&act=add" method="POST" enctype="multipart/form-data" enctype="multipart/form-data">
+                            <form action="index.php?url=event&act=add" method="POST" enctype="multipart/form-data" enctype="multipart/form-data">
                                 <div class=" form-group">
                                     <label for="recipient-name" class="col-form-label">Tên sự kiện</label>
-                                    <input type="text" class="form-control" id="recipient-name">
+                                    <input type="text" class="form-control" id="recipient-name" name="name_event">
                                 </div>
                                 <div class="form-group">
                                     <label for="recipient-name" class="col-form-label">Ảnh miêu tả sự kiện</label>
-                                    <input type="file" class="form-control" id="recipient-name">
+                                    <input type="file" class="form-control" id="recipient-name" name="file">
                                 </div>
                                 <div class="form-group">
                                     <label for="message-text" class="col-form-label">Ngày kết thúc</label>
-                                    <input type="date" class="form-control" id="recipient-name">
+                                    <input type="date" class="form-control" id="recipient-name" name="end_event">
                                 </div>
 
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Send message</button>
+                                    <input type="submit" class="btn btn-primary" name="btnThem" value="Send message">
                                 </div>
                             </form>
                         </div>
@@ -88,7 +88,47 @@
                         <td>$row_id_user</td>
                         <td class=$class>$status</td>
                         <td>
-                        <a class='sua' href='index.php?url=event&act=editEvent&id_event=$row[id_event]'>Sửa</a> |
+                       
+                        <button type='button' class='btn btn-primary' data-toggle='modal' data-target='#exampleModal$row[id_event]'  data-whatever='@mdo'>sửa</button>
+                        <div class='modal fade' id='exampleModal$row[id_event]' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                            <div class='modal-dialog' role='document'>
+                                <div class='modal-content'>
+                                    <div class='modal-header'>
+                                        <h5 class='modal-title' id='exampleModalLabel'>Tạo sự kiện mới</h5>
+                                        <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                                            <span aria-hidden='true'>&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class='modal-body'>
+                                        <form action='index.php?url=event&act=update' method='POST' enctype='multipart/form-data' enctype='multipart/form-data'>
+                                        <div class=' form-group'>
+                                                <label for='recipient-name' class='col-form-label'>id_Event</label>
+                                                <input type='text' class='form-control' id='recipient-name' name='id_event' value='$row[id_event]' hidden>
+                                                <input type='text' class='form-control' id='recipient-name' name='id' value='$row[id_event]' disabled>
+                                            </div>
+                                            <div class=' form-group'>
+                                                <label for='recipient-name' class='col-form-label'>Tên sự kiện</label>
+                                                <input type='text' class='form-control' id='recipient-name' name='name_event' value='$row[name_event]'>
+                                            </div>
+                                            <div class='form-group'>
+                                                <label for='recipient-name' class='col-form-label'>Ảnh miêu tả sự kiện</label>
+                                                <input type='file' class='form-control' id='recipient-name' name='file' value='$row[img_event]'>
+                                            </div>
+                                            <div class='form-group'>
+                                                <label for='message-text' class='col-form-label'>Ngày kết thúc</label>
+                                                <input type='date' class='form-control' id='recipient-name' name='end_event' value='$row[end_event]'>
+                                            </div>
+            
+                                            <div class='modal-footer'>
+                                                <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
+                                                <input type='submit' class='btn btn-primary' name='btnUpdate' value='Send message'>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </a> |
                         <a class='xoa' href='index.php?url=event&act=delEvent&id_event=$row[id_event]'>Xóa</a>
                     </td>
                         </tr>

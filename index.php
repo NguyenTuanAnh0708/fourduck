@@ -16,6 +16,7 @@ $shopC = new shopC();
 $commentC = new commentC();
 $productManagerC = new ProductManagerC();
 $billShopC = new billShopC();
+// error_reporting(0);
 if (isset($_SESSION['user'])) {
     $permission = $_SESSION['user']['role'];
     switch ($permission) {
@@ -69,8 +70,24 @@ if ($admin && $_SESSION['active'][1]) {
                         $eventC->deleteEvent($id_event);
                         break;
                     case 'add':
-                        var_dump("okkkkkk");
-                        break;
+                        if (isset($_POST['btnThem'])) {
+                            $name_event = $_POST["name_event"];
+                            $file_tmp = $_FILES["file"]['tmp_name'];
+                            $img_src = upload($file_tmp);
+                            $end_event = $_POST['end_event'];
+                            $eventC->insertEvent(null, '8', $name_event, $img_src, $end_event);
+                            break;
+                        }
+                    case 'update':
+                        if (isset($_POST['btnUpdate'])) {
+                            $name_event = $_POST["name_event"];
+                            $file_tmp = $_FILES["file"]['tmp_name'];
+                            $img_src = upload($file_tmp);
+                            $end_event = $_POST['end_event'];
+                            $id_event = $_POST["id_event"];
+                            $eventC->updateEvent($id_event, $name_event, $img_src, $end_event);
+                            break;
+                        }
                 }
             }
             $event = new eventC();
@@ -131,6 +148,11 @@ if ($admin && $_SESSION['active'][1]) {
                             header('location:index.php?url=shop');
                         }
                         break;
+                    case 'del':
+                        $id_bill = $_GET['id_bill'];
+                        $billshopC->deleteStatus($id_bill);
+                        break;
+
                 }
             }
             $dataRequest = $billShopC->getAllRequest();
@@ -212,6 +234,9 @@ if ($admin && $_SESSION['active'][1]) {
     include './view/admin/footerAdmin.php';
 }
 if ($manage && $_SESSION['active'][1]) {
+    if (!isset($_GET['url']) || $_GET['url'] == "") {
+        header('location:index.php?url=manage');
+    }
     error_reporting(0);
     $url = $_GET['url'];
     include './view/manage/headerManage.php';
@@ -299,6 +324,11 @@ if ($manage && $_SESSION['active'][1]) {
                 $dataProductId = $productManagerC->getProductById($id_product);
             }
             include "./view/manage/updateProduct.php";
+            break;
+        case 'backhome':
+            // backhome
+            $_SESSION['active'] = array(true, false);
+            header('location:index.php');
             break;
         default:
             break;

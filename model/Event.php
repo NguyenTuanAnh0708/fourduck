@@ -84,6 +84,21 @@ class Event
         return $result;
     }
 
+    public function insertEvent($id_event, $id_user, $name_event, $img_event, $end_event)
+    {
+        $conn = conn();
+        $sql = "INSERT INTO event (id_event,id_user,name_event,img_event,end_event)
+        VALUES ('$id_event', '$id_user', '$name_event', '$img_event', '$end_event')";
+        $result = $conn->query($sql);
+        return $result;
+    }
+    public function updateEvent($id_event, $name_event, $img_event, $end_event)
+    {
+        $conn = conn();
+        $sql = "UPDATE event SET name_event='$name_event' ,img_event='$img_event', end_event='$end_event' where id_event='$id_event'";
+        $result = $conn->query($sql);
+        return $result;
+    }
 
     public function deleteEvent($id_event)
     {
