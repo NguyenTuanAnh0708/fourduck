@@ -52,19 +52,19 @@
                             </a>
                             <ul class="">
                                 <li>
-                                    <a href="add_product.html" class="menu">
+                                    <a href="add_product.php" class="menu">
                                         <div class="menu__icon"> <i data-lucide="plus-circle"></i> </div>
                                         <div class="menu__title"> Thêm sản phẩm </div>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="product.html" class="menu">
+                                    <a href="product.php" class="menu">
                                         <div class="menu__icon"> <i data-lucide="shopping-cart"></i> </div>
                                         <div class="menu__title"> Sản phẩm </div>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="hoadon.html" class="menu menu--active">
+                                    <a href="hoadon.php" class="menu menu--active">
                                         <div class="menu__icon"> <i data-lucide="credit-card"></i> </div>
                                         <div class="menu__title"> Hóa đơn </div>
                                     </a>
@@ -79,14 +79,14 @@
     <div class="flex mt-[4.7rem] md:mt-0">
         <!-- BEGIN: Side Menu -->
         <nav class="side-nav">
-            <a href="" class="intro-x flex items-center pl-5 pt-4">
+            <a href="index.php?url=manage" class="intro-x flex items-center pl-5 pt-4">
                 <img alt="Midone - HTML Admin Template" class="w-6" src="dist/images/logo.png">
                 <span class="hidden xl:block text-white text-lg ml-3"> FourDuck</span>
             </a>
             <div class="side-nav__devider my-6"></div>
             <ul>
                 <li>
-                    <a href="index.php" class="side-menu side-menu--active">
+                    <a href="index.php?url=manage" class="side-menu side-menu--active">
                         <div class="side-menu__icon"> <i data-lucide="home"></i> </div>
                         <div class="side-menu__title">
                             Trang chủ

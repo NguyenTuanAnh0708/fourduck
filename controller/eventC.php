@@ -22,8 +22,20 @@ class eventC
         }
     }
 
-    public function updateEvent($id_event)
+    public function insertEvent($id_event, $id_user, $name_event, $img_event, $end_event)
     {
-        echo ("oke");
+        $event = new Event();
+        $insertEvent = $event->insertEvent($id_event, $id_user, $name_event, $img_event, $end_event);
+        if ($insertEvent) {
+            header('location:index.php?url=event');
+        }
+    }
+    public function updateEvent($id_event, $name_event, $img_event, $end_event)
+    {
+        $event = new Event();
+        $updateEvent = $event->updateEvent($id_event, $name_event, $img_event, $end_event);
+        if ($updateEvent) {
+            header('location:index.php?url=event');
+        }
     }
 }
