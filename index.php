@@ -16,7 +16,7 @@ $shopC = new shopC();
 $commentC = new commentC();
 $productManagerC = new ProductManagerC();
 $billShopC = new billShopC();
-// error_reporting(0);
+error_reporting(0);
 if (isset($_SESSION['user'])) {
     $permission = $_SESSION['user']['role'];
     switch ($permission) {
@@ -209,7 +209,7 @@ if ($admin && $_SESSION['active'][1]) {
                 }
             }
             $comment = new commentC();
-            $dataComment = $commentC->getAllComment();
+            $data = $commentC->getAllComment();
             include './view/admin/comment.php';
             break;
         case 'admin':
@@ -362,8 +362,22 @@ if (true && $_SESSION['active'][0]) {
         case 'detail-product':
             $id_product = $_GET["id_product"];
             $shopDetail = $productManagerC->pageDetailProduct($id_product);
+            if (isset($_POST['btnCmt'])) {
+                echo $_POST["cmt"];
+                $id_comment = $_POST["id_comment"];
+                $id_user = $_SESSION['user']['id_user'];
+                $id_product = $shopDetail['id_product'];
+                $coment_data = $_POST["cmt"];
+                $commentC->insertComment($id_comment, $id_user, $id_product, $coment_data, $create_at);
+                
+            }
+            $comment = new commentC();
+            $data = $commentC->getComment($id_product);
             include "./view/pages/ctsp.php";
             break;
+        // case 'comment_shop':
+            
+                
         case 'top-sale':
             $showProductSale =  $productManagerC->selectProductsBySalesAll();
             include "./view/pages/showAllProducts.php";
