@@ -28,37 +28,61 @@
 <body>
     <div class="app">
         <header>
-            <div class="row header-inner align-items-center">
-                <div class="col-1 header-innerLogo ">
-                    <img class="float-start" src="./view/public/imgs/Logo4duck.png" alt="Logo4duck">
-                </div>
-                <div class="col-8 offset-1 header-innerSeach nopadding">
-                    <input class="header-innerSeach-input" type="text" placeholder="Sản phẩm bạn cần tìm......">
-                    <button class="header-innerSeach-button">
-                        <i class="bi bi-search"></i>
-                    </button>
-                </div>
-                <div class="col-1 offset-1 header-innerCart">
-                    <?php
-                    if (isset($_SESSION["user"])) {
-                        if ($_SESSION["user"]["role"] == 0) {
-                            $option = "<li><a class='dropdown-item' href='index.php?url=backAdmin'>Quay về admin</a></li>";
-                        } else if ($_SESSION["user"]["role"] == 1 && $_SESSION["optionShop"]) {
-                            $option = "<li><a class='dropdown-item' href='index.php?url=backShop'>Quay về shop</a></li>";
+            <div class="container">
+                <div class="row header-inner align-items-center">
+                    <div class="col-md-2 header-innerLogo ">
+                        <img class="float-start" src="./view/public/imgs/Logo4duck.png" alt="Logo4duck">
+                    </div>
+                    <div class="col-md-9 col-10  header-innerSeach nopadding">
+                        <!-- <input class="header-innerSeach-input" type="text" placeholder="Sản phẩm bạn cần tìm......"> -->
+                        <input class="form-control search-one-hover" id="myInput" type="text" placeholder="Search.." >
+                        <button class="header-innerSeach-button">
+                            <i class="bi bi-search"></i>
+                        </button>
+                        <div class="header__search-history">
+                                <h4 class="header__search-history-heading">
+                                    Lịch sử tìm kiếm
+                                </h4>
+                                <ul class="header__search-history-list">
+                                    <li class="header__search-history-item">
+                                        <a href="">Kem dưỡng da</a>
+                                    </li>
+                                    <li class="header__search-history-item">
+                                        <a href="">kakaka</a>
+                                    </li>
+                                    <li class="header__search-history-item">
+                                        <a href="">Son môi</a>
+                                    </li>
+                                    <li class="header__search-history-item">
+                                        <a href="">Quần áo nam</a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                    </div>
+                    <div class="col-md-1 col-2 header-innerCart">
+                        <?php
+                        if (isset($_SESSION["user"])) {
+                            if ($_SESSION["user"]["role"] == 0) {
+                                $option = "<li><a class='dropdown-item' href='index.php?url=backAdmin'>Quay về admin</a></li>";
+                            } else if ($_SESSION["user"]["role"] == 1 && $_SESSION["optionShop"]) {
+                                $option = "<li><a class='dropdown-item' href='index.php?url=backShop'>Quay về shop</a></li>";
+                            }
+                            echo "<div class='dropdown'>
+                            <img src=" . $_SESSION["user"]["img_user"] . " alt='' class='avatar dropdown-toggle' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
+                            <ul class='dropdown-menu'>
+                                <li><a class='dropdown-item' href='#'>Giỏ hàng</a></li>
+                                <li><a class='dropdown-item' href=''>Thông tin</a></li>
+                                <li><a class='dropdown-item' href='index.php?url=logout'>Đăng xuất</a></li>
+                                " . $option . "
+                            </ul>
+                        </div>";
+                        } else {
+                            echo '<a href="index.php?url=login" class="float-none"><i class="fa-solid fa-user"></i></a>';
                         }
-                        echo "<div class='dropdown'>
-                        <img src=" . $_SESSION["user"]["img_user"] . " alt='' class='avatar dropdown-toggle' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
-                        <ul class='dropdown-menu'>
-                            <li><a class='dropdown-item' href='#'>Giỏ hàng</a></li>
-                            <li><a class='dropdown-item' href='#'>Thông tin</a></li>
-                            <li><a class='dropdown-item' href='index.php?url=logout'>Đăng xuất</a></li>
-                            " . $option . "
-                        </ul>
-                    </div>";
-                    } else {
-                        echo '<a href="index.php?url=login">Login</a>';
-                    }
-                    ?>
+                        ?>
+                    </div>
+
                 </div>
             </div>
         </header>
