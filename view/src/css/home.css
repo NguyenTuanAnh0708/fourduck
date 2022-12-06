@@ -12,9 +12,15 @@ html {
 
 }
 
-/* .banner-big-banner {
-    padding-right: 4px !important;
-} */
+.class-category-margin {
+    margin-top: 100px;
+}
+
+.setup-height-banner {
+    height: 350px;
+    object-fit: cover;
+    width: 100%;
+}
 
 .banner-big-banner img {
     width: 100%;
@@ -131,7 +137,7 @@ html {
     color: #EE4D2D;
     font-weight: 300;
     font-size: 1rem;
-    font-weight: bold;
+    font-weight: boldgit ;
 
 }
 
@@ -419,10 +425,6 @@ html {
         display: none;
     }
 
-    /* .owl-nav {
-        display: none !important;
-    } */
-
     .w-100 {
         display: none;
     }
@@ -518,4 +520,8 @@ html {
 .flash-sale-title a {
     color: #ee4d2d;
     text-decoration: none;
+}
+
+.owl-carousel .owl-dots.disabled, .owl-carousel .owl-nav.disabled {
+    display: block !important;
 }

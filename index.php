@@ -48,6 +48,10 @@ if ($admin && $_SESSION['active'][1]) {
     $url = $_GET['url'];
     include './view/admin/headerAdmin.php';
     switch ($url) {
+        case 'editUser': 
+            $id_user = $_GET['id_user'];
+            echo $id_user;
+            break;
         case 'clienMange':
             if (isset($_GET['act'])) {
                 $act = $_GET['act'];
@@ -159,7 +163,7 @@ if ($admin && $_SESSION['active'][1]) {
             $dataRequest = $billShopC->getAllRequest();
             include './view/admin/request.php';
             break;
-        case 'category':
+        case 'category': 
             $dataCategory = $categoryC->getAllCategory();
             if (isset($_GET['act'])) {
                 $act = $_GET['act'];
@@ -311,7 +315,7 @@ if ($manage && $_SESSION['active'][1]) {
             
             $id_shop = $shopC -> getIdShop($_SESSION['user']['id_user']);
             $getAllProducts = $productManagerC->getAllProductById($id_shop);
-            // var_dump($getAllProducts);
+           
             include './view/manage/product.php';
             break;
         case 'hoadon':
@@ -342,6 +346,8 @@ if (true && $_SESSION['active'][0]) {
     $showProductSale =  $productManagerC->selectProductsBySales();
     $topNewProducts = $productManagerC->TopTodayProducts();
     $getAllDataCategory = $categoryC->getAllCategory();
+    $getAllEvent =$eventC -> getAllEvent();
+   
     include "./view/component/header.php";
     $url = $_GET['url'];
     switch ($url) {
@@ -367,8 +373,10 @@ if (true && $_SESSION['active'][0]) {
             break;
         case 'detail-product':
             $id_product = $_GET["id_product"];
-            $shopDetail = $productManagerC->pageDetailProduct($id_product);
+            $product_detail = $productManagerC->pageDetailProduct($id_product);
+           
             include "./view/pages/ctsp.php";
+           
             break;
         case 'top-sale':
             $showProductSale =  $productManagerC->selectProductsBySalesAll();
@@ -376,7 +384,13 @@ if (true && $_SESSION['active'][0]) {
             break;
         case 'show-all-product':
             $getAllProduct = $productManagerC->getAllProduct();
+            $getAllCategoryByNames = $categoryC -> getCategoryByName();
             include "./view/pages/showAllProducts.php";
+            break;
+        case 'product-category':
+            $id_category = $_GET['id_category'];
+            $product_category = $productManagerC -> ProductByCategory($id_category);
+            include "./view/pages/productbycategory.php";
             break;
         case 'backAdmin':
             $_SESSION['active'] = array(false, true);

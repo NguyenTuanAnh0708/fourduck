@@ -1,15 +1,9 @@
-<?php 
- var_dump($getAllCategoryByNames);
-?>
 
 <div class="margin"></div>
 <div class="container">
     <div class="row">
-        <div class="sidebar-show-all col-sm-2 ">
+        <div class="sidebar-show-all col-sm-2">
             <h2>Danh mục</h2>
-            <?php foreach ($getAllCategoryByNames as $values) : ?>
-                <div><a href="" style="font-size: 18px;"><?= $values['name_category'] ?></a></div>
-            <?php endforeach; ?>
         </div>
         <div class="container-product-show-all col-sm-10">
             <div class="home__filter">
@@ -39,86 +33,26 @@
                     </ul>
                 </div>
 
-               
+                <div class="home__filter-page">
+                    <span class="home__filter-numb">
+                        <span class="home__filter-numb--curren">1</span>/14
+
+                    </span>
+                    <div class="home__filter-page-control">
+                        <a href="" class="home__filter-page-btn home__filter-page-btn--disable">
+                            <i class="home__filter-page-icon fas fa-angle-left"></i>
+                        </a>
+                        <a href="" class="home__filter-page-btn">
+                            <i class="home__filter-page-icon fas fa-angle-right"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
 
             <!-- products -->
             <div class="top-sale-layout">
                 <div class="row">
-                    <?php foreach ($getAllProduct as $value) : ?>
-                        <?php
-                        $price = $value['price_product'];
-                        $discount = $value['sale'];
-                        $oldPrice = ($price * $discount) / 100;
-
-                       
-                     
-                            $checkPrice = "
-                            <div class='home__product-items-price'>
-                            <span class='home__product-items-old'> $value[price_product]</span>
-                            <span class='home__product-items-current'>$oldPrice đ</span>
-                        </div>";
-                        if ($value['sale'] < 10)  {
-                            $checkPrice = "<div class='home__product-items-price'>
-                            
-                            <span class='home__product-items-current'>$value[price_product] đ</span>
-                        </div>
-                            ";
-                        }
-                        ?>
-                        <?php
-                        $checkDiscount = "<div class='home__product-items-saleoff'>
-                         <div class='home__product-items-saleoff-percent'>
-                                 $value[sale]%
-                         </div>
-                         <div class='home__product-items-saleoff-label'>
-                             GIẢM
-                         </div>
-                     </div>";
-                        if ($value['sale'] == 0) {
-                            $checkDiscount = " <div class='home__product-items-saleoff display-none-discount'>
-                             <div class='home__product-items-saleoff-percent'>
-                              
-                             </div>
-                             <div class='home__product-items-saleoff-label'>
-                                 GIẢM
-                             </div>
-                         </div>";
-                        }
-                        ?>
-                        <div class="col-lg-2 col-md-3 col-sm-3 col-6 today-product-items mt-3 mb-3">
-                            <a href="index.php?url=detail-product&id_product=<?= $value['id_product'] ?>">
-                                <div class="top-layout-boder rounded">
-                                    <div class="home__product-items--favourite">
-                                        <i class="fas fa-check"></i>
-                                        <span>Yêu thích</span>
-                                    </div>
-                                    <?php echo $checkDiscount ?>
-                                    <div class="today-item-child">
-                                        <!-- <div class="today-sale">
-                                        <img src="https://cf.shopee.vn/file/a95f5c1f7ab5a75d353e1f2e4258aaf2" alt="">
-                                    </div> -->
-                                        <div class="today-item-product">
-                                            <img src="<?= $value['img_product'] ?>" alt="" class="option-today-custom-img">
-                                        </div>
-                                        <h5 class="today-item-content mt-2 pl-2">
-
-                                            <?= $value['name_product'] ?>
-
-                                        </h5>
-                                        <?php echo $checkPrice; ?>
-
-                                       
-                                    </div>
-                                </div>
-
-                            </a>
-                        </div>
-                    <?php endforeach; ?>
-
-
-                    <!-- TOP SALE -->
-                    <?php foreach ($showProductSale as $value) : ?>
+                    <?php foreach ($product_category as $value) : ?>
                         <?php
                         $checkDiscount = "<div class='home__product-items-saleoff'>
                          <div class='home__product-items-saleoff-percent'>
@@ -173,6 +107,9 @@
                             </a>
                         </div>
                     <?php endforeach; ?>
+
+                    <!-- TOP SALE -->
+
                 </div>
             </div>
         </div>
