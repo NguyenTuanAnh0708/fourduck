@@ -56,7 +56,7 @@
                             <td><mark>$dateEnd</mark></td>
                             <td class=$class>$status</td>
                             <td>$row[near_price]đ</td>
-                            <td><a href=index.php?url=editShop&id_shop=$row[id_shop] class=>Gia hạn thêm</a></td>
+                            <td><a href=index.php?url=editShop&id_shop=$row[id_shop] class=$classEdit>Gia hạn thêm</a></td>
                             <td><a href=index.php?url=infoShop&id_shop=$row[id_shop]>Chi tiết</a></td>
                             </tr>";
                         echo $view;

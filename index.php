@@ -153,7 +153,6 @@ if ($admin && $_SESSION['active'][1]) {
                         $id_bill = $_GET['id_bill'];
                         $billshopC->deleteStatus($id_bill);
                         break;
-
                 }
             }
             $dataRequest = $billShopC->getAllRequest();
@@ -245,7 +244,7 @@ if ($manage && $_SESSION['active'][1]) {
             include './view/manage/manage.php';
             break;
         case 'add_product':
-            $id_shop = $shopC -> getIdShop($_SESSION['user']['id_user']);
+            $id_shop = $shopC->getIdShop($_SESSION['user']['id_user']);
             if (isset($_GET['act'])) {
                 $act = $_GET['act'];
                 switch ($act) {
@@ -282,7 +281,7 @@ if ($manage && $_SESSION['active'][1]) {
             include './view/manage/add_product.php';
             break;
         case 'product':
-            $id_shop = $shopC -> getIdShop($_SESSION['user']['id_user']);
+            $id_shop = $shopC->getIdShop($_SESSION['user']['id_user']);
             if (isset($_GET['act'])) {
                 $act = $_GET['act'];
                 switch ($act) {
@@ -308,8 +307,8 @@ if ($manage && $_SESSION['active'][1]) {
                         break;
                 }
             }
-            
-            $id_shop = $shopC -> getIdShop($_SESSION['user']['id_user']);
+
+            $id_shop = $shopC->getIdShop($_SESSION['user']['id_user']);
             $getAllProducts = $productManagerC->getAllProductById($id_shop);
             // var_dump($getAllProducts);
             include './view/manage/product.php';
