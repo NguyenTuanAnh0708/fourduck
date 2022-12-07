@@ -1,3 +1,4 @@
+
 <?php
 ob_start();
 session_start();
@@ -446,3 +447,4 @@ if (true && $_SESSION['active'][0]) {
     }
     include "./view/pages/footer.php";
 }
+

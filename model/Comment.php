@@ -1,3 +1,4 @@
+
 <?php
 class Comment
 {
@@ -45,3 +46,4 @@ class Comment
         return $result;
     }
 }
+
