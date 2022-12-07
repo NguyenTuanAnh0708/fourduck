@@ -28,6 +28,25 @@ class User
             return null;
         }
     }
+    public function getUserById($id)
+    {
+        $conn = conn();
+        $sql = "SELECT * FROM user WHERE  id_user=$id";
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+            $data = $result->fetch_assoc();
+            return $data;
+        } else {
+            return null;
+        }
+    }
+    public function updateUser($id_user, $name, $gmail, $password, $img_user, $phone, $address)
+    {
+        $conn = conn();
+        $sql = "UPDATE `User` SET `name_user`='$name',`gmail`='$gmail',`password`='$password',`img_user`='$img_user',`phone`='$phone',`address`='$address' WHERE $id_user";
+        $result = $conn->query($sql);
+        return $result;
+    }
     public function checkUserExist($gmail)
     {
         $conn = conn();

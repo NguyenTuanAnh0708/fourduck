@@ -364,6 +364,25 @@ if (true && $_SESSION['active'][0]) {
             }
             include "./view/pages/registerShop.php";
             break;
+        case 'editform':
+            if (isset($_GET['act'])) {
+                $act = $_GET['act'];
+                switch ($act) {
+                    case 'editUser':
+                        $name = $_POST['name_user'];
+                        $gmail = $_POST['gmail'];
+                        $password = $_POST['password'];
+                        $phone = $_POST['phone'];
+                        $address = $_POST['address'];
+                        $img_user = upload($_FILES['img_user']['tmp_name']);
+                        $userC->updateUser($_SESSION['user']['id_user'], $name, $gmail, $password, $img_user, $phone, $address);
+                }
+            }
+            include "./view/pages/editform1.php";
+            break;
+        case 'formclient';
+            include "./view/pages/formclient.php";
+            break;
         case 'detail-product':
             $id_product = $_GET["id_product"];
             $shopDetail = $productManagerC->pageDetailProduct($id_product);

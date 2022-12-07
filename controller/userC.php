@@ -35,6 +35,15 @@ class userC
             return $okLogin;
         }
     }
+    public function updateUser($id_user, $name, $gmail, $password, $img_user, $phone, $address)
+    {
+        $user = new User();
+        $result = $user->updateUser($id_user, $name, $gmail, $password, $img_user, $phone, $address);
+        if ($result) {
+            $_SESSION['user'] = $user->getUserById($id_user);
+            header('location:index.php?url=formclient');
+        }
+    }
     public function checkOptionOwner()
     {
         $shop = new Shop();
