@@ -1,3 +1,4 @@
+
 <?php
 class Comment
 {
@@ -15,9 +16,10 @@ class Comment
         }
         return $data;
     }
-    public function getcomment($id_product){ 
+    public function getcomment($id_product)
+    {
         $conn = conn();
-        $sql = "SELECT comment.id_comment,name_user,id_shop,coment_data,img_user,comment.create_at from Comment INNER JOIN User on Comment.id_user=User.id_user AND Comment.id_product = '".$id_product."' INNER JOIN product on Comment.id_product=product.id_product ORDER BY create_at DESC;";
+        $sql = "SELECT comment.id_comment,name_user,id_shop,coment_data,img_user,comment.create_at from Comment INNER JOIN User on Comment.id_user=User.id_user AND Comment.id_product = '" . $id_product . "' INNER JOIN product on Comment.id_product=product.id_product ORDER BY create_at DESC;";
         $result = $conn->query($sql);
         $datacmt = array();
         if ($result->num_rows > 0) {
@@ -35,12 +37,13 @@ class Comment
         $result = $conn->query($sql);
         return $result;
     }
-    public function insertComment($id_comment, $id_user, $id_product, $coment_data)
+    public function insertComment($id_user, $id_product, $coment_data)
     {
         $conn = conn();
-        $sql = "INSERT INTO comment (id_comment,id_user,id_product,coment_data)
-        VALUES ('$id_comment', '$id_user', '$id_product', '$coment_data')";
+        $sql = "INSERT INTO comment (id_user,id_product,coment_data)
+        VALUES ('$id_user', '$id_product', '$coment_data')";
         $result = $conn->query($sql);
         return $result;
     }
 }
+

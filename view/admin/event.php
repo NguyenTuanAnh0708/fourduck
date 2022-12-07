@@ -47,7 +47,7 @@
 
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <input type="submit" class="btn btn-primary" name="btnThem" value="Send message">
+                                    <input type="submit" class="btn btn-primary" name="btnThem" value="Thêm">
                                 </div>
                             </form>
                         </div>

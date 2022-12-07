@@ -29,11 +29,18 @@ class shopC
     }
     public function checkStatusShop($id_user, $permission)
     {
+        $shop = new Shop();
+        $shop->updateStatus();
         if ($permission) {
-            $shop = new Shop();
             $amount = $shop->amoutShopById($id_user);
             if ($amount <= 0) {
                 header('location:index.php?url=registerShop');
+            } else {
+                $status = $shop->getStatus($id_user);
+                var_dump($status);
+                if ($status != 0) {
+                    header('location:index.php?url=editShop');
+                }
             }
         }
     }
@@ -45,7 +52,9 @@ class shopC
             $billShop = new BillShop();
             $id_shop = $shop->getIdShop($id_user);
             $check = $billShop->inserBill($id_shop, $month, $price, 1);
+
             if ($check) {
+                header("Location: index.php?url=success-register");
             }
         }
     }
@@ -59,7 +68,7 @@ class shopC
     public function getIdShop($id_user)
     {
         $shop = new  Shop();
-        $idShop = $shop -> getIdShop($id_user);
+        $idShop = $shop->getIdShop($id_user);
         return $idShop;
     }
 }

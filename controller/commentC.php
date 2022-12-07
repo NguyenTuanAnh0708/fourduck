@@ -1,3 +1,4 @@
+
 <?php
 require './model/Comment.php';
 class commentC
@@ -24,12 +25,14 @@ class commentC
             header('location: index.php?url=comment_user');
         }
     }
-    public function insertComment($id_comment, $id_user, $id_product, $coment_data, $create_at)
+    public function insertComment($id_user, $id_product, $coment_data, $create_at)
     {
         $comment = new Comment();
-        $check = $comment->insertComment($id_comment, $id_user, $id_product, $coment_data, $create_at);
+        $check = $comment->insertComment($id_user, $id_product, $coment_data, $create_at);
         if ($check) {
-            header('location:index.php?url=detail-product&id_product='.$id_product);
+            header('location:index.php?url=detail-product&id_product=' . $id_product);
         }
     }
 }
+
+

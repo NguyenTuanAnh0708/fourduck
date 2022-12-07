@@ -16,6 +16,23 @@ class ProductManage
         }
         return $data;
     }
+
+
+    public function selectProductByCategory($id_category)
+    {
+        $conn = conn();
+        $sql = "SELECT * FROM product where id_category='$id_category'";
+        $result = $conn->query($sql);
+        $data = array();
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while ($row = $result->fetch_assoc()) {
+                $data[] = $row;
+            }
+        }
+        return $data;
+    }
+
     public function getAllProductByid($id_shop)
     {
         $conn = conn();
@@ -102,7 +119,7 @@ class ProductManage
     public function  seclectProductsBySaleAll()
     {
         $conn = conn();
-        $sql = "SELECT * FROM product where sale > 10";
+        $sql = "SELECT * FROM product where sale >= 10";
         $result = $conn->query($sql);
         $data = array();
         if ($result->num_rows > 0) {
@@ -117,8 +134,19 @@ class ProductManage
     public function selectProductById($id_product)
     {
         $conn = conn();
-        $sql = "SELECT * FROM product where id_product = '$id_product'";
+        $sql = "SELECT * FROM product inner join shop on product.id_shop=shop.id_shop where id_product = '$id_product'";
         $result = $conn -> query($sql);
+        $data = $result->fetch_assoc();
+        return $data;
+    }
+
+
+    // category
+    public function getAllCategory()
+    {
+        $conn = conn();
+        $sql = "SELECT * FROM category";
+        $result = $conn->query($sql);
         $data = $result->fetch_assoc();
         return $data;
     }

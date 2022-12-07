@@ -8,6 +8,13 @@ class categoryC
         $dataCategory = $category->getAllCategory();
         return $dataCategory;
     }
+
+    public function getCategoryByName()
+    {
+        $category = new Category();
+        $dataNameCategory = $category -> getAllCategoryByName();
+        return $dataNameCategory;
+    }
     public function delCategory($id_category)
     {
         $category = new Category();
