@@ -72,7 +72,7 @@
                             <img src=" . $_SESSION["user"]["img_user"] . " alt='' class='avatar dropdown-toggle' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
                             <ul class='dropdown-menu'>
                                 <li><a class='dropdown-item' href='#'>Giỏ hàng</a></li>
-                                <li><a class='dropdown-item' href=''>Thông tin</a></li>
+                                <li><a class='dropdown-item' href='index.php?url=formclient&=$_SESSION[use]'>Thông tin</a></li>
                                 <li><a class='dropdown-item' href='index.php?url=logout'>Đăng xuất</a></li>
                                 " . $option . "
                             </ul>

@@ -60,7 +60,7 @@ if (isset($_POST['login'])) {
                             Khách hàng nhập đúng thông tin tài khoản để truy cập, không cung cấp thông tin tài khoản cho bất kỳ ai
                         </p>
                         <button class="btn transparent" id="sign-up-btn">
-                            <a href="register.php"> Đăng Ký</a>
+                            <a href="register.php" style="text-decoration: none;color:#fff"> Đăng Ký</a>
 
                         </button>
                     </div>

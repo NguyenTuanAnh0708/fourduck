@@ -94,7 +94,7 @@ if (isset($_POST['registerUser']) && $_POST['registerUser'] == "registerUser") {
                             Thành viên đăng ký tài khoản, vui lòng nhập đúng định dạng "Email"
                         </p>
                         <button class="btn transparent" id="sign-in-btn">
-                            <a href="login.php">
+                            <a href="login.php" style="text-decoration: none;color:#fff">
                                 Đăng Nhập
                             </a>
                         </button>

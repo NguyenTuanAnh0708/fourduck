@@ -345,6 +345,27 @@ if (true && $_SESSION['active'][0]) {
     include "./view/component/header.php";
     $url = $_GET['url'];
     switch ($url) {
+        case 'editform':
+            if (isset($_GET['act'])) {
+                $act = $_GET['act'];
+                switch ($act) {
+                    case 'editUser':
+                   $name=$_POST['name_user'];
+                   $gmail=$_POST['gmail'];
+                    $password = $_POST['password'];
+                    $phone = $_POST['phone'];
+                    $address=$_POST['address'];
+                    $img_user=upload($_FILES['img_user']['tmp_name']);
+                    var_dump($img_user);
+
+                }
+            }
+        include "./view/pages/editform.php";
+        break;
+    case 'formclient';
+  
+        include "./view/pages/formclient.php";
+        break;
         case 'registerShop':
             if (isset($_GET['act'])) {
                 $act = $_GET['act'];

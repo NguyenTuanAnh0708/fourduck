@@ -8,6 +8,13 @@ class userC
         $dataUser = $user->getAll();
         return $dataUser;
     }
+    
+    public function getAllUserclient($id_user)
+    {
+        $user = new user();
+        $getAlluserclient = $user->getAllUserclient($id_user);
+        return $getAlluserclient;
+    }
     public function delUser($id_user)
     {
         $user = new User();
@@ -33,6 +40,19 @@ class userC
             $_SESSION["user"] = $result;
             $okLogin = 'okLogin';
             return $okLogin;
+        }
+    }
+    public function checkuserclient($id_user,$name, $gmail, $password, $img_user, $phone, $address, $role)
+    {
+        $user = new User();
+        $result = $user->getAllUserclient($id_user,$name, $gmail, $password, $img_user, $phone, $address, $role);
+        if ($result == null) {
+            $errorUser = 'errorUser';
+            return $errorUser;
+        } else {
+            $_SESSION["user"] = $result;
+            $okUser = 'okUser';
+            return $okUser;
         }
     }
     public function checkOptionOwner()
@@ -64,5 +84,25 @@ class userC
         if ($check) {
             return $errorRegister;
         }
+    }
+     // public function updatetNew($id_uesr, $name, $gmail, $password, $img_user, $phone, $address, $role)
+    // {
+    //     $user = new User();
+    //     $result = $user->checkUserExist($_SESSION['user']);
+    //     $updateuser = "okUpdate";
+    //     if ($result) {
+    //         $updateuser = "updateuser";
+    //         return $updateuser;
+    //     }
+    //     $check = $user->updateNewUser($name, $gmail, $password, $img_user, $phone, $address, $role,$id_uesr );
+    //     if ($check) {
+    //         return $updateuser;
+    //     }
+    // }
+    public function getIdUser($id_user)
+    {
+        $user = new  user();
+        $id_user = $user-> getIdUser($id_user);
+        return $id_user;
     }
 }
