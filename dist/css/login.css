@@ -5,6 +5,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+a{
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
 
 body,
 input {
@@ -45,7 +50,7 @@ form {
   justify-content: center;
   flex-direction: column;
   padding: 0rem 5rem;
-  transition: all 0.2s 0.7s;
+  transition: all 0.2s 0.2s;
   overflow: hidden;
   grid-column: 1 / 2;
   grid-row: 1 / 2;
@@ -65,29 +70,30 @@ form.sign-in-form {
   color: #444;
   margin-bottom: 10px;
 }
-
 .input-field {
   max-width: 380px;
   width: 100%;
-  background-color: #f0f0f0;
   margin: 10px 0;
-  height: 55px;
-  border-radius: 55px;
-  display: grid;
-  grid-template-columns: 15% 85%;
-  padding: 0 0.4rem;
   position: relative;
 }
+.input-box{
+  padding: 0 10px;
+  background-color: #f0f0f0;
+  border-radius: 55px;
+}
 
-.input-field i {
+.input-box i {
   text-align: center;
   line-height: 55px;
   color: #acacac;
-  transition: 0.5s;
+  transition: 0.1s;
   font-size: 1.1rem;
 }
 
-.input-field input {
+.input-box input {
+  height: 100%;
+  width: 90%;
+  padding: 0 0.4rem;
   background: none;
   outline: none;
   border: none;
@@ -97,7 +103,7 @@ form.sign-in-form {
   color: #333;
 }
 
-.input-field input::placeholder {
+.input-box input::placeholder {
   color: #aaa;
   font-weight: 500;
 }
@@ -111,7 +117,13 @@ form.sign-in-form {
   display: flex;
   justify-content: center;
 }
-
+.input-box .select{
+  background-color: transparent;
+  border: none;
+  padding: 20px;
+  color: #000;
+  font-weight: bold;
+}
 .social-icon {
   height: 46px;
   width: 46px;
@@ -190,8 +202,12 @@ form.sign-in-form {
 }
 
 .left-panel {
+  position: relative;
   pointer-events: all;
-  padding: 3rem 17% 2rem 12%;
+  padding: 3rem 10% 2rem 12%;
+}
+.left-panel .alertClient{
+  max-width: 80%;
 }
 
 .right-panel {
@@ -200,11 +216,17 @@ form.sign-in-form {
 }
 
 .panel .content {
+  position: absolute;
   color: #fff;
   transition: transform 0.9s ease-in-out;
   transition-delay: 0.6s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-
+.login-alert{
+    right: 25%;
+}
 .panel h3 {
   font-weight: 600;
   line-height: 1;
@@ -225,7 +247,9 @@ form.sign-in-form {
   font-weight: 600;
   font-size: 0.8rem;
 }
-
+.btn.transparent:hover{
+  background-color:rgba(204, 204, 204, 0.3);
+}
 .right-panel .image,
 .right-panel .content {
   transform: translateX(800px);
@@ -269,8 +293,15 @@ form.sign-in-form {
 .container.sign-up-mode .right-panel {
   pointer-events: all;
 }
-
+.error{
+  width: 100%;
+  font-weight: bold;
+  color: #d8143b;
+}
 @media (max-width: 870px) {
+  .panel .content{
+    right: 0;
+  }
   .container {
     min-height: 800px;
     height: 100vh;
@@ -284,6 +315,7 @@ form.sign-in-form {
 
   .signin-signup,
   .container.sign-up-mode .signin-signup {
+    top:75%;
     left: 50%;
   }
 

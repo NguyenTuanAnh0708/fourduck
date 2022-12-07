@@ -1,36 +1,36 @@
 
 
-
 <div class="container">
     <div class="banner mt-4 row">
         <div class="banner-big-banner col-lg-12 col-md-12 custom-padding-right-banner">
-            <!-- <img src="https://cf.shopee.vn/file/3b933ed02f4fc1bc44744333ae5dfb25_xxhdpi" class=""> -->
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                    <?php  foreach ($getAllEvent as $value) :?>
-                        <div class="carousel-item active">
-                            <img class="d-block w-100 setup-height-banner" src="<?= $value['img_event'] ?>">
-                        </div>
+            <div class="owl-slider-banner">
+                <div id="owl-slider-banner" class="owl-carousel">
+                    <?php foreach ($getAllEvent as $value) : ?>
+                        <?php
+                            $status = $value['status'];
+                         
+                           
+                            $banner = " 
+                                    <div class='item '>
+                                        <img src='$value[img_event]' alt='' class='setup-height-banner'>
+                                    </div>
+                               ";
+                            if ( $status != 0) {
+                                $banner = " <div class='items'>
+                                <img src='https://images.glints.com/unsafe/glints-dashboard.s3.amazonaws.com/company-banner-pic/b61ed4ead2296f2695da4d16d4369a9a.png' class='setup-height-banner'>
+                                </div>
+                                ";
+                            }
+                       
+                        ?>
+                        <?php echo $banner; ?>
                     <?php endforeach; ?>
-
                 </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
             </div>
+            
         </div>
     </div>
-    
+
 
 
     <!-- danh mục -->
@@ -411,7 +411,7 @@
     </div>
 
     <div class="margin"></div>
-    <h2 class="mt-4 mb-4" style="color: #EE4D2D;">SẢN PHẨM BÁN CHẠY</h2>
+    <!-- <h2 class="mt-4 mb-4" style="color: #EE4D2D;">SẢN PHẨM BÁN CHẠY</h2> -->
     <!-- <div class="top-sale">
                 <div class="owl-carousel owl-theme owl-loaded">
                     <div class="item">
@@ -693,7 +693,7 @@
                 </div>
             </div> -->
 
-        <!-- <div class="owl-slider">
+    <!-- <div class="owl-slider">
             <div id="carousel-top-sale" class="owl-carousel">
                 <div class="item">
                     <div class="top-sale-carousel-item">
@@ -970,8 +970,8 @@
                                     <div class="today-item-product">
                                         <img src="<?= $value['img_product'] ?>" alt="" class="option-today-custom-img">
                                     </div>
-                                    <h5 class="today-item-content mt-2 pl-2">                                       
-                                            <?= $value['name_product'] ?>                                       
+                                    <h5 class="today-item-content mt-2 pl-2">
+                                        <?= $value['name_product'] ?>
                                     </h5>
                                     <div class="today-item-price d-flex justify-content-between align-items-center mt-4 px-2">
                                         <div class="price">
@@ -1114,6 +1114,39 @@
 
             1366: {
                 items: 6
+            }
+        }
+    });
+
+    jQuery("#owl-slider-banner").owlCarousel({
+        autoplay: true,
+        loop: true,
+        /* use rewind if you don't want loop */
+        margin: 20,
+        /*
+  animateOut: 'fadeOut',
+  animateIn: 'fadeIn',
+  */
+        responsiveClass: true,
+        autoHeight: true,
+        autoplayTimeout: 7000,
+        smartSpeed: 800,
+        nav: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+
+            600: {
+                items: 1
+            },
+
+            1024: {
+                items: 1
+            },
+
+            1366: {
+                items: 1
             }
         }
     });

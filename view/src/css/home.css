@@ -88,7 +88,7 @@ html {
 
 .cartegory-items p {
     margin-bottom: 0;
-    font-size: 16px;
+    font-size: 12px;
 
     /* overflow: hidden;
     display: -webkit-box;
@@ -524,4 +524,22 @@ html {
 
 .owl-carousel .owl-dots.disabled, .owl-carousel .owl-nav.disabled {
     display: block !important;
+}
+.sidebar-show-all h2{
+    color: var(--primary-color);
+
+}
+.categories {
+    margin: 10px 0;
+}
+.categories-items {
+    font-size: 1.2rem;
+    margin: 12px 0;
+    color: #000;
+    transition: 0.3s all;
+
+}
+.categories-items:hover {
+    text-decoration: none;
+    color: var(--primary-color);
 }

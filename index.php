@@ -17,7 +17,7 @@ $shopC = new shopC();
 $commentC = new commentC();
 $productManagerC = new ProductManagerC();
 $billShopC = new billShopC();
-// error_reporting(0);
+error_reporting(0);
 if (isset($_SESSION['user'])) {
     $permission = $_SESSION['user']['role'];
     switch ($permission) {
@@ -48,7 +48,7 @@ if ($admin && $_SESSION['active'][1]) {
     $url = $_GET['url'];
     include './view/admin/headerAdmin.php';
     switch ($url) {
-        case 'editUser': 
+        case 'editUser':
             $id_user = $_GET['id_user'];
             echo $id_user;
             break;
@@ -157,13 +157,12 @@ if ($admin && $_SESSION['active'][1]) {
                         $id_bill = $_GET['id_bill'];
                         $billshopC->deleteStatus($id_bill);
                         break;
-
                 }
             }
             $dataRequest = $billShopC->getAllRequest();
             include './view/admin/request.php';
             break;
-        case 'category': 
+        case 'category':
             $dataCategory = $categoryC->getAllCategory();
             if (isset($_GET['act'])) {
                 $act = $_GET['act'];
@@ -214,7 +213,7 @@ if ($admin && $_SESSION['active'][1]) {
                 }
             }
             $comment = new commentC();
-            $dataComment = $commentC->getAllComment();
+            $data = $commentC->getAllComment();
             include './view/admin/comment.php';
             break;
         case 'admin':
@@ -249,7 +248,7 @@ if ($manage && $_SESSION['active'][1]) {
             include './view/manage/manage.php';
             break;
         case 'add_product':
-            $id_shop = $shopC -> getIdShop($_SESSION['user']['id_user']);
+            $id_shop = $shopC->getIdShop($_SESSION['user']['id_user']);
             if (isset($_GET['act'])) {
                 $act = $_GET['act'];
                 switch ($act) {
@@ -286,7 +285,7 @@ if ($manage && $_SESSION['active'][1]) {
             include './view/manage/add_product.php';
             break;
         case 'product':
-            $id_shop = $shopC -> getIdShop($_SESSION['user']['id_user']);
+            $id_shop = $shopC->getIdShop($_SESSION['user']['id_user']);
             if (isset($_GET['act'])) {
                 $act = $_GET['act'];
                 switch ($act) {
@@ -312,10 +311,10 @@ if ($manage && $_SESSION['active'][1]) {
                         break;
                 }
             }
-            
-            $id_shop = $shopC -> getIdShop($_SESSION['user']['id_user']);
+
+            $id_shop = $shopC->getIdShop($_SESSION['user']['id_user']);
             $getAllProducts = $productManagerC->getAllProductById($id_shop);
-           
+
             include './view/manage/product.php';
             break;
         case 'hoadon':
@@ -346,8 +345,8 @@ if (true && $_SESSION['active'][0]) {
     $showProductSale =  $productManagerC->selectProductsBySales();
     $topNewProducts = $productManagerC->TopTodayProducts();
     $getAllDataCategory = $categoryC->getAllCategory();
-    $getAllEvent =$eventC -> getAllEvent();
-   
+    $getAllEvent = $eventC->getAllEvent();
+
     include "./view/component/header.php";
     $url = $_GET['url'];
     switch ($url) {
@@ -371,25 +370,61 @@ if (true && $_SESSION['active'][0]) {
             }
             include "./view/pages/registerShop.php";
             break;
+        case 'editShop':
+            include "./view/pages/editShop.php";
+            break;
+        case 'success-register':
+
+            include "./view/pages/conratulationsPages.php";
+            break;
+        case 'editform':
+            if (isset($_GET['act'])) {
+                $act = $_GET['act'];
+                switch ($act) {
+                    case 'editUser':
+                        $name = $_POST['name_user'];
+                        $gmail = $_POST['gmail'];
+                        $password = $_POST['password'];
+                        $phone = $_POST['phone'];
+                        $address = $_POST['address'];
+                        $img_user = upload($_FILES['img_user']['tmp_name']);
+                        $userC->updateUser($_SESSION['user']['id_user'], $name, $gmail, $password, $img_user, $phone, $address);
+                }
+            }
+            include "./view/pages/editform1.php";
+            break;
+        case 'formclient';
+            include "./view/pages/formclient.php";
+            break;
         case 'detail-product':
             $id_product = $_GET["id_product"];
-            $product_detail = $productManagerC->pageDetailProduct($id_product);
-           
+            $AllCategoryByName = $categoryC->getCategoryByName();
+            $shopDetail = $productManagerC->pageDetailProduct($id_product);
+            if (isset($_POST['btnCmt'])) {
+                $id_user = $_SESSION['user']['id_user'];
+                $id_product = $shopDetail['id_product'];
+                $coment_data = $_POST["cmt"];
+                var_dump($id_comment, $id_user, $coment_data);
+                $commentC->insertComment($id_user, $id_product, $coment_data, $create_at);
+            }
+            $comment = new commentC();
+            $data = $commentC->getComment($id_product);
             include "./view/pages/ctsp.php";
-           
             break;
         case 'top-sale':
             $showProductSale =  $productManagerC->selectProductsBySalesAll();
-            include "./view/pages/showAllProducts.php";
+            $getAllCategoryByNames = $categoryC->getCategoryByName();
+            include "./view/pages/productbysale.php";
             break;
         case 'show-all-product':
             $getAllProduct = $productManagerC->getAllProduct();
-            $getAllCategoryByNames = $categoryC -> getCategoryByName();
+            $getAllCategoryByNames = $categoryC->getCategoryByName();
             include "./view/pages/showAllProducts.php";
             break;
         case 'product-category':
             $id_category = $_GET['id_category'];
-            $product_category = $productManagerC -> ProductByCategory($id_category);
+            $productCategory = $productManagerC->ProductByCategory($id_category);
+            $getAllCategoryByNames = $categoryC->getCategoryByName();
             include "./view/pages/productbycategory.php";
             break;
         case 'backAdmin':

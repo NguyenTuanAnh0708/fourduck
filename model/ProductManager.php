@@ -119,7 +119,7 @@ class ProductManage
     public function  seclectProductsBySaleAll()
     {
         $conn = conn();
-        $sql = "SELECT * FROM product where sale > 10";
+        $sql = "SELECT * FROM product where sale >= 10";
         $result = $conn->query($sql);
         $data = array();
         if ($result->num_rows > 0) {

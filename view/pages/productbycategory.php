@@ -1,58 +1,36 @@
-
 <div class="margin"></div>
 <div class="container">
     <div class="row">
         <div class="sidebar-show-all col-sm-2">
-            <h2>Danh mục</h2>
+            <h2 class="">Danh mục</h2>
+            <?php foreach ($getAllCategoryByNames as $values) : ?>
+                <div class="categories"><a class="categories-items" href="index.php?url=product-category&id_category=<?= $values['id_category'] ?>" style="font-size: 18px;"><?= $values['name_category'] ?></a></div>
+            <?php endforeach; ?>
         </div>
         <div class="container-product-show-all col-sm-10">
-            <div class="home__filter">
-                <span class="home__filter-title">Sắp xếp theo</span>
-                <button class="home__filter-btn home__filter-btn--primary">Phổ Biến</button>
-                <button class="home__filter-btn">Mới Nhất</button>
-                <button class="home__filter-btn">Bán chạy</button>
-
-                <div class="selec__input">
-                    <span class="selec__input-lable">
-                        Giá
-                    </span>
-                    <i class="selec__input-icon fas fa-angle-down"></i>
-                    <ul class="selec__input-list">
-                        <li class="selec__input-item">
-                            <a href="" class="selec__input-link">
-                                Giá: thấp đến cao
-                            </a>
-                        </li>
-                        <li class="selec__input-item">
-                            <a href="" class="selec__input-link">
-                                Giá: cao đến thấp
-                            </a>
-
-                        </li>
-
-                    </ul>
-                </div>
-
-                <div class="home__filter-page">
-                    <span class="home__filter-numb">
-                        <span class="home__filter-numb--curren">1</span>/14
-
-                    </span>
-                    <div class="home__filter-page-control">
-                        <a href="" class="home__filter-page-btn home__filter-page-btn--disable">
-                            <i class="home__filter-page-icon fas fa-angle-left"></i>
-                        </a>
-                        <a href="" class="home__filter-page-btn">
-                            <i class="home__filter-page-icon fas fa-angle-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
             <!-- products -->
             <div class="top-sale-layout">
                 <div class="row">
-                    <?php foreach ($product_category as $value) : ?>
+                    <?php foreach ($productCategory as $value) : ?>
+                        <?php
+                        $price = $value['price_product'];
+                        $discount = $value['sale'];
+                        $oldPrice = ($price * $discount) / 100;
+
+
+                        $checkPrice = "
+                                <div class='home__product-items-price'>
+                                <span class='home__product-items-old'> $value[price_product]đ</span>
+                                <span class='home__product-items-current'>$oldPrice đ</span>
+                            </div>";
+                        if ($value['sale'] < 10) {
+                            $checkPrice = "<div class='home__product-items-price'>
+                                
+                                <span class='home__product-items-current'>$value[price_product] đ</span>
+                            </div>
+                                ";
+                        }
+                        ?>
                         <?php
                         $checkDiscount = "<div class='home__product-items-saleoff'>
                          <div class='home__product-items-saleoff-percent'>
@@ -93,10 +71,8 @@
                                             <?= $value['name_product'] ?>
 
                                         </h5>
-                                        <div class="home__product-items-price">
-                                            <span class="home__product-items-old">2.000.0000vnđ</span>
-                                            <span class="home__product-items-current">5.000vnđ</span>
-                                        </div>
+                                        <?php echo $checkPrice; ?>
+
 
                                         <!-- <div class="home__product-items-action">
                                             <span class="home__product-item--sold">32,4k đã bán</span>
@@ -109,6 +85,15 @@
                     <?php endforeach; ?>
 
                     <!-- TOP SALE -->
+                    <?php
+                    if (!$productCategory) {
+                        $emptyProduct = "  <div class='col-12'>
+                            <img src='https://kalpamritmarketing.com/design_img/no-product-found.jpg' alt=''>
+                        </div>
+                            ";
+                    }
+                    echo $emptyProduct;
+                    ?>
 
                 </div>
             </div>
