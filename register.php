@@ -21,7 +21,7 @@ if (isset($_POST['registerUser']) && $_POST['registerUser'] == "registerUser") {
 <head>
     <meta charset="UTF-8">
     <title>Login-fourDuck</title>
-    <link rel="stylesheet" href="./dist/css/login.css">
+    <link rel="stylesheet" href="./dist/css/login.css?v=<?php echo time(); ?>">
 
 </head>
 

@@ -154,9 +154,10 @@ if ($admin && $_SESSION['active'][1]) {
                             header('location:index.php?url=shop');
                         }
                         break;
-                    case 'del':
-                        $id_bill = $_GET['id_bill'];
-                        $billshopC->deleteStatus($id_bill);
+                    case 'delete':
+                        $id_bill = $_GET['id'];
+
+                        $billShopC->deleteRequest($id_bill);
                         break;
                 }
             }
@@ -372,10 +373,22 @@ if (true && $_SESSION['active'][0]) {
             include "./view/pages/registerShop.php";
             break;
         case 'editShop':
+            if (isset($_GET['act'])) {
+                $act = $_GET['act'];
+                if ($act == 'update') {
+                    $id_shop = $_GET['id_shop'];
+                    $dataUpdate = $_POST['dataUpdate'];
+                    $find = strpos($dataUpdate, '-');
+                    $price = substr($dataUpdate, $find + 1, strlen($dataUpdate));
+                    $month = substr($dataUpdate, 0, $find);
+                    var_dump($id_shop, $price, $month);
+                    $billShopC->inserBillClient($id_shop, $month, $price, 1);
+                }
+            }
+            $dataShop = $shopC->getShop($_SESSION['user']['id_user']);
             include "./view/pages/editShop.php";
             break;
         case 'success-register':
-
             include "./view/pages/conratulationsPages.php";
             break;
         case 'editform':
@@ -445,6 +458,6 @@ if (true && $_SESSION['active'][0]) {
             include "./view/pages/home.php";
             break;
     }
-    include "./view/pages/footer.php";
+    include "./view/component/footer.php";
 }
 

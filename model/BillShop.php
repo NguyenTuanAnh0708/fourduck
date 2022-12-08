@@ -34,4 +34,11 @@ class  BillShop
         $check = $conn->query($sql);
         return $check;
     }
+    public function deleteRequest($id)
+    {
+        $conn = conn();
+        $sql = "DELETE FROM bill_shop WHERE id_bill = '$id'";
+        $check = $conn->query($sql);
+        return $check;
+    }
 }
