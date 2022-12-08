@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./view/src/css/showAllProduct.css">
+    <link rel="stylesheet" href="./view/src/css/showAllProduct.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="./view/src/css/ctsp.css<?php echo time(); ?>">
     <link rel="stylesheet" href="./view/src/css/main.css?v=<?php echo time(); ?>">
     <!-- font awesome -->
@@ -35,16 +35,16 @@
                     </div>
                     <div class="col-md-9 col-10  header-innerSeach nopadding">
                         <!-- <input class="header-innerSeach-input" type="text" placeholder="Sản phẩm bạn cần tìm......"> -->
-                        <input class="form-control search-one-hover" id="myInput" type="text" placeholder="Search..">
+                        <input class="form-control search-one-hover" id="seach-Live" type="text" placeholder="Search..">
                         <button class="header-innerSeach-button">
                             <i class="bi bi-search"></i>
                         </button>
                         <div class="header__search-history">
                             <h4 class="header__search-history-heading">
-                                Lịch sử tìm kiếm
+                                Kết quả tìm kiếm
                             </h4>
                             <ul class="header__search-history-list">
-                                <li class="header__search-history-item">
+                                <!-- <li class="header__search-history-item">
                                     <a href="">Kem dưỡng da</a>
                                 </li>
                                 <li class="header__search-history-item">
@@ -55,7 +55,7 @@
                                 </li>
                                 <li class="header__search-history-item">
                                     <a href="">Quần áo nam</a>
-                                </li>
+                                </li> -->
 
                             </ul>
                         </div>

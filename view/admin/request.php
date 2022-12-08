@@ -49,7 +49,7 @@
                     </form>
                     </td>
                     <td>
-                    <a><button class='btn btn-danger'>Xoá</button></a>
+                    <a href=index.php?url=request&act=delete&id=$row[id_bill]><button class='btn btn-danger'>Xoá</button></a>
                     </td>
                     </tr>
                     ";
