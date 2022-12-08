@@ -205,7 +205,7 @@
                                 </div>
                                 <div class="w-full mt-3 xl:mt-0 flex-1">
                                     <div class="editor">
-                                        <textarea name="description_product" id="" cols="60" rows="4"><?= $dataProductId['description_product'] ?>"</textarea>
+                                        <textarea name="description_product" id="" cols="60" rows="4"><?= $dataProductId['description_product'] ?></textarea>
                                     </div>
                                     <div class="form-help text-right">Maximum character 0/2000</div>
                                 </div>

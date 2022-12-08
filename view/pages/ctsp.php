@@ -1,4 +1,3 @@
-
 <div class="pd-wrap">
     <div class="container">
         <div class="heading-section">
@@ -21,9 +20,27 @@
 
                             <span>| Đánh Giá |</span>
                             <span> 1,3k Đã Bán </span>
+                          
                         </div>
-                        <div class="product-price-discount text-danger"><span>
-                                <?php echo $shopDetail['price_product'] ?></span><sup>vnđ</sup></div>
+                        <?php
+                                $price = $shopDetail['price_product'];
+                                $discount = $shopDetail['sale'];
+                                $oldPrice = intval($price * $discount) / 100;
+
+                                $show = "
+                                <div class='product-price-discount text-danger'><span class='text-discount'> $oldPrice
+                                </span><sup>vnđ</sup></div>
+                                ";
+                                if ($discount < 10) {
+                                    $show = " <div class='product-price-discount text-danger'><span class='text-discount'> $price
+                                    </span><sup>vnđ</sup></div>
+                                    ";
+                                }
+
+                                echo $show;
+
+                        ?>
+                       
                     </div>
                     <div class="row">
                         <div class="col-sm-3">

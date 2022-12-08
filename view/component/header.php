@@ -45,7 +45,7 @@
                             </h4>
                             <ul class="header__search-history-list">
                                 <li class="header__search-history-item">
-                                    <a href="">Kem dưỡng da</a>
+                                    <a href="index.php?url=show-all-product">Kem dưỡng da</a>
                                 </li>
                                 <li class="header__search-history-item">
                                     <a href="">kakaka</a>

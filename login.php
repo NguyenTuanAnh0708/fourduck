@@ -60,7 +60,7 @@ if (isset($_POST['login'])) {
         </div>
     </div>
 
-    <script src="app.js"></script>
+    <script src="./dist/js/app.js"></script>
 </body>
 
 </html>

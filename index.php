@@ -240,7 +240,7 @@ if ($admin && $_SESSION['active'][1]) {
 }
 if ($manage && $_SESSION['active'][1]) {
     if (!isset($_GET['url']) || $_GET['url'] == "") {
-        header('location:index.php?url=manage');
+        header('location:index.php?url=product');
     }
     $url = $_GET['url'];
     include './view/manage/headerManage.php';
@@ -315,7 +315,8 @@ if ($manage && $_SESSION['active'][1]) {
 
             $id_shop = $shopC->getIdShop($_SESSION['user']['id_user']);
             $getAllProducts = $productManagerC->getAllProductById($id_shop);
-
+            $getNameShopById = $shopC -> getOneShop($id_shop);
+            
             include './view/manage/product.php';
             break;
         case 'hoadon':

@@ -1,3 +1,5 @@
+
+
 <div class="content">
     <form action="index.php?url=add_product&act=add" method="post" enctype="multipart/form-data">
         <div class="top-bar">
