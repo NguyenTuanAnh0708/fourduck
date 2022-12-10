@@ -4,15 +4,17 @@ if ($mysqli->connect_error) {
     exit('Could not connect');
 }
 $id = $_GET['q'];
-$sql = "SELECT * FROM `bill_shop` WHERE month(create_at)=$id";
+$sql = "SELECT * FROM `bill_shop` INNER Join `Shop` on bill_shop.id_shop=shop.id_shop WHERE month(bill_shop.create_at)=$id";
 $result = $mysqli->query($sql);
 $total = 0;
 if ($result->num_rows > 0) {
+    $key = 1;
     // output data of each row
     while ($row = $result->fetch_assoc()) {
+        
         $total += (int) $row["price"];
         echo '<tr>';
-        echo '<td>1</td>';
+        echo '<td>' .$key.'</td>';
         echo '<td>' . $row['id_bill'] . '</td>';
         echo '<td>' . $row['id_user'] . '</td>';
         echo '<td>' . $row['id_shop'] . '</td>';
@@ -20,6 +22,8 @@ if ($result->num_rows > 0) {
         echo '<td>' . $row["price"] . '</td>';
         echo '<td>' . $row["create_at"] . '</td>';
         echo '</tr>';
+
+        $key++;
     }
 } else {
     echo '<tr>';

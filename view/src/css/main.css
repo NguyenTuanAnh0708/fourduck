@@ -171,7 +171,9 @@ header {
 .header__search-history-item:hover {
     background-color: #fafafa;
 }
-
+.search-one-hover~.header__search-history:hover {
+    display: block;
+}
 .header__search-history-item a {
     text-decoration: none;
     color: var(--text-color);

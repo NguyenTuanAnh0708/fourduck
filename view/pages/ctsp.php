@@ -16,12 +16,7 @@
                     <div class="product-info">
                         <div class="product-name"><?php echo $shopDetail['name_product'] ?>
                         </div>
-                        <div class="reviews-counter">
-
-                            <span>| Đánh Giá |</span>
-                            <span> 1,3k Đã Bán </span>
-                          
-                        </div>
+                      
                         <?php
                                 $price = $shopDetail['price_product'];
                                 $discount = $shopDetail['sale'];

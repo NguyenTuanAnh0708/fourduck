@@ -37,7 +37,6 @@ class shopC
                 header('location:index.php?url=registerShop');
             } else {
                 $status = $shop->getStatus($id_user);
-                var_dump($status);
                 if ($status != 0) {
                     header('location:index.php?url=editShop');
                 }
@@ -70,5 +69,18 @@ class shopC
         $shop = new  Shop();
         $idShop = $shop->getIdShop($id_user);
         return $idShop;
+    }
+    public function getShop($id_user)
+    {
+        $shop = new  Shop();
+        $data = $shop->getShop($id_user);
+        return $data;
+    }
+
+    public function getNameShop($id_shop)
+    {
+        $shop = new Shop();
+        $name_shop = $shop -> getNameShop($id_shop);
+        return $name_shop;
     }
 }

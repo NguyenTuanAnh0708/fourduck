@@ -76,6 +76,14 @@ class Shop
         $data = $result->fetch_assoc();
         return $data['id_shop'];
     }
+    public function getShop($id_user)
+    {
+        $conn = conn();
+        $sql = "SELECT * from shop where id_user='$id_user'";
+        $result = $conn->query($sql);
+        $data = $result->fetch_assoc();
+        return $data;
+    }
     public function getStatus($id_user)
     {
         $conn = conn();
@@ -91,6 +99,15 @@ class Shop
          VALUES ('$id_user','$name_shop','$type_shop','$img_shop',0-0-0,'$price','$price','$status')";
         $result = $conn->query($sql);
         return $result;
+    }
+
+    public function getNameShop($id_shop)
+    {
+        $conn = conn();
+        $sql = "SELECT name_shop from shop where id_shop = '$id_shop'";
+        $result = $conn->query($sql);
+        $data = $result->fetch_assoc();
+        return $data['name_shop'];
     }
 }
 // session_destroy();

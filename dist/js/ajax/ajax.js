@@ -1,10 +1,6 @@
 const checkDate = (str) => {
   const xhttp = new XMLHttpRequest();
   xhttp.onload = function () {
-    // const tr = document.querySelector(".dataTurnover");
-    // const newItem = document.createElement("<tr>");
-    // newItem.innerHTML = this.responseText;
-    // tr.parentNode.replaceChild(newItem, tr);
     let monthTurnover = document.querySelector(".monthTurnover");
     monthTurnover.innerHTML = `Tháng ${str}`;
     let parentNode = document
@@ -19,10 +15,14 @@ const checkDate = (str) => {
   xhttp.open("GET", "./ajax/turnover.php?q=" + str);
   xhttp.send();
 };
-// document.addEventListener("onload", () => {
-// let parentNode = document
-//   .querySelector(".dataTurnover")
-//   .getElementsByTagName("tbody")[0];
-// let child = parentNode.childNodes.length;
-// console.log(parentNode.childNodes[2]);
-// // });
+const seachLive = document.querySelector("#seach-Live");
+seachLive.addEventListener("keyup", (e) => {
+  q = e.target.value;
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function () {
+    const spaceShow = document.querySelector(".header__search-history-list");
+    spaceShow.innerHTML = this.response;
+  };
+  xhttp.open("GET", "./ajax/seachProduct.php?q=" + q);
+  xhttp.send();
+});

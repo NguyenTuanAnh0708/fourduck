@@ -5,7 +5,7 @@ class Comment
     public function getAll()
     {
         $conn = conn();
-        $sql = "SELECT comment.id_comment,name_user,id_shop,coment_data,create_at from Comment INNER JOIN User on Comment.id_user=User.id_user INNER JOIN product on Comment.id_product=product.id_product;";
+        $sql = "SELECT comment.id_comment,name_user,id_shop,coment_data,comment.create_at from Comment INNER JOIN User on Comment.id_user=User.id_user INNER JOIN product on Comment.id_product=product.id_product;";
         $result = $conn->query($sql);
         $data = array();
         if ($result->num_rows > 0) {

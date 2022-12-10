@@ -3,21 +3,28 @@
         <div class="banner-big-banner col-lg-12 col-md-12 custom-padding-right-banner">
             <div class="owl-slider-banner">
                 <div id="owl-slider-banner" class="owl-carousel">
+                   
                     <?php foreach ($getAllEvent as $value) : ?>
                         <?php
                         $status = $value['status'];
-
+                      
 
                         $banner = " 
                                     <div class='item '>
                                         <img src='$value[img_event]' alt='' class='setup-height-banner'>
                                     </div>
                                ";
-                        if ($status != 0) {
-                            $banner = " <div class='items'>
+                        if ($status == 1) {
+                            $banner = " <div class='item'>
                                 <img src='https://images.glints.com/unsafe/glints-dashboard.s3.amazonaws.com/company-banner-pic/b61ed4ead2296f2695da4d16d4369a9a.png' class='setup-height-banner'>
                                 </div>
                                 ";
+                        }
+                        if (!$getAllEvent) {
+                            $banner = " <div class='item'>
+                            <img src='https://images.glints.com/unsafe/glints-dashboard.s3.amazonaws.com/company-banner-pic/b61ed4ead2296f2695da4d16d4369a9a.png' class='setup-height-banner'>
+                            </div>
+                            ";
                         }
 
                         ?>

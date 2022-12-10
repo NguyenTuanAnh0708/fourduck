@@ -154,9 +154,10 @@ if ($admin && $_SESSION['active'][1]) {
                             header('location:index.php?url=shop');
                         }
                         break;
-                    case 'del':
-                        $id_bill = $_GET['id_bill'];
-                        $billshopC->deleteStatus($id_bill);
+                    case 'delete':
+                        $id_bill = $_GET['id'];
+
+                        $billShopC->deleteRequest($id_bill);
                         break;
                 }
             }
@@ -213,8 +214,9 @@ if ($admin && $_SESSION['active'][1]) {
                         break;
                 }
             }
-            $comment = new commentC();
-            $data = $commentC->getAllComment();
+           
+            $data = $commentC ->getAllComment();
+            
             include './view/admin/comment.php';
             break;
         case 'admin':
@@ -245,9 +247,7 @@ if ($manage && $_SESSION['active'][1]) {
     $url = $_GET['url'];
     include './view/manage/headerManage.php';
     switch ($url) {
-        case 'manage':
-            include './view/manage/manage.php';
-            break;
+       
         case 'add_product':
             $id_shop = $shopC->getIdShop($_SESSION['user']['id_user']);
             if (isset($_GET['act'])) {
@@ -319,9 +319,6 @@ if ($manage && $_SESSION['active'][1]) {
             
             include './view/manage/product.php';
             break;
-        case 'hoadon':
-            include './view/manage/hoadon.php';
-            break;
         case 'updateProduct':
             if (isset($_GET['id_product'])) {
                 $id_product = $_GET['id_product'];
@@ -373,10 +370,22 @@ if (true && $_SESSION['active'][0]) {
             include "./view/pages/registerShop.php";
             break;
         case 'editShop':
+            if (isset($_GET['act'])) {
+                $act = $_GET['act'];
+                if ($act == 'update') {
+                    $id_shop = $_GET['id_shop'];
+                    $dataUpdate = $_POST['dataUpdate'];
+                    $find = strpos($dataUpdate, '-');
+                    $price = substr($dataUpdate, $find + 1, strlen($dataUpdate));
+                    $month = substr($dataUpdate, 0, $find);
+                    var_dump($id_shop, $price, $month);
+                    $billShopC->inserBillClient($id_shop, $month, $price, 1);
+                }
+            }
+            $dataShop = $shopC->getShop($_SESSION['user']['id_user']);
             include "./view/pages/editShop.php";
             break;
         case 'success-register':
-
             include "./view/pages/conratulationsPages.php";
             break;
         case 'editform':
@@ -446,6 +455,6 @@ if (true && $_SESSION['active'][0]) {
             include "./view/pages/home.php";
             break;
     }
-    include "./view/pages/footer.php";
+    include "./view/component/footer.php";
 }
 

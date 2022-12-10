@@ -106,7 +106,7 @@
                                     <!-- file ảnh -->
                                     <div class="px-4 pb-4 mt-5 flex items-center justify-center cursor-pointer relative">
                                         <i data-lucide="image" class="w-4 h-4 mr-2"></i> <span class="text-primary mr-1">Upload a file</span>
-                                        <input type="file" name="img_product" id="img_product">
+                                        <input type="file" name="img_product" id="img_product" required>
                                     </div>
                                 </div>
                             </div>
@@ -134,7 +134,7 @@
                                     </div>
                                 </div>
                                 <div class="w-full mt-3 xl:mt-0 flex-1">
-                                    <input id="product-name" name="name_product" type="text" class="form-control" placeholder="Product name">
+                                    <input id="product-name" name="name_product" type="text" class="form-control" value="<?php echo $dataProductId['name_product'] ?>" placeholder="Product name">
                                     <div class="form-help text-right">Maximum character 0/70</div>
                                 </div>
                             </div>

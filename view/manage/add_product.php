@@ -107,7 +107,7 @@
                                     <!-- file ảnh -->
                                     <div class="px-4 pb-4 mt-5 flex items-center justify-center cursor-pointer relative">
                                         <i data-lucide="image" class="w-4 h-4 mr-2"></i> <span class="text-primary mr-1">Upload a file</span>
-                                        <input type="file" name="img_product" id="img_product">
+                                        <input type="file" name="img_product" id="img_product" required>
                                     </div>
                                 </div>
                             </div>
@@ -135,7 +135,7 @@
                                     </div>
                                 </div>
                                 <div class="w-full mt-3 xl:mt-0 flex-1">
-                                    <input id="product-name" name="name_product" type="text" class="form-control" placeholder="Product name">
+                                    <input id="product-name" name="name_product" type="text" class="form-control" placeholder="Product name" required>
                                     <div class="form-help text-right">Maximum character 0/70</div>
                                 </div>
                             </div>
@@ -235,7 +235,7 @@
                                     </div>
                                 </div>
                                 <div class="w-full mt-3 xl:mt-0 flex-1">
-                                    <input id="product-stock" name="amount_product" type="text" class="form-control" placeholder="Số lượng hàng">
+                                    <input id="product-stock" name="amount_product" type="text" class="form-control" placeholder="Số lượng hàng" required>
                                 </div>
                             </div>
 
@@ -250,7 +250,7 @@
                                     </div>
                                 </div>
                                 <div class="w-full mt-3 xl:mt-0 flex-1">
-                                    <input id="product-stock" type="text" name="price_product" class="form-control" placeholder="Giá sản phẩm">
+                                    <input id="product-stock" type="text" name="price_product" class="form-control" placeholder="Giá sản phẩm" required>
                                 </div>
                             </div>
 
@@ -280,10 +280,9 @@
                         <h2 class="text-lg font-medium">
                             Lời khuyên
                         </h2>
-                        <div class="mt-5 font-medium">Huỳnh Ngọc Tài</div>
+                        <div class="mt-5 font-medium">Tips</div>
                         <div class="leading-relaxed text-xs mt-2 text-slate-600 dark:text-slate-500">
-                            <div>abcxyz</div>
-                            <div class="mt-2">fourduck.</div>
+                            <div>Nhập đầy đủ thông tin sản phẩm để khách hàng biết rõ thông tin hơn</div>
                         </div>
                     </div>
                 </div>
