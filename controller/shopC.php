@@ -77,10 +77,12 @@ class shopC
         return $data;
     }
 
+
     public function getNameShop($id_shop)
     {
         $shop = new Shop();
         $name_shop = $shop -> getNameShop($id_shop);
         return $name_shop;
     }
-}
+    }
+
