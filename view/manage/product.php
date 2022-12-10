@@ -1,3 +1,5 @@
+
+
 <!-- BEGIN: Content -->
 <div class="content">
     <!-- BEGIN: Top Bar -->
@@ -13,29 +15,15 @@
         <!-- BEGIN: Account Menu -->
         <div class="intro-x dropdown w-8 h-8">
             <div class="dropdown-toggle w-8 h-8 rounded-full overflow-hidden shadow-lg image-fit zoom-in" role="button" aria-expanded="false" data-tw-toggle="dropdown">
-                <img alt="Midone - HTML Admin Template" src="dist/images/profile-5.jpg">
+                <img alt="Midone - HTML Admin Template" src="<?php echo $getNameShopById['img_shop'] ?>">
             </div>
             <div class="dropdown-menu w-56">
                 <ul class="dropdown-content bg-primary text-white">
                     <li class="p-2">
-                        <div class="font-medium">Huỳnh Ngọc Tài</div>
-                        <div class="text-xs text-white/70 mt-0.5 dark:text-slate-500">Chủ Shop FourDuck</div>
+                        <div class="font-medium"><?php echo $getNameShopById['name_user'] ?></div>
+                        <div class="text-xs text-white/70 mt-0.5 dark:text-slate-500">Chủ <?php echo $getNameShopById['name_shop'] ?></div>
                     </li>
-                    <li>
-                        <hr class="dropdown-divider border-white/[0.08]">
-                    </li>
-                    <li>
-                        <a href="" class="dropdown-item hover:bg-white/5"> <i data-lucide="user" class="w-4 h-4 mr-2"></i> Tài khoản </a>
-                    </li>
-                    <li>
-                        <a href="index.php?url=add_product" class="dropdown-item hover:bg-white/5"> <i data-lucide="edit" class="w-4 h-4 mr-2"></i> Thêm sản phẩm mới </a>
-                    </li>
-                    <li>
-                        <a href="" class="dropdown-item hover:bg-white/5"> <i data-lucide="lock" class="w-4 h-4 mr-2"></i> Đổi mật khẩu </a>
-                    </li>
-                    <li>
-                        <a href="" class="dropdown-item hover:bg-white/5"> <i data-lucide="help-circle" class="w-4 h-4 mr-2"></i> Trợ giúp </a>
-                    </li>
+                 
                     <li>
                         <hr class="dropdown-divider border-white/[0.08]">
                     </li>
@@ -43,9 +31,7 @@
                                 <a href="index.php?url=backhome" class="dropdown-item hover:bg-white/5"> <i data-lucide="arrow-right"
                                         class="w-4 h-4 mr-2"></i> Home </a>
                             </li>
-                    <li>
-                        <a href="index.php?url=logout" class="dropdown-item hover:bg-white/5"> <i data-lucide="toggle-right" class="w-4 h-4 mr-2"></i> Đăng xuất </a>
-                    </li>
+                   
                 </ul>
             </div>
         </div>
@@ -79,13 +65,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="hidden md:block mx-auto text-slate-500">Showing 1 to 10 of 150 entries</div>
-            <div class="w-full sm:w-auto mt-3 sm:mt-0 sm:ml-auto md:ml-0">
-                <div class="w-56 relative text-slate-500">
-                    <input type="text" class="form-control w-56 box pr-10" placeholder="Search...">
-                    <i class="w-4 h-4 absolute my-auto inset-y-0 mr-3 right-0" data-lucide="search"></i>
-                </div>
-            </div>
+          
         </div>
         <!-- BEGIN: Data List -->
         <div class="intro-y col-span-12 overflow-auto lg:overflow-visible">
@@ -183,35 +163,7 @@
         </div>
         <!-- END: Data List -->
         <!-- BEGIN: Pagination -->
-        <div class="intro-y col-span-12 flex flex-wrap sm:flex-row sm:flex-nowrap items-center">
-            <nav class="w-full sm:w-auto sm:mr-auto">
-                <ul class="pagination">
-                    <li class="page-item">
-                        <a class="page-link" href="#"> <i class="w-4 h-4" data-lucide="chevrons-left"></i> </a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#"> <i class="w-4 h-4" data-lucide="chevron-left"></i> </a>
-                    </li>
-                    <li class="page-item"> <a class="page-link" href="#">...</a> </li>
-                    <li class="page-item"> <a class="page-link" href="#">1</a> </li>
-                    <li class="page-item active"> <a class="page-link" href="#">2</a> </li>
-                    <li class="page-item"> <a class="page-link" href="#">3</a> </li>
-                    <li class="page-item"> <a class="page-link" href="#">...</a> </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#"> <i class="w-4 h-4" data-lucide="chevron-right"></i> </a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#"> <i class="w-4 h-4" data-lucide="chevrons-right"></i> </a>
-                    </li>
-                </ul>
-            </nav>
-            <select class="w-20 form-select box mt-3 sm:mt-0">
-                <option>10</option>
-                <option>25</option>
-                <option>35</option>
-                <option>50</option>
-            </select>
-        </div>
+    
         <!-- END: Pagination -->
     </div>
     <!-- BEGIN: Delete Confirmation Modal -->

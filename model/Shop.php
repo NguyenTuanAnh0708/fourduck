@@ -18,7 +18,7 @@ class Shop
     public function getOne($id_shop)
     {
         $conn = conn();
-        $sql = "SELECT shop.id_user,name_user,id_shop,name_shop,type_shop,create_shop,end_shop,price,near_price,status,shop.create_at,create_shop,end_shop from user INNER JOIN shop on user.id_user=shop.id_user Where id_shop='$id_shop'";
+        $sql = "SELECT shop.id_user,name_user,img_shop,id_shop,name_shop,type_shop,create_shop,end_shop,price,near_price,status,shop.create_at,create_shop,end_shop from user INNER JOIN shop on user.id_user=shop.id_user Where id_shop='$id_shop'";
         $result = $conn->query($sql);
         $data = $result->fetch_assoc();
         return $data;
@@ -99,6 +99,15 @@ class Shop
          VALUES ('$id_user','$name_shop','$type_shop','$img_shop',0-0-0,'$price','$price','$status')";
         $result = $conn->query($sql);
         return $result;
+    }
+
+    public function getNameShop($id_shop)
+    {
+        $conn = conn();
+        $sql = "SELECT name_shop from shop where id_shop = '$id_shop'";
+        $result = $conn->query($sql);
+        $data = $result->fetch_assoc();
+        return $data['name_shop'];
     }
 }
 // session_destroy();

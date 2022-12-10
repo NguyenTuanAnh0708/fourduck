@@ -38,7 +38,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="recipient-name" class="col-form-label">Ảnh miêu tả sự kiện</label>
-                                    <input type="file" class="form-control" id="recipient-name" name="file">
+                                    <input type="file" class="form-control" id="recipient-name" name="file" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="message-text" class="col-form-label">Ngày kết thúc</label>
@@ -112,7 +112,7 @@
                                             </div>
                                             <div class='form-group'>
                                                 <label for='recipient-name' class='col-form-label'>Ảnh miêu tả sự kiện</label>
-                                                <input type='file' class='form-control' id='recipient-name' name='file' value='$row[img_event]'>
+                                                <input type='file' class='form-control' id='recipient-name' name='file' value='$row[img_event]' required>
                                             </div>
                                             <div class='form-group'>
                                                 <label for='message-text' class='col-form-label'>Ngày kết thúc</label>

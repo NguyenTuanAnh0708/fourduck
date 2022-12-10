@@ -1,5 +1,4 @@
 <!-- Preloader -->
-<?php var_dump($dataComment) ?>
 
 <div class="preloader flex-column justify-content-center align-items-center">
     <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
@@ -35,14 +34,17 @@
                     <td class="col-md-3">Id_shop được comment</td>
                     <td class="col-md-3">Comment</td>
                     <td class="col-md-3">Tuỳ chọn</td>
+                    
                 </tr>
                 <?php
                 $i = 0;
-                foreach ($dataComment as $row) {
+                foreach ($data as $row) {
+                    $nameShop = $shopC -> getNameShop($row['id_shop']);
+                   
                     $view = "<tr>
                         <td>$i</td>
                         <td>$row[name_user]</td>
-                        <td>$row[id_shop]</td>
+                        <td><mark>$nameShop</mark></td>
                         <td>$row[coment_data]</td>
                         <td><a class=xoa href=index.php?url=comment_user&act=deleteComment&id_comment=$row[id_comment]>Xóa</a></td>
                         </tr>";

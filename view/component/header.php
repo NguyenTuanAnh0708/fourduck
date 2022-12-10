@@ -44,18 +44,7 @@
                                 Kết quả tìm kiếm
                             </h4>
                             <ul class="header__search-history-list">
-                                <!-- <li class="header__search-history-item">
-                                    <a href="">Kem dưỡng da</a>
-                                </li>
-                                <li class="header__search-history-item">
-                                    <a href="">kakaka</a>
-                                </li>
-                                <li class="header__search-history-item">
-                                    <a href="">Son môi</a>
-                                </li>
-                                <li class="header__search-history-item">
-                                    <a href="">Quần áo nam</a>
-                                </li> -->
+                               
 
                             </ul>
                         </div>

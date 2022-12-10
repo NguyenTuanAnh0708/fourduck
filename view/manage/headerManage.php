@@ -36,7 +36,7 @@
             <ul class="scrollable__content py-2">
                 <li>
 
-                    <a href="index.php" class="side-menu">
+                    <a href="index.php?url=product" class="side-menu">
                         <div class="side-menu__icon"> <i data-lucide="home"></i> </div>
                         <div class="side-menu__title">
                             Trang chủ
@@ -63,12 +63,7 @@
                                         <div class="menu__title"> Sản phẩm </div>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="hoadon.php" class="menu menu--active">
-                                        <div class="menu__icon"> <i data-lucide="credit-card"></i> </div>
-                                        <div class="menu__title"> Hóa đơn </div>
-                                    </a>
-                                </li>
+                               
 
                             </ul>
                         </li>
@@ -79,14 +74,14 @@
     <div class="flex mt-[4.7rem] md:mt-0">
         <!-- BEGIN: Side Menu -->
         <nav class="side-nav">
-            <a href="index.php?url=manage" class="intro-x flex items-center pl-5 pt-4">
+            <a href="index.php?url=product" class="intro-x flex items-center pl-5 pt-4">
                 <img alt="Midone - HTML Admin Template" class="w-6" src="dist/images/logo.png">
                 <span class="hidden xl:block text-white text-lg ml-3"> FourDuck</span>
             </a>
             <div class="side-nav__devider my-6"></div>
             <ul>
                 <li>
-                    <a href="index.php?url=manage" class="side-menu side-menu--active">
+                    <a href="index.php?url=product" class="side-menu side-menu--active">
                         <div class="side-menu__icon"> <i data-lucide="home"></i> </div>
                         <div class="side-menu__title">
                             Trang chủ
@@ -115,12 +110,7 @@
                                 <div class="side-menu__title"> Sản phẩm </div>
                             </a>
                         </li>
-                        <li>
-                            <a href="index.php?url=hoadon" class="side-menu">
-                                <div class="side-menu__icon"> <i data-lucide="credit-card"></i> </div>
-                                <div class="side-menu__title"> Hóa đơn </div>
-                            </a>
-                        </li>
+                 
                     </ul>
                 </li>
             </ul>

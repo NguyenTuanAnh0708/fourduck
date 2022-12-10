@@ -269,9 +269,13 @@ html {
     padding: 0px !important;
     padding-right: 0px !important;
 }
+.fix-margin{
+    margin-left: 0 !important;
+}
 
 .today-product-items {
     position: relative;
+    height: 286px;
 
 }
 
@@ -279,6 +283,7 @@ html {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     transition: 0.3s all;
     cursor: pointer;
+    height: 296px;
 }
 
 .top-layout-boder:hover {
@@ -319,7 +324,7 @@ html {
 .today-item-content {
     font-size: 1.4rem;
     color: var(--text-color);
-    height: 42px;
+    height: 47px;
     margin: 10px 10px 6px;
     display: -webkit-box;
     -webkit-box-orient: vertical;

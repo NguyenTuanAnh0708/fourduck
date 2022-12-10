@@ -1,33 +1,38 @@
-
-
 <div class="container">
     <div class="banner mt-4 row">
         <div class="banner-big-banner col-lg-12 col-md-12 custom-padding-right-banner">
             <div class="owl-slider-banner">
                 <div id="owl-slider-banner" class="owl-carousel">
+                   
                     <?php foreach ($getAllEvent as $value) : ?>
                         <?php
-                            $status = $value['status'];
-                         
-                           
-                            $banner = " 
+                        $status = $value['status'];
+                      
+
+                        $banner = " 
                                     <div class='item '>
                                         <img src='$value[img_event]' alt='' class='setup-height-banner'>
                                     </div>
                                ";
-                            if ( $status != 0) {
-                                $banner = " <div class='items'>
+                        if ($status == 1) {
+                            $banner = " <div class='item'>
                                 <img src='https://images.glints.com/unsafe/glints-dashboard.s3.amazonaws.com/company-banner-pic/b61ed4ead2296f2695da4d16d4369a9a.png' class='setup-height-banner'>
                                 </div>
                                 ";
-                            }
-                       
+                        }
+                        if (!$getAllEvent) {
+                            $banner = " <div class='item'>
+                            <img src='https://images.glints.com/unsafe/glints-dashboard.s3.amazonaws.com/company-banner-pic/b61ed4ead2296f2695da4d16d4369a9a.png' class='setup-height-banner'>
+                            </div>
+                            ";
+                        }
+
                         ?>
                         <?php echo $banner; ?>
                     <?php endforeach; ?>
                 </div>
             </div>
-            
+
         </div>
     </div>
 
@@ -67,6 +72,28 @@
         <div class="owl-slider">
             <div id="carousel" class="owl-carousel">
                 <?php foreach ($showProductSale as $value) : ?>
+                    <?php
+                        $price = $value['price_product'];
+                        $discount = $value['sale'];
+                        $oldPrice = intval($price * $discount) / 100;
+
+
+                        $checkPriceSale = "
+                            <div class='carousel-item-title text-center mt-3 home__product-items-old'>
+                             $value[price_product] đ
+                            </div>
+                            <div class='carousel-item-title text-center mt-3'>
+                                $oldPrice đ
+                            </div>
+                            ";
+                        if ($value['sale'] < 10)   {
+                            $checkPriceSale = "
+                            <div class='carousel-item-title text-center mt-3 home__product-items-old'>
+                             $value[price_product]đ
+                            </div>
+                            ";
+                        }
+                    ?>
                     <div class="item">
                         <a href="index.php?url=detail-product&id_product=<?= $value['id_product'] ?>" class="">
                             <div class="home__product-items-saleoff">
@@ -85,16 +112,8 @@
                                     <img src="<?= $value['img_product'] ?>" alt="" class="max-height">
                                 </div>
                             </div>
-                            <div class="carousel-item-title text-center mt-3">
-                                <?= $value['price_product'] ?>đ
-                            </div>
-                            <div class="has-sale mt-4">
-                                <div class="has-sale-task">
-                                    <div class="has-sale-title">
-                                        Đã bán 4
-                                    </div>
-                                </div>
-                            </div>
+                            <?php echo $checkPriceSale ?>
+                          
                         </a>
                     </div>
                 <?php endforeach; ?>
@@ -411,522 +430,7 @@
     </div>
 
     <div class="margin"></div>
-    <!-- <h2 class="mt-4 mb-4" style="color: #EE4D2D;">SẢN PHẨM BÁN CHẠY</h2> -->
-    <!-- <div class="top-sale">
-                <div class="owl-carousel owl-theme owl-loaded">
-                    <div class="item">
-                        <div class="top-sale-carousel-item">
-                            <a href="">
-                                <div class="home__product-items-top">
-                                    <div class="home__product-items-top-percent">
-                                        TOP
-                                    </div>
-                                    <div class="home__product-items-top-label">
 
-                                    </div>
-                                </div>
-                                <div class="top-sale-child text-center">
-                                    <img src="https://cf.shopee.vn/file/586b9ea48feb321985e7cfda391fc848" alt="Notebook" style="width:100%;">
-                                    <div class="top-sale-child-content">
-                                        <p>Bán 77k+ / tháng</p>
-                                    </div>
-                                </div>
-                                <div class="top-sale-content text-center mt-4">
-                                    Bánh Tráng Bơ
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="top-sale-carousel-item">
-                            <a href="">
-                                <div class="home__product-items-top">
-                                    <div class="home__product-items-top-percent">
-                                        TOP
-                                    </div>
-                                    <div class="home__product-items-top-label">
-
-                                    </div>
-                                </div>
-                                <div class="top-sale-child text-center">
-                                    <img src="https://cf.shopee.vn/file/586b9ea48feb321985e7cfda391fc848" alt="Notebook" style="width:100%;">
-                                    <div class="top-sale-child-content">
-                                        <p>Bán 77k+ / tháng</p>
-                                    </div>
-                                </div>
-                                <div class="top-sale-content text-center mt-4">
-                                    Bánh Tráng Bơ
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="top-sale-carousel-item">
-                            <a href="">
-                                <div class="home__product-items-top">
-                                    <div class="home__product-items-top-percent">
-                                        TOP
-                                    </div>
-                                    <div class="home__product-items-top-label">
-
-                                    </div>
-                                </div>
-                                <div class="top-sale-child text-center">
-                                    <img src="https://cf.shopee.vn/file/586b9ea48feb321985e7cfda391fc848" alt="Notebook" style="width:100%;">
-                                    <div class="top-sale-child-content">
-                                        <p>Bán 77k+ / tháng</p>
-                                    </div>
-                                </div>
-                                <div class="top-sale-content text-center mt-4">
-                                    Bánh Tráng Bơ
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="top-sale-carousel-item">
-                            <a href="">
-                                <div class="home__product-items-top">
-                                    <div class="home__product-items-top-percent">
-                                        TOP
-                                    </div>
-                                    <div class="home__product-items-top-label">
-
-                                    </div>
-                                </div>
-                                <div class="top-sale-child text-center">
-                                    <img src="https://cf.shopee.vn/file/586b9ea48feb321985e7cfda391fc848" alt="Notebook" style="width:100%;">
-                                    <div class="top-sale-child-content">
-                                        <p>Bán 77k+ / tháng</p>
-                                    </div>
-                                </div>
-                                <div class="top-sale-content text-center mt-4">
-                                    Bánh Tráng Bơ
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="top-sale-carousel-item">
-                            <a href="">
-                                <div class="home__product-items-top">
-                                    <div class="home__product-items-top-percent">
-                                        TOP
-                                    </div>
-                                    <div class="home__product-items-top-label">
-
-                                    </div>
-                                </div>
-                                <div class="top-sale-child text-center">
-                                    <img src="https://cf.shopee.vn/file/586b9ea48feb321985e7cfda391fc848" alt="Notebook" style="width:100%;">
-                                    <div class="top-sale-child-content">
-                                        <p>Bán 77k+ / tháng</p>
-                                    </div>
-                                </div>
-                                <div class="top-sale-content text-center mt-4">
-                                    Bánh Tráng Bơ
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="top-sale-carousel-item">
-                            <a href="">
-                                <div class="home__product-items-top">
-                                    <div class="home__product-items-top-percent">
-                                        TOP
-                                    </div>
-                                    <div class="home__product-items-top-label">
-
-                                    </div>
-                                </div>
-                                <div class="top-sale-child text-center">
-                                    <img src="https://cf.shopee.vn/file/586b9ea48feb321985e7cfda391fc848" alt="Notebook" style="width:100%;">
-                                    <div class="top-sale-child-content">
-                                        <p>Bán 77k+ / tháng</p>
-                                    </div>
-                                </div>
-                                <div class="top-sale-content text-center mt-4">
-                                    Bánh Tráng Bơ
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="top-sale-carousel-item">
-                            <a href="">
-                                <div class="home__product-items-top">
-                                    <div class="home__product-items-top-percent">
-                                        TOP
-                                    </div>
-                                    <div class="home__product-items-top-label">
-
-                                    </div>
-                                </div>
-                                <div class="top-sale-child text-center">
-                                    <img src="https://cf.shopee.vn/file/586b9ea48feb321985e7cfda391fc848" alt="Notebook" style="width:100%;">
-                                    <div class="top-sale-child-content">
-                                        <p>Bán 77k+ / tháng</p>
-                                    </div>
-                                </div>
-                                <div class="top-sale-content text-center mt-4">
-                                    Bánh Tráng Bơ
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="top-sale-carousel-item">
-                            <a href="">
-                                <div class="home__product-items-top">
-                                    <div class="home__product-items-top-percent">
-                                        TOP
-                                    </div>
-                                    <div class="home__product-items-top-label">
-
-                                    </div>
-                                </div>
-                                <div class="top-sale-child text-center">
-                                    <img src="https://cf.shopee.vn/file/586b9ea48feb321985e7cfda391fc848" alt="Notebook" style="width:100%;">
-                                    <div class="top-sale-child-content">
-                                        <p>Bán 77k+ / tháng</p>
-                                    </div>
-                                </div>
-                                <div class="top-sale-content text-center mt-4">
-                                    Bánh Tráng Bơ
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="top-sale-carousel-item">
-                            <a href="">
-                                <div class="home__product-items-top">
-                                    <div class="home__product-items-top-percent">
-                                        TOP
-                                    </div>
-                                    <div class="home__product-items-top-label">
-
-                                    </div>
-                                </div>
-                                <div class="top-sale-child text-center">
-                                    <img src="https://cf.shopee.vn/file/586b9ea48feb321985e7cfda391fc848" alt="Notebook" style="width:100%;">
-                                    <div class="top-sale-child-content">
-                                        <p>Bán 77k+ / tháng</p>
-                                    </div>
-                                </div>
-                                <div class="top-sale-content text-center mt-4">
-                                    Bánh Tráng Bơ
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="top-sale-carousel-item">
-                            <a href="">
-                                <div class="home__product-items-top">
-                                    <div class="home__product-items-top-percent">
-                                        TOP
-                                    </div>
-                                    <div class="home__product-items-top-label">
-
-                                    </div>
-                                </div>
-                                <div class="top-sale-child text-center">
-                                    <img src="https://cf.shopee.vn/file/586b9ea48feb321985e7cfda391fc848" alt="Notebook" style="width:100%;">
-                                    <div class="top-sale-child-content">
-                                        <p>Bán 77k+ / tháng</p>
-                                    </div>
-                                </div>
-                                <div class="top-sale-content text-center mt-4">
-                                    Bánh Tráng Bơ
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="top-sale-carousel-item">
-                            <a href="">
-                                <div class="home__product-items-top">
-                                    <div class="home__product-items-top-percent">
-                                        TOP
-                                    </div>
-                                    <div class="home__product-items-top-label">
-
-                                    </div>
-                                </div>
-                                <div class="top-sale-child text-center">
-                                    <img src="https://cf.shopee.vn/file/586b9ea48feb321985e7cfda391fc848" alt="Notebook" style="width:100%;">
-                                    <div class="top-sale-child-content">
-                                        <p>Bán 77k+ / tháng</p>
-                                    </div>
-                                </div>
-                                <div class="top-sale-content text-center mt-4">
-                                    Bánh Tráng Bơ
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="top-sale-carousel-item">
-                            <a href="">
-                                <div class="home__product-items-top">
-                                    <div class="home__product-items-top-percent">
-                                        TOP
-                                    </div>
-                                    <div class="home__product-items-top-label">
-
-                                    </div>
-                                </div>
-                                <div class="top-sale-child text-center">
-                                    <img src="https://cf.shopee.vn/file/586b9ea48feb321985e7cfda391fc848" alt="Notebook" style="width:100%;">
-                                    <div class="top-sale-child-content">
-                                        <p>Bán 77k+ / tháng</p>
-                                    </div>
-                                </div>
-                                <div class="top-sale-content text-center mt-4">
-                                    Bánh Tráng Bơ
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-
-    <!-- <div class="owl-slider">
-            <div id="carousel-top-sale" class="owl-carousel">
-                <div class="item">
-                    <div class="top-sale-carousel-item">
-                        <a href="">
-                            <div class="home__product-items-top">
-                                <div class="home__product-items-top-percent">
-                                    TOP
-                                </div>
-                                <div class="home__product-items-top-label">
-
-                                </div>
-                            </div>
-                            <div class="top-sale-child text-center">
-                                <img src="https://cf.shopee.vn/file/586b9ea48feb321985e7cfda391fc848" alt="Notebook" style="width:100%;">
-                                <div class="top-sale-child-content">
-                                    <p>Bán 77k+ / tháng</p>
-                                </div>
-                            </div>
-                            <div class="top-sale-content text-center mt-4">
-                                Bánh Tráng Bơ
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="top-sale-carousel-item">
-                        <a href="">
-                            <div class="home__product-items-top">
-                                <div class="home__product-items-top-percent">
-                                    TOP
-                                </div>
-                                <div class="home__product-items-top-label">
-
-                                </div>
-                            </div>
-                            <div class="top-sale-child text-center">
-                                <img src="https://cf.shopee.vn/file/586b9ea48feb321985e7cfda391fc848" alt="Notebook" style="width:100%;">
-                                <div class="top-sale-child-content">
-                                    <p>Bán 77k+ / tháng</p>
-                                </div>
-                            </div>
-                            <div class="top-sale-content text-center mt-4">
-                                Bánh Tráng Bơ
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="top-sale-carousel-item">
-                        <a href="">
-                            <div class="home__product-items-top">
-                                <div class="home__product-items-top-percent">
-                                    TOP
-                                </div>
-                                <div class="home__product-items-top-label">
-
-                                </div>
-                            </div>
-                            <div class="top-sale-child text-center">
-                                <img src="https://cf.shopee.vn/file/586b9ea48feb321985e7cfda391fc848" alt="Notebook" style="width:100%;">
-                                <div class="top-sale-child-content">
-                                    <p>Bán 77k+ / tháng</p>
-                                </div>
-                            </div>
-                            <div class="top-sale-content text-center mt-4">
-                                Bánh Tráng Bơ
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="top-sale-carousel-item">
-                        <a href="">
-                            <div class="home__product-items-top">
-                                <div class="home__product-items-top-percent">
-                                    TOP
-                                </div>
-                                <div class="home__product-items-top-label">
-
-                                </div>
-                            </div>
-                            <div class="top-sale-child text-center">
-                                <img src="https://cf.shopee.vn/file/586b9ea48feb321985e7cfda391fc848" alt="Notebook" style="width:100%;">
-                                <div class="top-sale-child-content">
-                                    <p>Bán 77k+ / tháng</p>
-                                </div>
-                            </div>
-                            <div class="top-sale-content text-center mt-4">
-                                Bánh Tráng Bơ
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="top-sale-carousel-item">
-                        <a href="">
-                            <div class="home__product-items-top">
-                                <div class="home__product-items-top-percent">
-                                    TOP
-                                </div>
-                                <div class="home__product-items-top-label">
-
-                                </div>
-                            </div>
-                            <div class="top-sale-child text-center">
-                                <img src="https://cf.shopee.vn/file/586b9ea48feb321985e7cfda391fc848" alt="Notebook" style="width:100%;">
-                                <div class="top-sale-child-content">
-                                    <p>Bán 77k+ / tháng</p>
-                                </div>
-                            </div>
-                            <div class="top-sale-content text-center mt-4">
-                                Bánh Tráng Bơ
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="top-sale-carousel-item">
-                        <a href="">
-                            <div class="home__product-items-top">
-                                <div class="home__product-items-top-percent">
-                                    TOP
-                                </div>
-                                <div class="home__product-items-top-label">
-
-                                </div>
-                            </div>
-                            <div class="top-sale-child text-center">
-                                <img src="https://cf.shopee.vn/file/586b9ea48feb321985e7cfda391fc848" alt="Notebook" style="width:100%;">
-                                <div class="top-sale-child-content">
-                                    <p>Bán 77k+ / tháng</p>
-                                </div>
-                            </div>
-                            <div class="top-sale-content text-center mt-4">
-                                Bánh Tráng Bơ
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="top-sale-carousel-item">
-                        <a href="">
-                            <div class="home__product-items-top">
-                                <div class="home__product-items-top-percent">
-                                    TOP
-                                </div>
-                                <div class="home__product-items-top-label">
-
-                                </div>
-                            </div>
-                            <div class="top-sale-child text-center">
-                                <img src="https://cf.shopee.vn/file/586b9ea48feb321985e7cfda391fc848" alt="Notebook" style="width:100%;">
-                                <div class="top-sale-child-content">
-                                    <p>Bán 77k+ / tháng</p>
-                                </div>
-                            </div>
-                            <div class="top-sale-content text-center mt-4">
-                                Bánh Tráng Bơ
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="top-sale-carousel-item">
-                        <a href="">
-                            <div class="home__product-items-top">
-                                <div class="home__product-items-top-percent">
-                                    TOP
-                                </div>
-                                <div class="home__product-items-top-label">
-
-                                </div>
-                            </div>
-                            <div class="top-sale-child text-center">
-                                <img src="https://cf.shopee.vn/file/586b9ea48feb321985e7cfda391fc848" alt="Notebook" style="width:100%;">
-                                <div class="top-sale-child-content">
-                                    <p>Bán 77k+ / tháng</p>
-                                </div>
-                            </div>
-                            <div class="top-sale-content text-center mt-4">
-                                Bánh Tráng Bơ
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="top-sale-carousel-item">
-                        <a href="">
-                            <div class="home__product-items-top">
-                                <div class="home__product-items-top-percent">
-                                    TOP
-                                </div>
-                                <div class="home__product-items-top-label">
-
-                                </div>
-                            </div>
-                            <div class="top-sale-child text-center">
-                                <img src="https://cf.shopee.vn/file/586b9ea48feb321985e7cfda391fc848" alt="Notebook" style="width:100%;">
-                                <div class="top-sale-child-content">
-                                    <p>Bán 77k+ / tháng</p>
-                                </div>
-                            </div>
-                            <div class="top-sale-content text-center mt-4">
-                                Bánh Tráng Bơ
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="top-sale-carousel-item">
-                        <a href="">
-                            <div class="home__product-items-top">
-                                <div class="home__product-items-top-percent">
-                                    TOP
-                                </div>
-                                <div class="home__product-items-top-label">
-
-                                </div>
-                            </div>
-                            <div class="top-sale-child text-center">
-                                <img src="https://cf.shopee.vn/file/586b9ea48feb321985e7cfda391fc848" alt="Notebook" style="width:100%;">
-                                <div class="top-sale-child-content">
-                                    <p>Bán 77k+ / tháng</p>
-                                </div>
-                            </div>
-                            <div class="top-sale-content text-center mt-4">
-                                Bánh Tráng Bơ
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div> -->
 
     <!-- top content -->
     <div class="margin"></div>
@@ -934,7 +438,53 @@
     <div class="container">
         <div class="top-sale-layout">
             <div class="row">
+              
                 <?php foreach ($topNewProducts as $value) : ?>
+                    <?php
+                    $price = $value['price_product'];
+                    $discount = $value['sale'];
+                    $oldPrice = ($price * $discount) / 100;
+
+
+                    $checkPrices = "
+                        <div class='today-item-price d-flex justify-content-between align-items-center mt-4 px-2'>
+                        <div class='price'>
+                            <div class='home__product-items-old fix-margin'> 
+                            $value[price_product]đ
+                            </div>
+                            <span class='price-money'>
+                                $oldPrice đ
+                            </span>
+                        </div>
+                        <div class='have-sale'>
+                            <span>
+                                Đã bán
+                            </span>
+                            <span>
+                                32,4k
+                            </span>
+                        </div>
+                    </div>";
+                    if ($value['sale'] == 0) {
+                        $checkPrices = "<div class='today-item-price d-flex justify-content-between align-items-center mt-4 px-2'>
+                            <div class='price'>
+                               
+                                <span class='price-money'>
+                                    $value[price_product] đ
+                                </span>
+                            </div>
+                            <div class='have-sale'>
+                                <span>
+                                    Đã bán
+                                </span>
+                                <span>
+                                    32,4k
+                                </span>
+                            </div>
+                        </div>
+                                ";
+                    }
+                    ?>
                     <?php
                     $checkDiscount = "<div class='home__product-items-saleoff'>
                          <div class='home__product-items-saleoff-percent'>
@@ -973,24 +523,7 @@
                                     <h5 class="today-item-content mt-2 pl-2">
                                         <?= $value['name_product'] ?>
                                     </h5>
-                                    <div class="today-item-price d-flex justify-content-between align-items-center mt-4 px-2">
-                                        <div class="price">
-                                            <span>
-                                                đ
-                                            </span>
-                                            <span class="price-money">
-                                                <?= $value['price_product'] ?>
-                                            </span>
-                                        </div>
-                                        <div class="have-sale">
-                                            <span>
-                                                Đã bán
-                                            </span>
-                                            <span>
-                                                32,4k
-                                            </span>
-                                        </div>
-                                    </div>
+                                    <?php echo $checkPrices ?>
                                 </div>
                             </div>
 

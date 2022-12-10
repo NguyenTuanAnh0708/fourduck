@@ -50,11 +50,12 @@
                 </thead>
                 <?php
                 $total = 0;
+                $key = 1;
                 foreach ($dataBillShop as $row) {
                     $total += $row['price'];
                     $view = "
                     <tr>
-                    <td>1</td>
+                    <td>$key</td>
                     <td>$row[id_bill]</td>
                     <td>$row[id_user]</td>
                     <td>$row[id_shop]</td>
@@ -63,6 +64,7 @@
                     <td>$row[create_at]</td>
                     </tr>
                     ";
+                    $key++;
                     echo $view;
                 }
                 ?>

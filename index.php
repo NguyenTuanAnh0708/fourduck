@@ -214,8 +214,9 @@ if ($admin && $_SESSION['active'][1]) {
                         break;
                 }
             }
-            $comment = new commentC();
-            $data = $commentC->getAllComment();
+           
+            $data = $commentC ->getAllComment();
+            
             include './view/admin/comment.php';
             break;
         case 'admin':
@@ -241,14 +242,12 @@ if ($admin && $_SESSION['active'][1]) {
 }
 if ($manage && $_SESSION['active'][1]) {
     if (!isset($_GET['url']) || $_GET['url'] == "") {
-        header('location:index.php?url=manage');
+        header('location:index.php?url=product');
     }
     $url = $_GET['url'];
     include './view/manage/headerManage.php';
     switch ($url) {
-        case 'manage':
-            include './view/manage/manage.php';
-            break;
+       
         case 'add_product':
             $id_shop = $shopC->getIdShop($_SESSION['user']['id_user']);
             if (isset($_GET['act'])) {
@@ -316,11 +315,9 @@ if ($manage && $_SESSION['active'][1]) {
 
             $id_shop = $shopC->getIdShop($_SESSION['user']['id_user']);
             $getAllProducts = $productManagerC->getAllProductById($id_shop);
-
+            $getNameShopById = $shopC -> getOneShop($id_shop);
+            
             include './view/manage/product.php';
-            break;
-        case 'hoadon':
-            include './view/manage/hoadon.php';
             break;
         case 'updateProduct':
             if (isset($_GET['id_product'])) {

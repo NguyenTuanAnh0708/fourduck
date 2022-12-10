@@ -3,12 +3,12 @@ const gmailLogin = document.querySelector("#gmailLogin");
 const passwordLogin = document.querySelector("#passwordLogin");
 const formLogin = document.querySelector("#formLogin");
 // element form register
-const nameRegister = document.querySelector("#nameRegister");
-const gmailRegister = document.querySelector("#gmailRegister");
-const passwordRegister = document.querySelector("#passwordRegister");
-const enterPasswordRegister = document.querySelector("#enterPasswordRegister");
-const phoneRegister = document.querySelector("#phoneRegister");
-const locationRegister = document.querySelector("#locationRegister");
+// const nameRegister = document.querySelector("#nameRegister");
+// const gmailRegister = document.querySelector("#gmailRegister");
+// const passwordRegister = document.querySelector("#passwordRegister");
+// const enterPasswordRegister = document.querySelector("#enterPasswordRegister");
+// const phoneRegister = document.querySelector("#phoneRegister");
+// const locationRegister = document.querySelector("#locationRegister");
 // hàm kiểm tra
 function showError(input, text) {
   const inputBox = input.parentElement;
@@ -60,7 +60,7 @@ function checkLengthError(input, min, max) {
   success(input);
   return false;
 }
-function checkMatchPasswordError(inputPassw, inputPassw) {}
+function checkMatchPasswordError(inputPassw, inputPassw) { }
 // validate form login
 if (!(formLogin == null)) {
   formLogin.addEventListener("submit", (e) => {
@@ -72,12 +72,16 @@ if (!(formLogin == null)) {
     }
   });
 }
-// validate form đăng ký
-console.log(
-  nameRegister,
-  gmailRegister,
-  passwordRegister,
-  enterPasswordRegister,
-  locationRegister,
-  phoneRegister
-);
+
+// REGEX register
+
+
+
+// console.log(
+//   nameRegister,
+//   gmailRegister,
+//   passwordRegister,
+//   enterPasswordRegister,
+//   locationRegister,
+//   phoneRegister
+// );
