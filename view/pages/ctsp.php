@@ -16,34 +16,30 @@
                     <div class="product-info">
                         <div class="product-name"><?php echo $shopDetail['name_product'] ?>
                         </div>
-                      
-                        <?php
-                                $price = $shopDetail['price_product'];
-                                $discount = $shopDetail['sale'];
-                                $oldPrice = intval($price * $discount) / 100;
 
-                                $show = "
+                        <?php
+                        $price = $shopDetail['price_product'];
+                        $discount = $shopDetail['sale'];
+                        $oldPrice = intval($price * $discount) / 100;
+
+                        $show = "
                                 <div class='product-price-discount text-danger'><span class='text-discount'> $oldPrice
                                 </span><sup>vnđ</sup></div>
                                 ";
-                                if ($discount < 10) {
-                                    $show = " <div class='product-price-discount text-danger'><span class='text-discount'> $price
+                        if ($discount < 10) {
+                            $show = " <div class='product-price-discount text-danger'><span class='text-discount'> $price
                                     </span><sup>vnđ</sup></div>
                                     ";
-                                }
+                        }
 
-                                echo $show;
+                        echo $show;
+
 
                         ?>
-                       
+
                     </div>
                     <div class="row">
-                        <div class="col-sm-3">
-                            <p>Deal Sốc</p>
-                        </div>
-                        <div class="col-sm-9">
-                            <p class="btn bg-danger text-white">Mua kèm deal sốc</p>
-                        </div>
+
                         <div class="col-sm-3">
                             <p>Số lượng</p>
                         </div>
@@ -100,8 +96,7 @@
                         <div class="vymrqq" style=" display: flex;margin-bottom: 1.125rem;">
                             <label class="ZgeHl-">danh mục</label>
                             <div class="flex items-center y7IkgP">
-                                <a class="_4Zf0hw bi-phone-flipkozQ" href=""><?php echo $AllCategoryByName[0]['name_category'] ?></a>
-
+                                <a class="_4Zf0hw bi-phone-flipkozQ" href="index.php?url=product-category&id_category=<?= $shopDetail['id_category'] ?>"><?= $nameCategory['name_category'] ?></a>
                             </div>
                         </div>
                         <div class="vymrqq" style=" display: flex;margin-bottom: 1.125rem;">

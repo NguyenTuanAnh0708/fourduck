@@ -9,7 +9,7 @@ if (isset($_POST['registerUser']) && $_POST['registerUser'] == "registerUser") {
     $password = $_POST['password'];
     if ($_FILES['avatar']['tmp_name'] == null) {
         $img_user = 'https://i.stack.imgur.com/l60Hf.png';
-    }  else {
+    } else {
         $img_user = upload($_FILES['avatar']['tmp_name']);
     }
     $phone = $_POST['phone'];
@@ -29,11 +29,8 @@ if (isset($_POST['registerUser']) && $_POST['registerUser'] == "registerUser") {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./dist/css/login.css?v=<?php echo time(); ?>">
-
-    <title>Document</title>
-
-
-
+    <title>Đăng ký</title>
+    <link rel="icon" href="./view/public/imgs/Logo4duck.png">
 </head>
 
 <body>
@@ -115,7 +112,6 @@ if (isset($_POST['registerUser']) && $_POST['registerUser'] == "registerUser") {
                         </a>
                     </button>
                 </div>
-                <img src="./view/public/imgs/Logo4duck.png" class="image" alt="" />
             </div>
         </div>
     </div>
@@ -138,11 +134,11 @@ if (isset($_POST['registerUser']) && $_POST['registerUser'] == "registerUser") {
         const btnRegister = document.getElementById("registerUser");
         const avatar = document.getElementById("avatar")
 
-    
+
 
         console.log([usernameEle, emailEle, passwordEle, phoneEle, addressEle, avatar]);
         // ERROR
-      
+
 
 
 
@@ -206,13 +202,13 @@ if (isset($_POST['registerUser']) && $_POST['registerUser'] == "registerUser") {
                 return !isCheck;
             } else {
                 document.getElementById("error-phone").innerHTML = " ";
-                
+
             }
 
-         
 
 
-         
+
+
 
 
             return isCheck;

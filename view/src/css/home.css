@@ -24,7 +24,7 @@ html {
 
 .banner-big-banner img {
     width: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .banner-small-banner {

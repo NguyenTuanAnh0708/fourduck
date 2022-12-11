@@ -135,7 +135,7 @@ class ProductManage
     {
         $conn = conn();
         $sql = "SELECT * FROM product inner join shop on product.id_shop=shop.id_shop where id_product = '$id_product'";
-        $result = $conn -> query($sql);
+        $result = $conn->query($sql);
         $data = $result->fetch_assoc();
         return $data;
     }

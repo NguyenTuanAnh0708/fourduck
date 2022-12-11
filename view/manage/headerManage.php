@@ -9,6 +9,8 @@
     <!-- BEGIN: CSS Assets-->
     <link rel="stylesheet" href="./view/manage/dist/css/app.css" />
     <!-- END: CSS Assets-->
+    <link rel="icon" href="./view/public/imgs/Logo4duck.png">
+
     <style>
         .w-6 {
             width: 5.5rem;
@@ -27,12 +29,10 @@
             <a href="" class="flex mr-auto">
                 <img alt="Midone - HTML Admin Template" class="w-6" src="./view/manage/dist/images/logo.png">
             </a>
-            <a href="javascript:;" class="mobile-menu-toggler"> <i data-lucide="bar-chart-2"
-                    class="w-8 h-8 text-white transform -rotate-90"></i> </a>
+            <a href="javascript:;" class="mobile-menu-toggler"> <i data-lucide="bar-chart-2" class="w-8 h-8 text-white transform -rotate-90"></i> </a>
         </div>
         <div class="scrollable">
-            <a href="javascript:;" class="mobile-menu-toggler"> <i data-lucide="x-circle"
-                    class="w-8 h-8 text-white transform -rotate-90"></i> </a>
+            <a href="javascript:;" class="mobile-menu-toggler"> <i data-lucide="x-circle" class="w-8 h-8 text-white transform -rotate-90"></i> </a>
             <ul class="scrollable__content py-2">
                 <li>
 
@@ -47,8 +47,7 @@
                         <li>
                             <a href="javascript:;" class="menu">
                                 <div class="menu__icon"> <i data-lucide="shopping-bag"></i> </div>
-                                <div class="menu__title"> Thương mại <i data-lucide="chevron-down"
-                                        class="menu__sub-icon"></i> </div>
+                                <div class="menu__title"> Thương mại <i data-lucide="chevron-down" class="menu__sub-icon"></i> </div>
                             </a>
                             <ul class="">
                                 <li>
@@ -63,7 +62,7 @@
                                         <div class="menu__title"> Sản phẩm </div>
                                     </a>
                                 </li>
-                               
+
 
                             </ul>
                         </li>
@@ -110,7 +109,7 @@
                                 <div class="side-menu__title"> Sản phẩm </div>
                             </a>
                         </li>
-                 
+
                     </ul>
                 </li>
             </ul>

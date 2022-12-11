@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="./view/src/css/main.css?v=<?php echo time(); ?>">
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="./view/public/imgs/Logo4duck.png">
 </head>
 
 <body>
@@ -44,7 +45,7 @@
                                 Kết quả tìm kiếm
                             </h4>
                             <ul class="header__search-history-list">
-                               
+
 
                             </ul>
                         </div>

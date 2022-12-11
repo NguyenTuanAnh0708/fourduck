@@ -12,8 +12,14 @@ class categoryC
     public function getCategoryByName()
     {
         $category = new Category();
-        $dataNameCategory = $category -> getAllCategoryByName();
+        $dataNameCategory = $category->getAllCategoryByName();
         return $dataNameCategory;
+    }
+    public function getName($id_category)
+    {
+        $category = new Category();
+        $name = $category->getName($id_category);
+        return $name;
     }
     public function delCategory($id_category)
     {
