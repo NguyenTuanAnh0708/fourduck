@@ -38,6 +38,14 @@ class Category
         $data = $result->fetch_assoc();
         return $data;
     }
+    public function getName($id_category)
+    {
+        $conn = conn();
+        $sql = "SELECT name_category FROM category Where id_category='$id_category'";
+        $result = $conn->query($sql);
+        $data = $result->fetch_assoc();
+        return $data;
+    }
     public function deteleCategory($id_category)
     {
         $conn = conn();

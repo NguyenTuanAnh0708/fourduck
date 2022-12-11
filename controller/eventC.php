@@ -22,10 +22,10 @@ class eventC
         }
     }
 
-    public function insertEvent($id_event, $id_user, $name_event, $img_event, $end_event)
+    public function insertEvent($id_user, $name_event, $img_event, $end_event)
     {
         $event = new Event();
-        $insertEvent = $event->insertEvent($id_event, $id_user, $name_event, $img_event, $end_event);
+        $insertEvent = $event->insertEvent($id_user, $name_event, $img_event, $end_event);
         if ($insertEvent) {
             header('location:index.php?url=event');
         }

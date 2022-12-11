@@ -41,4 +41,16 @@ class  BillShop
         $check = $conn->query($sql);
         return $check;
     }
+    public function checkRequest($id_shop, $status)
+    {
+        $conn = conn();
+        $sql = "SELECT count(*) as amount FROM `bill_shop` WHERE id_shop=$id_shop and status=$status";
+        $result = $conn->query($sql);
+        $amout = $result->fetch_assoc();
+        $parse = (int)$amout['amount'];
+        if ($parse == 0) {
+            return false;
+        }
+        return true;
+    }
 }

@@ -84,11 +84,11 @@ class Event
         return $result;
     }
 
-    public function insertEvent($id_event, $id_user, $name_event, $img_event, $end_event)
+    public function insertEvent($id_user, $name_event, $img_event, $end_event)
     {
         $conn = conn();
-        $sql = "INSERT INTO event (id_event,id_user,name_event,img_event,end_event)
-        VALUES ('$id_event', '$id_user', '$name_event', '$img_event', '$end_event')";
+        $sql = "INSERT INTO event (id_user,name_event,img_event,end_event)
+        VALUES ('$id_user', '$name_event', '$img_event', '$end_event')";
         $result = $conn->query($sql);
         return $result;
     }

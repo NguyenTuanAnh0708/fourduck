@@ -36,8 +36,11 @@ class shopC
             if ($amount <= 0) {
                 header('location:index.php?url=registerShop');
             } else {
+                $billShop = new BillShop();
                 $status = $shop->getStatus($id_user);
-                if ($status != 0) {
+                $id_shop = $shop->getIdShop($id_user);
+                $checkRequest = $billShop->checkRequest($id_shop, 1);
+                if ($status != 0 && !$checkRequest) {
                     header('location:index.php?url=editShop');
                 }
             }
@@ -81,8 +84,7 @@ class shopC
     public function getNameShop($id_shop)
     {
         $shop = new Shop();
-        $name_shop = $shop -> getNameShop($id_shop);
+        $name_shop = $shop->getNameShop($id_shop);
         return $name_shop;
     }
-    }
-
+}

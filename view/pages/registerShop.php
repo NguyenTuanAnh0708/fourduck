@@ -11,15 +11,15 @@
                 <form action="index.php?url=registerShop&act=addShop" method="post" enctype="multipart/form-data">
                     <div class=" form-group mt-3">
                         <label for="nameShop">Tên shop</label>
-                        <input type="text" class="form-control" id="nameShop" name="nameShop">
+                        <input type="text" class="form-control" id="nameShop" name="nameShop" require>
                     </div>
                     <div class="form-group mt-3">
                         <label for="shopDicription" name="shop">Miêu tả shop bạn</label>
-                        <input type="text" class="form-control" id="shopDicription" name="shopDescription">
+                        <input type="text" class="form-control" id="shopDicription" name="shopDescription" require>
                     </div>
                     <div class="form-group mt-3">
                         <label for="avatar">Chọn avatar shop bạn</label>
-                        <input type="file" class="form-control" id="avatar" name="avatar">
+                        <input type="file" class="form-control" id="avatar" name="avatar" require>
                     </div>
                     <div class="form-group mt-3">
                         <label for="dataUpdate">Thời gia hạn</label>

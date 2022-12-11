@@ -81,7 +81,7 @@ if ($admin && $_SESSION['active'][1]) {
                             $file_tmp = $_FILES["file"]['tmp_name'];
                             $img_src = upload($file_tmp);
                             $end_event = $_POST['end_event'];
-                            $eventC->insertEvent(null, '8', $name_event, $img_src, $end_event);
+                            $eventC->insertEvent($_SESSION['user']['id_user'], $name_event, $img_src, $end_event);
                             break;
                         }
                     case 'update':
@@ -214,9 +214,9 @@ if ($admin && $_SESSION['active'][1]) {
                         break;
                 }
             }
-           
-            $data = $commentC ->getAllComment();
-            
+
+            $data = $commentC->getAllComment();
+
             include './view/admin/comment.php';
             break;
         case 'admin':
@@ -247,7 +247,7 @@ if ($manage && $_SESSION['active'][1]) {
     $url = $_GET['url'];
     include './view/manage/headerManage.php';
     switch ($url) {
-       
+
         case 'add_product':
             $id_shop = $shopC->getIdShop($_SESSION['user']['id_user']);
             if (isset($_GET['act'])) {
@@ -262,10 +262,7 @@ if ($manage && $_SESSION['active'][1]) {
                             $price_product = $_POST['price_product'];
                             $img_product = $_FILES['img_product']['name'];
                             $img_product_tmp = $_FILES['img_product']['tmp_name'];
-
                             $img_src = upload($img_product_tmp);
-                            $show = $productManagerC;
-
                             $productManagerC->insertNewProductManager(
                                 $id_shop,
                                 $id_category,
@@ -315,8 +312,8 @@ if ($manage && $_SESSION['active'][1]) {
 
             $id_shop = $shopC->getIdShop($_SESSION['user']['id_user']);
             $getAllProducts = $productManagerC->getAllProductById($id_shop);
-            $getNameShopById = $shopC -> getOneShop($id_shop);
-            
+            $getNameShopById = $shopC->getOneShop($id_shop);
+
             include './view/manage/product.php';
             break;
         case 'updateProduct':
@@ -409,7 +406,6 @@ if (true && $_SESSION['active'][0]) {
             break;
         case 'detail-product':
             $id_product = $_GET["id_product"];
-            $AllCategoryByName = $categoryC->getCategoryByName();
             $shopDetail = $productManagerC->pageDetailProduct($id_product);
             if (isset($_POST['btnCmt'])) {
                 $id_user = $_SESSION['user']['id_user'];
@@ -420,6 +416,7 @@ if (true && $_SESSION['active'][0]) {
             }
             $comment = new commentC();
             $data = $commentC->getComment($id_product);
+            $nameCategory = $categoryC->getName($shopDetail['id_category']);
             include "./view/pages/ctsp.php";
             break;
         case 'top-sale':
@@ -457,4 +454,3 @@ if (true && $_SESSION['active'][0]) {
     }
     include "./view/component/footer.php";
 }
-
